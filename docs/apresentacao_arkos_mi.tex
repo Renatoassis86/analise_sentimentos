@@ -1,0 +1,86 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% ARKOS Intelligence - Paleta Oficial
+\definecolor{ArkosObsidian}{HTML}{0A0C0F}
+\definecolor{ArkosPergaminho}{HTML}{F4F2ED}
+\definecolor{ArkosVerdeSinal}{HTML}{C8F542}
+\definecolor{ArkosNevoa}{HTML}{8A8F99}
+
+\setbeamercolor{background canvas}{bg=ArkosObsidian}
+\setbeamercolor{title}{fg=ArkosVerdeSinal}
+\setbeamercolor{author}{fg=ArkosNevoa}
+\setbeamercolor{date}{fg=ArkosNevoa}
+\setbeamercolor{frametitle}{fg=ArkosVerdeSinal}
+\setbeamercolor{normal text}{fg=ArkosPergaminho}
+\setbeamercolor{block title}{bg=ArkosVerdeSinal, fg=ArkosObsidian}
+\setbeamercolor{itemize item}{fg=ArkosVerdeSinal}
+
+\title{ARKOS MI --- Startup Signal Intelligence}
+\subtitle{Marketing Intelligence \& Reputation Analysis}
+\author{Renato Assis $|$ ARKOS Intelligence}
+\institute{Brasil --- UFPB (Data Science for Business)}
+\date{Março, 2026}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contexto Estratégico: O Problema}
+  \begin{itemize}
+    \item \textbf{Maturidade Analítica (Davenport):} Muitas organizações estão no \textit{Estágio 1} (Analiticamente Deficientes).
+    \item \textbf{Decisões Baseadas em Intuição:} A carência de inteligência em dados não estruturados gera crises de reputação.
+    \item \textbf{Oportunidade:} Transformar narrativas digitais em sinais preditivos de sucesso e tração de mercado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ARKOS MI: A Solução}
+  \begin{block}{Objetivo do Módulo MI}
+    Implementar um sistema de \textbf{Signal Intelligence} capaz de analisar a saúde comunicacional de startups e marcas a partir de textos públicos (GitHub, Twitter, Blogs).
+  \end{block}
+  \vspace{0.3cm}
+  \centering
+  \textbf{Fluxo:} Coleta $\rightarrow$ Limpeza (RE) $\rightarrow$ NLP (spaCy/NLTK) $\rightarrow$ Inteligência (Transformers)
+\end{frame}
+
+\begin{frame}{Etapa 1: Estruturação Narrativa (RE + spaCy)}
+  \textbf{Técnica: Expressões Regulares (Regex)}
+  \begin{itemize}
+    \item \textbf{Objetivo:} Extrair "Trust Markers" e limpar ruído.
+    \item \textbf{O que buscamos:} E-mails, versões de software, menções, referências de issues e métricas de qualidade de README.
+    \item \textbf{Significado:} É a base do \textit{Narrative Identity Card}, transformando texto solto em dados estruturados.
+  \end{itemize}
+  \vspace{0.2cm}
+  \textbf{Técnica: spaCy Identity Setup}
+  \begin{itemize}
+    \item Reconhecimento de Entidades Nomeadas (NER) e Extração de Propostas de Valor.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fundamentação Científica}
+  \small
+  \begin{itemize}
+    \item \textbf{Qiu et al. (2025):} BERTweet para predição de financiamento.
+    \item \textbf{Peixoto et al. (2023):} LDA para mapear fases de vida de startups.
+    \item \textbf{Saura et al. (2019):} Indicadores de sucesso via Machine Learning.
+    \item \textbf{Jin, Wu \& Hitt (2017):} Sinais sociais como proxies de captação futura.
+    \item \textbf{Cheng (2024):} O impacto da presença multicanal na legitimidade ($R^2 \uparrow$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Status Atual do Projeto}
+  \centering
+  \begin{itemize}
+    \item[\checkmark] Estrutura de Diretórios e README Finalizada.
+    \item[\checkmark] Identidade Visual Definida (Signal Green/Obsidian).
+    \item[\checkmark] Módulo \texttt{src/limpeza.py} Concluído (Regex Integrado).
+    \item[$\rightarrow$] Próximo: Motor de Coleta de Dados (API/Scraping).
+  \end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+data/*.csv
+data/*.json
+*.pkl
+.ipynb_checkpoints/
+node_modules/
+venv/
+.vscode/

@@ -1,0 +1,14 @@
+spacy>=3.8
+sentence-transformers
+transformers
+torch
+requests
+beautifulsoup4
+pandas
+numpy
+plotly
+matplotlib
+seaborn
+scikit-learn
+wordcloud
+jupyter
