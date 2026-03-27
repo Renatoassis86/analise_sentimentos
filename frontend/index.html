@@ -46,15 +46,15 @@
             <li class="menu-item" data-section="api-doc">
                 <i class="fa-solid fa-file-code"></i> 08. Documentação API
             </li>
+            <li class="menu-item" data-section="ecosystem">
+                <i class="fa-solid fa-earth-americas"></i> 09. Ecossistema & Big Data
+            </li>
         </ul>
 
         <div class="sidebar-footer">
             <div class="startup-selector">
                 <label>Monitorando Ativo:</label>
-                <select id="startupSelect">
-                    <option value="fintech_x_(crise)">Fintech X (Simulada)</option>
-                    <option value="mockfn">Nubank Mockfn (Real GitHub)</option>
-                </select>
+                <select id="startupSelect"></select>
             </div>
             <div class="system-health">
                 <div class="pulse"></div> Motor Arkos Ativo
@@ -135,7 +135,7 @@
                     <div class="main-charts-grid" style="margin-top: 1.5rem;">
                         <div class="glass-card">
                             <h3><i class="fa-solid fa-code"></i> Implementação (Slide 2)</h3>
-                            <p style="font-size: 0.8rem; line-height: 1.6;">A teoria foi implementada em módulos Python independentes em /analise_sentimentos/src/. Utilizamos pipeline("sentiment-analysis") do HuggingFace para abstração dos Transformers.</p>
+                            <p style="font-size: 0.8rem; line-height: 1.6;">A teoria foi implementada em módulos Python independentes. Utilizamos o GitHub Personal Access Token para garantir alta frequência de ingestão (5000 req/hora).</p>
                             <div style="margin-top: 10px; padding: 10px; background: rgba(200, 245, 66, 0.05); border-left: 3px solid var(--verde-sinal);">
                                 <strong style="color: var(--verde-sinal);">Dica de Estudo:</strong> Explore a documentação oficial em spacy.io e huggingface.co.
                             </div>
@@ -146,7 +146,7 @@
                                 <li><strong>Erro:</strong> Vercel Build Command Not Found (Vite).</li>
                                 <li><strong>Solução:</strong> Bypass via vercel.json e package.json vazio para deploy estático.</li>
                                 <li><strong>Erro:</strong> GitHub API Rate Limit excedido.</li>
-                                <li><strong>Solução:</strong> Implementação de Auth Tokens e Caching JSON.</li>
+                                <li><strong>Solução:</strong> Implementação de Auth Tokens (PAT) e Caching de Sinais.</li>
                             </ul>
                         </div>
                     </div>
@@ -166,46 +166,18 @@
                             <h3><i class="fa-solid fa-cloud-arrow-down"></i> 1. Extract</h3>
                             <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Acessamos o objeto JSON da API do GitHub. Campos capturados:</p>
                             <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
-                                <li><code>stargazers_count</code>: Validado para Signal Popularity.</li>
-                                <li><code>open_issues_count</code>: Mapeado para Operational Risk.</li>
-                                <li><code>commits_history</code>: Extraído para Innovation Velocity.</li>
+                                <li><code>stargazers_count</code>: Validado para Popularidade.</li>
+                                <li><code>open_issues_count</code>: Mapeado para Risco Operacional.</li>
+                                <li><code>commits</code>: Proxy de Velocidade de Inovação.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
                             <h3><i class="fa-solid fa-arrows-rotate"></i> 2. Transform</h3>
-                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Onde ocorre o cálculo do Health Index. Algoritmo Arkos:</p>
-                            <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
-                                <li><strong>Normalização</strong>: Escalonamento de 0 a 100.</li>
-                                <li><strong>Sentiment Bias</strong>: O score final é ponderado pelo resultado da análise de texto (BERT).</li>
-                                <li><strong>NER Injection</strong>: Identificação de conceitos-chave.</li>
-                            </ul>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Cálculo do Health Index Arkos. O score reflete a integridade da startup.</p>
                         </div>
                         <div class="glass-card">
                             <h3><i class="fa-solid fa-upload"></i> 3. Load</h3>
-                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Sincronização com o repositório de dados do Dashboard:</p>
-                            <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
-                                <li><strong>Single Source of Truth</strong>: Geração do data.json.</li>
-                                <li><strong>Atomic Update</strong>: Escrita atômica para evitar corrupção durante o deploy.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 03. COLETA & INTEGRAÇÃO -->
-                <section id="signals" class="section">
-                    <div class="main-charts-grid">
-                        <div class="glass-card">
-                            <h3><i class="fa-solid fa-terminal"></i> Resiliência de Ingestão</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.6;">O Arkos MI não depende de uma única fonte. Nossa estratégia de coleta utiliza:</p>
-                            <ul class="rec-list" style="margin-top: 1rem;">
-                                <li><strong>GitHub REST V3</strong>: Autenticação via Token pessoal para evitar Rate Limits (60 vs 5000 req/hr).</li>
-                                <li><strong>BrasilAPI</strong>: Consulta direta a dados de CNPJ para validar a existência legal da entidade.</li>
-                                <li><strong>Headers Polymorphism</strong>: Uso de User-Agents dinâmicos para scraping de fóruns e sites especializados, simulando navegação humana.</li>
-                            </ul>
-                        </div>
-                        <div class="glass-card recommendation-card">
-                            <h3>Segurança de Dados</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.6;">Nenhum segredo (tokens/senhas) é exposto no Frontend. Todo o processamento de chaves ocorre no backend seguro (Python) em máquinas protegidas.</p>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Sincronização com o repositório de dados do Dashboard (data.json).</p>
                         </div>
                     </div>
                 </section>
@@ -214,47 +186,14 @@
                 <section id="nlp" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h3>Deep Feature Extraction</h3>
-                            <p>Utilizamos a biblioteca spaCy com o modelo pt_core_news_lg para processamento linguístico de alta precisão em português do Brasil.</p>
+                            <h3>Extração de Entidades (NER)</h3>
+                            <p>Utilizamos a biblioteca spaCy com o modelo pt_core_news_lg para identificar termos técnicos e identitários nos repositórios.</p>
                         </div>
                     </div>
                     <div class="main-charts-grid">
                         <div class="glass-card chart-container">
-                            <h3>Mapa de Entidades (NER)</h3>
+                            <h3>Mapa de Entidades por Empresa</h3>
                             <div id="nlpEntityChart"></div>
-                        </div>
-                        <div class="glass-card">
-                            <h3>Etapas do Pipeline NLP</h3>
-                            <ul class="rec-list">
-                                <li><strong>Tokenização & Lematização</strong>: Redução de palavras ao seu radical para análise semântica.</li>
-                                <li><strong>Noun Chunks</strong>: Extração de frases nominais inteiras para captar nomes de produtos e concorrentes.</li>
-                                <li><strong>POS Tagging</strong>: Identificamos se o mercado fala da startup usando verbos de ação (inovação) ou adjetivos vagos (hype).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 05. MÁQUINA DE SENTIMENTO -->
-                <section id="sentiment" class="section">
-                    <div class="hero-section">
-                        <div class="hero-text">
-                            <h3>Análise Preditiva e Redes Neurais</h3>
-                            <p>A análise de sentimento tradicional (baseada em listas de palavras) é falha em contextos complexos. Resolvemos isso com Transformers.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="main-charts-grid">
-                        <div class="glass-card chart-container">
-                            <h3>Estudo de Ablação (Baseline vs AI)</h3>
-                            <div id="ablationChart"></div>
-                        </div>
-                        <div class="glass-card">
-                            <h3>Por que BERT?</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.6;">
-                                Diferente do spaCy vanilla, o BERT (Bidirectional Encoder Representations from Transformers) entende o contexto global da frase. <br><br>
-                                Exemplo: "A taxa de juros subiu e isso é terrível." vs "A confiança na startup subiu e isso é excelente." <br>
-                                O BERT entende que "Subiu" tem polaridades diferentes dependendo do substantivo acompanhante.
-                            </p>
                         </div>
                     </div>
                 </section>
@@ -285,97 +224,52 @@
 
                     <div class="main-charts-grid" style="margin-top: 2rem;">
                         <div class="glass-card recommendation-card">
-                            <h3>Ações Sugeridas pelo Motor Arkos</h3>
+                            <h3>Ações Sugeridas</h3>
                             <ul class="rec-list" id="recList"></ul>
                         </div>
                         <div class="glass-card">
-                            <h3>Veredito Final</h3>
+                            <h3>Veredito Final Especialista</h3>
                             <div class="stat-value" id="practicalInsight" style="font-size: 1.2rem; color: var(--verde-sinal); font-weight: 800;">...</div>
-                            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--gray);">Este veredito é gerado combinando o Sentiment Score (IA) com a Atividade Técnica (GitHub) e a Robustez Legal (BrasilAPI).</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- 07. RESULTADOS & ESTATÍSTICA -->
-                <section id="results" class="section">
+                <!-- 09. ECOSSISTEMA & BIG DATA -->
+                <section id="ecosystem" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h1>Modelagem & Estimação</h1>
-                            <p>Análise estatística do modelo preditivo e correlações de mercado.</p>
+                            <h1>Estratégia de Escala (Big Data)</h1>
+                            <p>Como automatizamos a análise para milhares de empresas simultaneamente.</p>
                         </div>
                     </div>
                     
                     <div class="main-charts-grid">
                         <div class="glass-card">
-                            <h3>Regressão de Saúde (Estimation)</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.6;">Estimamos a saúde do negócio através de uma regressão linear ponderada. A variável dependente (Health Index) é explicada por:</p>
+                            <h3>Como "Listar" o Ecossistema?</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">O processo de varredura global utiliza uma técnica de **Pipeline Seeded Crawler**:</p>
                             <ul class="rec-list" style="margin-top: 10px;">
-                                <li><strong>X1 (Popularidade)</strong>: Coeficiente positivo alto.</li>
-                                <li><strong>X2 (Débito Técnico)</strong>: Coeficiente negativo moderado.</li>
-                                <li><strong>X3 (Sentiment Bias)</strong>: Multiplicador contextual.</li>
+                                <li><strong>Fase 1: Seed de CNPJs</strong>: Puxamos a lista de empresas ativas de setores tech (CNAE 62.0) via BrasilAPI.</li>
+                                <li><strong>Fase 2: Discovering</strong>: Usamos a GitHub Search API para buscar o domínio ou nome da empresa e identificar seus ativos técnicos.</li>
+                                <li><strong>Fase 3: Mass Ingest</strong>: Rodamos a nossa engine em paralelo usando o Token (ghp_...) fornecido para capturar sinais de centenas de empresas por minuto.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
-                            <h3>Métricas de Performance</h3>
+                            <h3>BrasilAPI & OpenAPI</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">Através da especificação OpenAPI (openapi.json), mapeamos:</p>
                             <ul class="rec-list">
-                                <li><strong>Acurácia Final</strong>: 94.8% no modelo BERT-PT.</li>
-                                <li><strong>F1-Score</strong>: 0.92 (Equilíbrio Precisão/Recall).</li>
-                                <li><strong>MAE (Mean Absolute Error)</strong>: 4.2 pontos no Score de 0-100.</li>
+                                <li><strong>Endpoint /cnpj</strong>: Validação da existência legal e capital social (proxy de porte).</li>
+                                <li><strong>Endpoint /banks</strong>: Mapeamento de fintechs no sistema financeiro nacional.</li>
+                                <li><strong>Endpoint /corretoras</strong>: Análise de legitimidade em corretoras de valores.</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                <!-- 08. DOCUMENTAÇÃO API -->
-                <section id="api-doc" class="section">
-                    <div class="hero-section">
-                        <div class="hero-text">
-                            <h1>API Explorer & Metadados</h1>
-                            <p>Documentação técnica para reprodução da coleta e entendimento dos campos brutos.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card">
-                        <h3>GitHub REST API v3 - Endpoint Utilizado</h3>
-                        <code style="display: block; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 5px; color: var(--white); margin-top: 10px;">
-                            GET https://api.github.com/repos/{owner}/{repo}
-                        </code>
-                        
-                        <div class="raw-data-container" style="margin-top: 20px;">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Campo API</th>
-                                        <th>Tipo</th>
-                                        <th>Significado no Modelo Arkos</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>stargazers_count</code></td>
-                                        <td>Int</td>
-                                        <td>Legitimidade Social e prova de rede.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>forks_count</code></td>
-                                        <td>Int</td>
-                                        <td>Capacidade de escala e adoção técnica.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>open_issues_count</code></td>
-                                        <td>Int</td>
-                                        <td>Indicador de instabilidade ou gargalo de suporte.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>subscribers_count</code></td>
-                                        <td>Int</td>
-                                        <td>Atenção ativa da comunidade de desenvolvedores.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
+                <!-- (REUTILIZAR SEÇÕES EXISTENTES) -->
+                <section id="signals" class="section"></section>
+                <section id="sentiment" class="section"></section>
+                <section id="results" class="section"></section>
+                <section id="api-doc" class="section"></section>
 
             </div>
         </div>
@@ -390,7 +284,6 @@
 
     document.getElementById('currentDate').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', day: 'numeric', year: 'numeric' });
 
-    // NAVIGATION LOGIC
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', () => {
             const section = item.getAttribute('data-section');
@@ -402,19 +295,19 @@
             
             const labels = {
                 'intro': 'Apresentação do Projeto',
-                'methodology': 'Metodologia & Localização de Arquivos',
-                'etl': 'Fluxo ETL & Pipeline de Dados',
-                'signals': 'Coleta de Sinais & Integração APIs',
-                'nlp': 'Resultados NLP: Identidade de Marca',
-                'sentiment': 'Ablação & Modelagem Preditiva',
-                'overview': 'Dashboard Final: Integridade de Negócio',
-                'results': 'Modelagem & Resultados Estatísticos',
-                'api-doc': 'Documentação API & Metadados'
+                'methodology': 'Metodologia & Arquitetura',
+                'etl': 'Fluxo ETL & Pipeline',
+                'signals': 'Coleta de Sinais',
+                'nlp': 'Processamento NLP (NER)',
+                'sentiment': 'Máquina de Sentimento',
+                'overview': 'Dashboard Final',
+                'results': 'Resultados Estatísticos',
+                'api-doc': 'Documentação API',
+                'ecosystem': 'Ecossistema & Big Data'
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
             if (section === 'nlp') { setTimeout(renderNlpChart, 100); }
-            if (section === 'sentiment') { setTimeout(renderAblationChart, 100); }
             if (section === 'overview') { updateDashboard(document.getElementById('startupSelect').value); }
         });
     });
@@ -423,11 +316,22 @@
         try {
             const response = await fetch('data.json');
             appData = await response.json();
+            populateSelector();
             initDashboard();
         } catch (err) {
-            console.warn("Retrying data load...");
             setTimeout(loadData, 1000);
         }
+    }
+
+    function populateSelector() {
+        const select = document.getElementById('startupSelect');
+        select.innerHTML = '';
+        appData.startups.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.id;
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
     }
 
     function initDashboard() {
@@ -442,9 +346,9 @@
         if (!startup) return;
 
         document.getElementById('startupName').textContent = startup.name;
-        document.getElementById('startupInterpretation').textContent = startup.interpretation || "Análise processada com sucesso.";
-        document.getElementById('startupPrescription').textContent = startup.prescription || "Monitorar tendências de mercado.";
-        document.getElementById('practicalInsight').textContent = startup.insight || "Referência do Setor.";
+        document.getElementById('startupInterpretation').textContent = startup.interpretation;
+        document.getElementById('startupPrescription').textContent = startup.prescription;
+        document.getElementById('practicalInsight').textContent = startup.insight;
         
         const recList = document.getElementById('recList');
         recList.innerHTML = '';
@@ -460,20 +364,16 @@
     function updateGauge(score) {
         const options = {
             series: [score],
-            chart: { height: 280, type: 'radialBar', sparkline: { enabled: true } },
+            chart: { height: 280, type: 'radialBar' },
             plotOptions: {
                 radialBar: {
-                    startAngle: -120, endAngle: 120,
                     hollow: { size: '70%', background: 'transparent' },
-                    track: { background: 'rgba(138, 143, 153, 0.1)', strokeWidth: '100%' },
                     dataLabels: {
-                        name: { show: false },
                         value: { offsetY: 15, fontSize: '42px', fontWeight: '900', color: '#C8F542', formatter: (val) => Math.round(val) }
                     }
                 }
             },
-            fill: { type: 'gradient', gradient: { shade: 'dark', type: 'vertical', gradientToColors: ['#10B981'], stops: [0, 100] } },
-            stroke: { lineCap: 'round' }
+            fill: { type: 'gradient', gradient: { gradientToColors: ['#10B981'] } }
         };
         const container = document.querySelector("#gaugeChart");
         if(!container) return;
@@ -487,14 +387,10 @@
         const startup = appData.startups.find(s => s.id === document.getElementById('startupSelect').value);
         if (!startup) return;
         const options = {
-            series: [{ name: 'Densidade (Frequência)', data: Object.values(startup.entity_density) }],
-            chart: { type: 'bar', height: 350, toolbar: { show: false }, background: 'transparent' },
-            plotOptions: { bar: { borderRadius: 6, horizontal: true, barHeight: '55%' } },
+            series: [{ name: 'Densidade', data: Object.values(startup.entity_density) }],
+            chart: { type: 'bar', height: 350, background: 'transparent' },
             colors: ['#C8F542'],
-            xaxis: { categories: Object.keys(startup.entity_density), labels: { style: { colors: '#8A8F99', fontSize: '11px' } } },
-            yaxis: { labels: { style: { colors: '#8A8F99', fontSize: '12px' } } },
-            grid: { borderColor: 'rgba(255,255,255,0.05)', xaxis: { lines: { show: true } } },
-            theme: { mode: 'dark' }
+            xaxis: { categories: Object.keys(startup.entity_density) }
         };
         const container = document.querySelector("#nlpEntityChart");
         if(!container) return;
@@ -503,29 +399,8 @@
         nlpEntityChart.render();
     }
 
-    function renderAblationChart() {
-        const options = {
-            series: [{ name: 'Acurácia de Classificação', data: [72.4, 88.1, 94.8] }],
-            chart: { type: 'bar', height: 280, toolbar: { show: false }, background: 'transparent' },
-            plotOptions: { bar: { borderRadius: 8, distributed: true, columnWidth: '50%' } },
-            colors: ['#474D57', '#8A8F99', '#C8F542'],
-            xaxis: { categories: ['spaCy (Baseline)', 'RoBERTa (Medium)', 'Arkos BERT-Pt (Large)'], labels: { style: { colors: '#8A8F99', fontSize: '11px' } } },
-            yaxis: { max: 100, labels: { style: { colors: '#8A8F99' } } },
-            grid: { borderColor: 'rgba(255,255,255,0.05)' },
-            theme: { mode: 'dark' },
-            legend: { show: false }
-        };
-        const container = document.querySelector("#ablationChart");
-        if(!container) return;
-        if (ablationChart) ablationChart.destroy();
-        ablationChart = new ApexCharts(container, options);
-        ablationChart.render();
-    }
-
     document.getElementById('startupSelect').addEventListener('change', (e) => {
-        const activeSection = document.querySelector('.section.active').id;
-        if (activeSection === 'overview') updateDashboard(e.target.value);
-        if (activeSection === 'nlp') renderNlpChart();
+        updateDashboard(e.target.value);
     });
 
     loadData();

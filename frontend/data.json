@@ -2,38 +2,114 @@
     "startups": [
         {
             "id": "fintech_x_(crise)",
-            "name": "FINTECH X (CRISE)",
+            "name": "FINTECH X (Modo Crise)",
             "health_score": 38.2,
-            "interpretation": "Queda brusca na reputação digital detectada. Mismatch entre narrativa e código.",
-            "prescription": "Garantir blindagem de dados e transparência com stakeholders.",
+            "interpretation": "Anomalia detectada em canais não estruturados. Queda de 60% na confiança digital.",
+            "prescription": "Paralisar novos lançamentos. Estabelecer sala de guerra PR e Jurídico.",
             "insight": "Sinal de Alerta Crítico.",
             "recommendations": [
-                "Auditoria de Segurança",
-                "Plano de Resposta Rápida"
+                "Auditoria Forense de Dados",
+                "Plano de Resposta a Incidentes"
             ],
             "entity_density": {
                 "Crise": 45,
-                "Risco": 30,
-                "Security": 5
+                "Justiça": 30,
+                "PROCON": 25
+            }
+        },
+        {
+            "id": "fklearn",
+            "name": "NUBANK / fklearn",
+            "health_score": 98,
+            "interpretation": "A presença digital da empresa nubank é robusta. O repositório possui 1539 estrelas e atividade constante.",
+            "prescription": "Manter a governança sobre as 30 issues abertas. O radar Arkos sugere blindagem estratégica.",
+            "insight": "Referência de Engenharia Brasileira.",
+            "recommendations": [
+                "Monitorar novas forks ativos",
+                "Otimizar tempo de fechamento de bugs",
+                "Manter pipelines de CI/CD verdes"
+            ],
+            "entity_density": {
+                "Cloud": 14,
+                "Python": 20,
+                "Security": 12,
+                "Scalability": 20
             }
         },
         {
             "id": "mockfn",
-            "name": "MOCKFN",
-            "health_score": 45,
-            "interpretation": "A presença digital do repositório nubank/mockfn é alta, com 92 estrelas. A base de código está em movimento contínuo.",
-            "prescription": "Promover maior documentação para issues abertas. O radar Arkos sugere blindagem estratégica da infraestrutura.",
-            "insight": "Referência Técnica no Setor.",
+            "name": "NUBANK / mockfn",
+            "health_score": 88.7,
+            "interpretation": "A presença digital da empresa nubank é robusta. O repositório possui 92 estrelas e atividade constante.",
+            "prescription": "Manter a governança sobre as 6 issues abertas. O radar Arkos sugere blindagem estratégica.",
+            "insight": "Referência de Engenharia Brasileira.",
             "recommendations": [
-                "Manter cobertura CI/CD ativa",
-                "Refatorar módulos legados",
-                "Expandir testes de integração"
+                "Monitorar novas forks ativos",
+                "Otimizar tempo de fechamento de bugs",
+                "Manter pipelines de CI/CD verdes"
             ],
             "entity_density": {
                 "Cloud": 7,
                 "Python": 20,
-                "Security": 14,
-                "Scalability": 0
+                "Security": 18,
+                "Scalability": 5
+            }
+        },
+        {
+            "id": "pos-mamba-sdk",
+            "name": "STONE-PAYMENTS / pos-mamba-sdk",
+            "health_score": 88.0,
+            "interpretation": "A presença digital da empresa stone-payments é robusta. O repositório possui 3 estrelas e atividade constante.",
+            "prescription": "Manter a governança sobre as 5 issues abertas. O radar Arkos sugere blindagem estratégica.",
+            "insight": "Referência de Engenharia Brasileira.",
+            "recommendations": [
+                "Monitorar novas forks ativos",
+                "Otimizar tempo de fechamento de bugs",
+                "Manter pipelines de CI/CD verdes"
+            ],
+            "entity_density": {
+                "Cloud": 8,
+                "Python": 20,
+                "Security": 17,
+                "Scalability": 5
+            }
+        },
+        {
+            "id": "pagseguro-sdk-php",
+            "name": "PAGSEGURO / pagseguro-sdk-php",
+            "health_score": 86.0,
+            "interpretation": "A presença digital da empresa pagseguro é robusta. O repositório possui 299 estrelas e atividade constante.",
+            "prescription": "Manter a governança sobre as 30 issues abertas. O radar Arkos sugere blindagem estratégica.",
+            "insight": "Referência de Engenharia Brasileira.",
+            "recommendations": [
+                "Monitorar novas forks ativos",
+                "Otimizar tempo de fechamento de bugs",
+                "Manter pipelines de CI/CD verdes"
+            ],
+            "entity_density": {
+                "Cloud": 19,
+                "Python": 20,
+                "Security": 12,
+                "Scalability": 7
+            }
+        },
+        {
+            "id": "validations-engine",
+            "name": "QUINTOANDAR / validations-engine",
+            "health_score": 76.4,
+            "interpretation": "A presença digital da empresa quintoandar é robusta. O repositório possui 2 estrelas e atividade constante.",
+            "prescription": "Manter a governança sobre as 3 issues abertas. O radar Arkos sugere blindagem estratégica.",
+            "insight": "Referência de Engenharia Brasileira.",
+            "recommendations": [
+                "Monitorar novas forks ativos",
+                "Otimizar tempo de fechamento de bugs",
+                "Manter pipelines de CI/CD verdes"
+            ],
+            "entity_density": {
+                "Cloud": 7,
+                "Python": 25,
+                "Security": 15,
+                "Scalability": 5
             }
         }
     ]
