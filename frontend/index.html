@@ -37,6 +37,9 @@
             <li class="menu-item" data-section="methodology">
                 <i class="fa-solid fa-layer-group"></i> 05. Metodologia & Arquitetura
             </li>
+            <li class="menu-item" data-section="etl">
+                <i class="fa-solid fa-database"></i> 06. Metadados & ETL
+            </li>
         </ul>
 
         <div class="sidebar-footer">
@@ -203,59 +206,83 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h1>Metodologia & Arquitetura</h1>
-                            <p>Explicação detalhada da aplicação dos requisitos acadêmicos e técnicos do projeto <strong>Arkos MI</strong>.</p>
+                            <p>Mapeamento de <strong>Requisitos Acadêmicos</strong> e Localização de Arquivos.</p>
                         </div>
                     </div>
                     
-                    <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
-                        <div class="glass-card">
-                            <h3>Objetivo Geral</h3>
-                            <p style="font-size: 0.95rem; color: var(--white);">Reduzir a assimetria de informação no ecossistema de investimentos através da análise de dados não estruturados, transformando narrativas em scores de legitimidade.</p>
-                        </div>
-                        <div class="glass-card">
-                            <h3>Métricas de Sucesso</h3>
-                            <ul class="rec-list">
-                                <li><strong>Commit Velocity</strong>: Agilidade técnica.</li>
-                                <li><strong>Sentiment Score</strong>: Saúde reputacional.</li>
-                                <li><strong>Entity Coverage</strong>: Visibilidade de rede.</li>
-                            </ul>
-                        </div>
-                    </div>
-
                     <div class="glass-card">
-                        <h3>Mapeamento Técnica x Arquitetura</h3>
+                        <h3>Onde encontrar o Código? (Demonstração Live)</h3>
                         <div class="raw-data-container" style="margin-top: 1rem;">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Etapa Projeto</th>
-                                        <th>Técnica Principal</th>
-                                        <th>O que é / Para que serve</th>
-                                        <th>Arquivo Fonte</th>
+                                        <th>Etapa</th>
+                                        <th>Objetivo & Fórmulas</th>
+                                        <th>Arquivo Principal (Localização)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>Etapa 1</strong></td>
-                                        <td>Regex + spaCy</td>
-                                        <td>Extração de "Trust Markers" para medir maturidade documental.</td>
-                                        <td><code>src/limpeza.py</code></td>
+                                        <td>Regex para Limpeza e Trust Markers.</td>
+                                        <td><code>/analise_sentimentos/src/limpeza.py</code></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Etapa 2</strong></td>
-                                        <td>Web APIs + Scraping</td>
-                                        <td>Coleta de sinais latentes do GitHub e BrasilAPI (CVM).</td>
-                                        <td><code>src/coleta.py</code></td>
+                                        <td>Coleta de APIs GitHub/BrasilAPI.</td>
+                                        <td><code>/analise_sentimentos/src/coleta.py</code></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Etapa 3</strong></td>
-                                        <td>Transformers + BERT</td>
-                                        <td>Deep Learning para classificar o sentimento e tom da narrativa.</td>
-                                        <td><code>src/sentimentos.py</code></td>
+                                        <td>Pipeline NLP Completa e Sentimento.</td>
+                                        <td><code>/analise_sentimentos/src/sentimentos.py</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sincronização</strong></td>
+                                        <td>Motor de atualização Real-time.</td>
+                                        <td><code>/analise_sentimentos/scripts/github_real_sync.py</code></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </section>
+
+                <!-- 06. ETL & METADADOS -->
+                <section id="etl" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Fluxo de Dados & ETL</h1>
+                            <p>Entenda o ciclo de vida do dado: Da recepção bruta à carga no Dashboard.</p>
+                        </div>
+                    </div>
+
+                    <div class="main-charts-grid">
+                        <div class="glass-card">
+                            <h3>1. Extract (Extração Bruta)</h3>
+                            <p style="font-size: 0.85rem; color: var(--gray);">Campos requisitados via JSON das APIs:</p>
+                            <ul class="rec-list" style="margin-top: 8px;">
+                                <li><code>stargazers_count</code>: Validado para **Signal Popularity**.</li>
+                                <li><code>open_issues_count</code>: Mapeado para **Operational Risk**.</li>
+                                <li><code>commits_history</code>: Extraído para **Innovation Velocity**.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3>2. Transform (Processamento)</h3>
+                            <p style="font-size: 0.85rem; color: var(--gray);">Etapas aplicadas em Python:</p>
+                            <ul class="rec-list" style="margin-top: 8px;">
+                                <li><strong>Normalização</strong>: Remoção de ruído via Regex.</li>
+                                <li><strong>Weighting (Pesos)</strong>: Stars(50%) + Commits(30%) - Issues(20%).</li>
+                                <li><strong>NLP Enrichment</strong>: Adição de etiquetas NER via spaCy.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card" style="margin-top: 24px;">
+                        <h3>3. Load (Carga Final)</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                            O resultado transformado é encapsulado em um objeto JSON unificado em <code>/analise_sentimentos/frontend/data.json</code>. Este arquivo serve como a **Single Source of Truth** para todos os gráficos ApexCharts desta interface.
+                        </p>
                     </div>
                 </section>
 
@@ -287,7 +314,8 @@
                 'nlp': 'Resultados NLP: Identidade de Marca',
                 'sentiment': 'Ablação & Modelagem Preditiva',
                 'overview': 'Monitor de Integridade de Negócio',
-                'methodology': 'Transparência Técnica & Metodologia'
+                'methodology': 'Transparência Técnica & Metodologia',
+                'etl': 'Fluxo de Dados & Pipeline ETL'
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
