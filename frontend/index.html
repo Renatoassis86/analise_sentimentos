@@ -41,6 +41,7 @@
             <li class="menu-item" data-section="results"><i class="fa-solid fa-square-poll-vertical"></i> 07. Resultados e Impactos</li>
             <li class="menu-item" data-section="conclusion"><i class="fa-solid fa-flag-checkered"></i> 08. Conclusões Finais</li>
             <li class="menu-item" data-section="top5results" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 5px; color: var(--accent);"><i class="fa-solid fa-trophy"></i> 09. Resultados Fixos (TOP 5)</li>
+            <li class="menu-item" data-section="glossary"><i class="fa-solid fa-list-check"></i> 10. Glossário de Siglas</li>
         </ul>
         <div class="sidebar-footer"><div class="system-health"><div class="pulse"></div> Monitoramento Metodológico Ativo</div></div>
     </nav>
@@ -49,8 +50,8 @@
         <div class="hero-banner">
             <div class="banner-content">
                 <div class="banner-text">
-                    <h2 id="sectionTitle" style="font-size: 2.2rem; line-height: 1.1;">Estudo Experimental de Auditoria Algorítmica em Fintechs</h2>
-                    <p id="sectionSubtitle" style="font-style: italic; color: var(--gray);">Contribuição para a Avaliação de Narrativas Técnicas via Repositórios GitHub</p>
+                    <h2 id="sectionTitle" style="font-size: 2.2rem; line-height: 1.1;">Auditoria Algorítmica em Fintechs: Geração de Evidências via PLN</h2>
+                    <p id="sectionSubtitle" style="font-style: italic; color: var(--gray);">PLN (Processamento de Linguagem Natural) aplicado à Governança Tecnológica</p>
                 </div>
                 <div class="user-profile"><div class="avatar">RA</div></div>
             </div>
@@ -110,17 +111,20 @@
                                 <h4 style="color: var(--accent); margin-bottom: 1.5rem;">Objetivos Específicos (Requisitos da Disciplina)</h4>
                                 <div style="display: flex; flex-direction: column; gap: 1rem;">
                                     <div style="border-left: 2px solid var(--verde-sinal); padding-left: 1rem;">
-                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 01: PRÉ-PROCESSAMENTO</b>
-                                        <p style="font-size: 0.85rem; color: #ccc;">Limpeza via <b>ER (Expressões Regulares)</b> e <b>spaCy</b> para purificação de corpora ruidosos.</p>
+                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 01: PRÉ-PROCESSAMENTO (RE & spaCy)</b>
+                                        <p style="font-size: 0.85rem; color: #ccc;">Limpeza via <b>Regex (RE)</b> e baseline <b>spaCy</b> para filtragem de caracteres especiais e estruturação inicial.</p>
                                     </div>
                                     <div style="border-left: 2px solid var(--verde-sinal); padding-left: 1rem;">
-                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 02: AQUISIÇÃO</b>
-                                        <p style="font-size: 0.85rem; color: #ccc;">Coleta de dados técnicos via <b>Interface de Programação (GitHub REST API)</b> e Auditoria Institucional CVM.</p>
+                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 02: AQUISIÇÃO (API & Scraping)</b>
+                                        <p style="font-size: 0.85rem; color: #ccc;">Captura de dados via <b>GitHub REST API</b> e Web Scraping com <b>BeautifulSoup</b> de fontes abertas.</p>
                                     </div>
-                                        <p style="font-size: 0.85rem; color: #ccc;">Aplicação de <b>Tokenização, Normalização, Lematização, POS Tagging (Classes Gramaticais), Noun Chunks (Frases Nominais), NER (Reconhecimento de Entidades) e Segmentação de Sentenças</b>.</p>
                                     <div style="border-left: 2px solid var(--verde-sinal); padding-left: 1rem;">
-                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 04: MODELAGEM</b>
-                                        <p style="font-size: 0.85rem; color: #ccc;">Classificação de Textos e Sentimentos via <b>Embeddings (Vetores de Significado)</b> e <b>Transformers (Modelos de Atenção RoBERTa)</b>.</p>
+                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 03: PLN PROFUNDO (spaCy Completo)</b>
+                                        <p style="font-size: 0.85rem; color: #ccc;">Execução de <b>Tokenização</b>, <b>Normalização</b>, <b>Lematização</b>, <b>POS Tagging</b>, <b>Noun Chunks</b>, <b>NER (Reconhecimento de Entidade Nomeada)</b> e <b>Segmentação de Sentenças</b>.</p>
+                                    </div>
+                                    <div style="border-left: 2px solid var(--verde-sinal); padding-left: 1rem;">
+                                        <b style="color: var(--verde-sinal); font-size: 0.8rem;">ETAPA 04: MODELAGEM (Classificação & Transformers)</b>
+                                        <p style="font-size: 0.85rem; color: #ccc;">Classificação de Textos e Sentimentos utilizando <b>Embeddings</b> e arquiteturas <b>Transformers (BERT/RoBERTa)</b>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -506,6 +510,42 @@ def estimar_presenca_digital(metricas):
                         </div>
                     </div>
                 </section>
+
+                <!-- 10. GLOSSÁRIO ACADÊMICO DE SIGLAS (AUDITORIA) -->
+                <section id="glossary" class="section">
+                    <div class="academic-block">
+                        <div class="section-header-academic">
+                            <span class="sub-header-academic">10. Glossário de Instrumentação de PLN</span>
+                        </div>
+                        <p class="academic-p">Detalhamento técnico das siglas e termos em inglês em conformidade com o rigor da disciplina:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">PLN (NLP)</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Processamento de Linguagem Natural:</b> Campo do aprendizado de máquina para interpretação textual.</p>
+                            </div>
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">NER (Named Entity Recognition)</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Entidade Nomeada:</b> Identificação de nomes próprios, locais e tecnologias no corpus.</p>
+                            </div>
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">POS (Part-of-Speech)</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Classes Gramaticais:</b> Identificação sintática de nomes, verbos e adjetivos.</p>
+                            </div>
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">LEMATIZAÇÃO (Lemma)</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Radical Semântico:</b> Redução de variações de uma palavra à sua base (ex: "fazendo" -> "fazer").</p>
+                            </div>
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">TRANSFORMERS (Atenção)</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Arquiteturas Profundas:</b> Modelos de redes neurais que capturam contextos complexos em orações longas.</p>
+                            </div>
+                            <div class="glass-card">
+                                <b style="color: var(--verde-sinal);">WORDCLOUD</b>
+                                <p style="font-size: 0.8rem; color: #ccc;"><b>Nuvem de Palavras:</b> Visualização gráfica onde o tamanho dos termos indica sua frequência estatística.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
@@ -663,7 +703,7 @@ def estimar_presenca_digital(metricas):
             card.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem;">
                     <div>
-                        <span class="rank-badge" style="margin-bottom: 1rem; display: inline-block;"># ${idx + 1} PADRÃO OURO (Referência de Excelência)</span>
+                        <span class="rank-badge" style="margin-bottom: 1rem; display: inline-block;"># ${idx + 1} INDICATIVE TREND (Maturidade Técnica Sugerida)</span>
                         <h2 style="color: #fff; font-size: 2rem;">${s.name}</h2>
                         <div class="side-note" style="color: var(--verde-sinal); font-weight: 800;">Repositório: ${s.repo}</div>
                     </div>
@@ -676,15 +716,15 @@ def estimar_presenca_digital(metricas):
                     </div>
 
                     <div class="glass-card" style="background: rgba(0,0,0,0.3); padding: 1.5rem;">
-                        <h4 style="font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase;">Mapeamento Semântico (Nuvem de Termos)</h4>
+                        <h4 style="font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase;">Nuvem de Palavras (WordCloud Dinâmica)</h4>
                         <div id="${cloudId}" style="min-height: 120px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; align-items: center;"></div>
                         <div id="${radarId}" style="height: 180px; margin-top: 1rem;"></div>
                     </div>
 
                     <div>
                         <div class="metric-grid-small" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem;">
-                            <div class="metric-box" style="padding: 10px;"><h5>${s.stars}</h5><span>Stars</span></div>
-                            <div class="metric-box" style="padding: 10px;"><h5>${s.forks}</h5><span>Forks</span></div>
+                            <div class="metric-box" style="padding: 10px;"><h5>${s.stars}</h5><span>Estrelas</span></div>
+                            <div class="metric-box" style="padding: 10px;"><h5>${s.forks}</h5><span>Forks (Engajamento)</span></div>
                         </div>
                         <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px;">
                             <h5 style="color: var(--verde-sinal); margin-bottom: 0.5rem;">Auditoria Técnica Consolidada:</h5>
