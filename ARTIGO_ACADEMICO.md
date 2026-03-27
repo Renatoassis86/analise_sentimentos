@@ -44,3 +44,4 @@ A execução integral das três etapas demonstra a eficácia da auditoria algor�
 
 ---
 **Trabalho Final da Disciplina — 27 de Março de 2026**
+
