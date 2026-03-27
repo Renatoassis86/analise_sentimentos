@@ -102,35 +102,47 @@
                 <section id="methodology" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h1>Metodologia Acadêmica & Técnica</h1>
-                            <p>O projeto adota uma arquitetura modular baseada em **Micro-Pipelines**, garantindo que cada etapa do processamento seja auditável e escalável.</p>
+                            <h1>Roteiro de Apresentação Acadêmica</h1>
+                            <p>Mapeamento integral das **3 Etapas Regulamentares** do projeto e fundamentação teórica.</p>
                         </div>
                     </div>
                     
                     <div class="metrics-grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="glass-card">
-                            <h3><i class="fa-solid fa-graduation-cap"></i> Requisitos Acadêmicos</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">O projeto foi estruturado em 3 etapas fundamentais:</p>
-                            <ul class="rec-list" style="margin-top: 10px;">
-                                <li><strong>Etapa 01: Purificação</strong>: Uso intensivo de expressões regulares (Regex) para higienização de metadados, remoção de caracteres especiais e saneamento de ruído textual (boilerplate).</li>
-                                <li><strong>Etapa 02: Ingestão</strong>: Coleta automatizada via endpoints REST (GitHub V3) e técnicas de Web Scraping resiliente para extração de narrativas.</li>
-                                <li><strong>Etapa 03: Inferência</strong>: Aplicação de Deep Learning e Modelos Base de Linguagem (NLP) para classificação de sentimento e extração de entidades complexas.</li>
+                            <h3><i class="fa-solid fa-list-check"></i> As 3 Etapas Exigidas</h3>
+                            <ul class="rec-list" style="margin-top: 10px; font-size: 0.8rem; line-height: 1.4;">
+                                <li><strong>Etapa 01: NLP Base</strong>: Processamento de linguagem natural com Expressões Regulares (RE) e spaCy para purificação inicial.</li>
+                                <li><strong>Etapa 02: Coleta & Ingestão</strong>: Web scraping (BeautifulSoup) e coleta de dados via GitHub REST API v3 / Web APIs.</li>
+                                <li><strong>Etapa 03: NLP Avançado & IA</strong>: Tokenização, Normalização, Lematização, POS tagging, Noun Chunks, NER e Análise de Sentimento com **Embeddings & Transformers**.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
-                            <h3><i class="fa-solid fa-folder-tree"></i> Estrutura de Arquivos</h3>
-                            <ul class="rec-list">
-                                <li><code>/src/limpeza.py</code>: Engine de Regex e saneamento de dados crus.</li>
-                                <li><code>/src/coleta.py</code>: Orquestrador de requisições e integração BrasilAPI.</li>
-                                <li><code>/src/sentimentos.py</code>: Core de Inteligência Artificial e Modelos BERT.</li>
-                                <li><code>/scripts/github_real_sync.py</code>: Atualizador dinâmico de sinais de mercado.</li>
-                            </ul>
+                            <h3><i class="fa-solid fa-book"></i> Fórmulas & Teoria (Slide 1)</h3>
+                            <p style="font-size: 0.75rem; color: var(--gray);"><strong>Health Index Algorithm:</strong></p>
+                            <code style="display: block; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; color: var(--verde-sinal); margin: 5px 0;">
+                                Score = (S_stars * w1) + (S_commits * w2) - (S_issues * w3) + (S_sentiment * w4)
+                            </code>
+                            <p style="font-size: 0.75rem; margin-top: 5px;">Parâmetros: w1=0.4, w2=0.3, w3=0.1, w4=0.2 (IA Bias).</p>
                         </div>
                     </div>
 
-                    <div class="glass-card" style="margin-top: 1rem;">
-                        <h3>Bibliotecas & Tecnologias Core</h3>
-                        <p style="font-size: 0.85rem; color: var(--gray);"><strong>Python 3.10+</strong> | <strong>spaCy</strong> (NER/NLP) | <strong>Transformers</strong> (Deep Learning) | <strong>ApexCharts</strong> (Data Viz) | <strong>Requests</strong> (Http Client).</p>
+                    <div class="main-charts-grid" style="margin-top: 1.5rem;">
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-code"></i> Implementação (Slide 2)</h3>
+                            <p style="font-size: 0.8rem; line-height: 1.6;">A teoria foi implementada em módulos Python independentes em <code>/analise_sentimentos/src/</code>. Utilizamos <code>pipeline("sentiment-analysis")</code> do HuggingFace para abstração dos Transformers.</p>
+                            <div style="margin-top: 10px; padding: 10px; background: rgba(200, 245, 66, 0.05); border-left: 3px solid var(--verde-sinal);">
+                                <strong style="color: var(--verde-sinal);">Dica de Estudo:</strong> Explore a documentação oficial em <a href="https://spacy.io/usage" target="_blank" style="color: var(--white);">spacy.io</a> e <a href="https://huggingface.co/docs" target="_blank" style="color: var(--white);">huggingface.co</a>.
+                            </div>
+                        </div>
+                        <div class="glass-card" style="border: 1px solid rgba(255, 66, 66, 0.3);">
+                            <h3><i class="fa-solid fa-bug"></i> Diário de Bordo (Slide 3)</h3>
+                            <ul class="rec-list" style="font-size: 0.8rem;">
+                                <li><strong>Erro:</strong> Vercel "Build Command Not Found" (Vite).</li>
+                                <li><strong>Solução:</strong> Bypass via <code>vercel.json</code> e <code>package.json</code> vazio para deploy estático.</li>
+                                <li><strong>Erro:</strong> GitHub API Rate Limit excedido.</li>
+                                <li><strong>Solução:</strong> Implementação de Auth Tokens e Caching JSON.</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
