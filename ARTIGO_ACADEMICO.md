@@ -1,4 +1,4 @@
-# 📄 Mineração de Sinais Latentes em Repositórios GitHub: Uma Metodologia de Auditoria Técnica e Análise de Sentimentos para o Ecossistema de Startups
+# 📄 Auditoria Algorítmica de Sinais Latentes em Repositórios GitHub: Uma Metodologia Neuro-Estatística para Validação de Narrativas Técnicas em Ecossistemas de Inovação
 
 ---
 
