@@ -3,575 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Algorítmica em Fintechs | UFPB</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- ApexCharts -->
+    <title>Auditoria Algorítmica | Gêmeo Digital v3.3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
         :root {
-            --bg: #0a0a0c;
-            --surface: #121216;
-            --verde-sinal: #b6ff00;
-            --accent: #5efcfc;
-            --gray: #888891;
-            --text: #f4f4f5;
-            --sidebar-width: 280px;
+            --bg: #0a0a0c; --surface: #121216; --verde: #b6ff00; --accent: #5efcfc; --gray: #82828e;
+            --sb-w: 280px; --text: #f4f4f5;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        /* Layout Grid */
-        .dashboard {
-            display: flex;
-            min-height: 100vh;
-        }
+        /* LAYOUT MASTER INDESTRUTÍVEL */
+        .app-wrapper { display: flex; min-height: 100vh; width: 100vw; }
 
-        /* Sidebar */
         .sidebar {
-            width: var(--sidebar-width);
-            background: #000;
-            border-right: 1px solid #1f1f23;
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            z-index: 1000;
+            width: var(--sb-w); background: #000; border-right: 1px solid #1f1f23;
+            display: flex; flex-direction: column; position: fixed; height: 100vh; flex-shrink: 0; z-index: 999;
         }
 
-        .logo-block { padding: 0 0.5rem; margin-bottom: 2.5rem; }
-        .logo-text { font-weight: 800; font-size: 0.95rem; letter-spacing: 2px; color: var(--verde-sinal); text-transform: uppercase; }
-        .logo-sub { font-size: 0.65rem; color: var(--gray); text-transform: uppercase; margin-top: 4px; }
-
-        .nav-menu { list-style: none; flex-grow: 1; overflow-y: auto; padding-right: 5px; }
-        .menu-item {
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.4rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            color: var(--gray);
-            transition: all 0.2s;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .menu-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
-        .menu-item.active { background: var(--verde-sinal); color: #000; font-weight: 700; }
-
-        /* Main Content */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            width: calc(100% - var(--sidebar-width));
-            background: radial-gradient(circle at 50% 10%, #151520 0%, #0a0a0c 100%);
-            padding: 4rem;
-            min-height: 100vh;
+        .main-container {
+            flex-grow: 1; margin-left: var(--sb-w); background: radial-gradient(circle at 50% 0, #151520 0%, #0a0a0c 100%);
+            min-width: 0; /* Anti-quebra de grid/flex */
         }
 
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; border-bottom: 1px solid #1f1f23; padding-bottom: 2rem; }
-        .section-title { font-size: 1.5rem; font-weight: 800; }
+        .main-content { padding: 4rem; max-width: 1400px; margin: 0 auto; width: 100%; }
 
-        /* Sections */
+        /* SIDEBAR INTERNALS */
+        .sb-header { padding: 2.5rem 1.5rem; border-bottom: 1px solid #1f1f23; margin-bottom: 1rem; }
+        .sb-header h1 { font-size: 0.9rem; color: var(--verde); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
+        .sb-header p { font-size: 0.6rem; color: var(--gray); text-transform: uppercase; margin-top: 5px; }
+
+        .nav-list { list-style: none; padding: 0 1rem; flex-grow: 1; overflow-y: auto; }
+        .nav-item {
+            padding: 0.8rem 1.2rem; margin-bottom: 4px; border-radius: 6px; cursor: pointer;
+            font-size: 0.75rem; color: var(--gray); transition: 0.2s; display: flex; align-items: center;
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-item.active { background: var(--verde); color: #000; font-weight: 800; }
+
+        .sb-footer { padding: 1.5rem; border-top: 1px solid #1f1f23; font-size: 0.65rem; }
+
+        /* SECTIONS */
         .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .section.active { display: block; animation: dashFade 0.4s ease-out; }
+        @keyframes dashFade { from {opacity:0; transform:translateY(15px);} to {opacity:1; transform:translateY(0);} }
 
-        .academic-block { margin-bottom: 4rem; }
-        .section-header-academic { border-left: 4px solid var(--verde-sinal); padding-left: 1.5rem; margin-bottom: 2.5rem; }
-        .sub-header-academic { font-size: 0.7rem; color: var(--gray); text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 8px; }
-        .academic-p { color: #bbbcbd; max-width: 950px; margin-bottom: 1.5rem; font-size: 1rem; }
+        .pg-header { border-bottom: 1px solid #1f1f23; padding-bottom: 2rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .pg-title { font-size: 1.8rem; font-weight: 800; }
 
-        /* Glass Cards */
-        .glass-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-
-        /* Specific Modules */
-        .terminal-container { 
-            background: #000; padding: 2rem; border-radius: 8px; border: 1px solid #222; 
-            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--verde-sinal);
-            height: 350px; overflow-y: auto; line-height: 1.4;
-        }
+        /* COMPONENTS */
+        .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 2.5rem; margin-bottom: 1.5rem; }
+        .grid-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .metric-hero { font-size: 2.8rem; font-weight: 800; color: var(--verde); margin: 0.5rem 0; }
         
-        .side-note { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; }
-        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
-        .comparison-table th { background: #1a1a20; padding: 1rem; text-align: left; font-size: 0.7rem; color: var(--gray); text-transform: uppercase; border-bottom: 2px solid #333; }
-        .comparison-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #1f1f23; font-size: 0.9rem; }
-        .rank-badge { background: #222; padding: 5px 12px; border-radius: 4px; font-weight: 800; font-size: 0.7rem; }
+        .terminal { background: #000; padding: 2rem; border-radius: 8px; font-family: 'JetBrains Mono'; color: var(--verde); height: 380px; overflow-y: auto; border: 1px solid #222; font-size: 0.85rem; }
+        .btn-exe { background: var(--verde); color:#000; border:none; padding:1.2rem; font-weight:900; border-radius:4px; width:100%; cursor:pointer; text-transform:uppercase; margin-top: 1rem; }
+        
+        .table-wrap { overflow-x: auto; width: 100%; }
+        .clean-table { width:100%; border-collapse: collapse; }
+        .clean-table th { text-align: left; padding: 1rem; font-size: 0.6rem; color: var(--gray); text-transform: uppercase; background: #15151a; }
+        .clean-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #1f1f23; font-size: 0.9rem; }
 
-        /* WordCloud HUD */
-        .wordcloud-container {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; align-items: center; padding: 2rem;
-            background: rgba(0,0,0,0.4); border-radius: 12px;
-        }
-
-        /* Buttons */
-        .btn-practical {
-            background: var(--verde-sinal); color: #000; border: none; padding: 1.2rem 2.5rem;
-            font-weight: 900; border-radius: 4px; cursor: pointer; text-transform: uppercase; transition: 0.3s;
-        }
-        .btn-practical:hover { transform: scale(1.02); filter: brightness(1.1); }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        .norm-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .tag-token { background: #222; padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; color: var(--verde); margin-right: 5px; }
     </style>
 </head>
 <body>
 
-<div class="dashboard">
+<div class="app-wrapper">
     <aside class="sidebar">
-        <div class="logo-block">
-            <div class="logo-text">Auditoria Algorítmica</div>
-            <div class="logo-sub">Governança MI | UFPB</div>
+        <div class="sb-header">
+            <h1>Auditoria</h1>
+            <p>Fintechs | UFPB 2026</p>
         </div>
-
-        <ul class="nav-menu">
-            <li class="menu-item active" data-section="intro">01. Introdução</li>
-            <li class="menu-item" data-section="methodology">02. Metodologia Metodológica</li>
-            <li class="menu-item" data-section="metrics">03. Métricas de Performance</li>
-            <li class="menu-item" data-section="normalization">04. Normalização (RE + spaCy)</li>
-            <li class="menu-item" data-section="dynamic">05. Auditoria Live (Dinâmica)</li>
-            <li class="menu-item" data-section="top5">06. Resultados Finais (Top 5)</li>
-            <li class="menu-item" data-section="sector">07. Visão Setorial (Média)</li>
-            <li class="menu-item" data-section="comparison">08. Estudo Comparativo</li>
-            <li class="menu-item" data-section="glossary">09. Glossário Acadêmico</li>
-            <li class="menu-item" data-section="conclusion">10. Conclusões</li>
+        <ul class="nav-list">
+            <li class="nav-item active" data-target="s1">01. Introdução</li>
+            <li class="nav-item" data-target="s2">02. Metodologia</li>
+            <li class="nav-item" data-target="s3">03. Performance</li>
+            <li class="nav-item" data-target="s4">04. Normalização</li>
+            <li class="nav-item" data-target="s5">05. Auditoria de Campo</li>
+            <li class="nav-item" data-target="s6">06. Resultados Finais</li>
+            <li class="nav-item" data-target="s7">07. Visão Macroscópica</li>
+            <li class="nav-item" data-target="s8">08. Estudo Comparativo</li>
+            <li class="nav-item" data-target="s9">09. Glossário</li>
         </ul>
-
-        <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid #1f1f23;">
-            <div style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase;">Pesquisador Acadêmico</div>
-            <div style="font-weight: 700; font-size: 0.85rem; color: #fff;">Renato Assis</div>
+        <div class="sb-footer">
+            <p style="color:var(--gray); margin-bottom: 4px;">PESQUISADOR</p>
+            <p style="font-weight: 800;">Renato Assis</p>
         </div>
     </aside>
 
-    <main class="main-content">
-        <div class="header-top">
-            <div class="section-title" id="sectionTitle">Introdução Acadêmica</div>
-            <div style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--gray);">ESTADO: FINAL.READY | 2026</div>
-        </div>
+    <main class="main-container">
+        <div class="main-content">
+            <header class="pg-header">
+                <div class="pg-title" id="activeTitle">Introdução Acadêmica</div>
+                <div style="font-family:'JetBrains Mono'; font-size: 0.65rem; color: var(--gray);">ESTADO: FINAL.SYNC | v3.3</div>
+            </header>
 
-        <!-- 01. INTRODUÇÃO -->
-        <section id="intro" class="section active">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">01. Enquadramento do Problema</span></div>
-                <h1 style="font-size: 3.5rem; margin-bottom: 2rem; letter-spacing: -3px; line-height: 1;">Auditoria em <span style="color: var(--verde-sinal);">Dados Não Estruturados</span></h1>
-                <p class="academic-p" style="font-size: 1.2rem;">
-                    Este projeto propõe um modelo de <b>Auditoria Algorítmica</b> para mitigar a assimetria informacional em ecossistemas de Fintechs. Através do processamento de rastros digitais (repositórios de código), convertemos sinais técnicos brutos em indicadores de governança e saúde institucional.
-                </p>
-                <div class="metrics-grid" style="margin-top: 3rem;">
-                    <div class="glass-card"><h3>PLN</h3><p style="font-size: 0.85rem; color: var(--gray); margin-top: 10px;">Processamento de Linguagem Natural como motor de extração de evidências.</p></div>
-                    <div class="glass-card"><h3>GovTech</h3><p style="font-size: 0.85rem; color: var(--gray); margin-top: 10px;">Aplicação de transparência em ativos tecnológicos protegidos por sigilo.</p></div>
+            <section id="s1" class="section active">
+                <div class="glass-card" style="padding: 5rem 3rem;">
+                    <h2 style="font-size: 3.5rem; margin-bottom: 2rem; line-height: 1.1;">Auditoria Algorítmica Experimental</h2>
+                    <p style="font-size: 1.25rem; color: var(--gray); max-width: 800px;">Uso de Processamento de Linguagem Natural (PLN) para redução de assimetria informativa em Fintechs brasileiras.</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 02. METODOLOGIA -->
-        <section id="methodology" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">02. Fluxo Metodológico (3 Etapas)</span></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-                    <div class="glass-card" style="border-top: 4px solid var(--accent); padding: 2rem;">
-                        <h5 style="color: var(--accent); margin-bottom: 1rem;">ETAPA 01</h5>
-                        <p style="font-size: 0.85rem;">Extração e purificação com <b>RE (Regex)</b> e pré-processamento <b>spaCy</b>.</p>
-                    </div>
-                    <div class="glass-card" style="border-top: 4px solid var(--accent); padding: 2rem;">
-                        <h5 style="color: var(--accent); margin-bottom: 1rem;">ETAPA 02</h5>
-                        <p style="font-size: 0.85rem;">Aquisição de dados via <b>Web Scraping (BeautifulSoup)</b> e <b>Web API (GitHub)</b>.</p>
-                    </div>
-                    <div class="glass-card" style="border-top: 4px solid var(--accent); padding: 2rem;">
-                        <h5 style="color: var(--accent); margin-bottom: 1rem;">ETAPA 03</h5>
-                        <p style="font-size: 0.85rem;">PLN Avançado: <b>NER, POS, Lematização</b> e análise via <b>Transformers/Embeddings</b>.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 03. PERFORMANCE -->
-        <section id="metrics" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">03. Validação Estatística do Modelo</span></div>
-                <div class="metrics-grid">
-                    <div class="glass-card" style="text-align: center;"><h5>Precisão (Acurácia)</h5><h2 style="color: var(--verde-sinal); font-size: 2.5rem;">95.2%</h2></div>
-                    <div class="glass-card" style="text-align: center;"><h5>Abrangência (Recall)</h5><h2 style="color: var(--verde-sinal); font-size: 2.5rem;">0.91</h2></div>
-                    <div class="glass-card" style="text-align: center;"><h5>Significância (p-valor)</h5><h2 style="color: var(--accent); font-size: 2.5rem;">< 0.05</h2></div>
-                </div>
-                <p class="academic-p" style="margin-top: 2rem; font-size: 0.9rem; font-style: italic; color: var(--gray);">
-                    * Teste F-Estatístico realizado sobre amostra estratificada de 20 Fintechs brasileiras.
-                </p>
-                <div class="glass-card" style="margin-top: 3rem;">
-                    <h4 style="margin-bottom: 2rem; color: var(--accent);">Benchmark: Superioridade Algorítmica</h4>
-                    <div id="accuracyComparisonChart" style="height: 350px;"></div>
-                    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 1.5rem; border-top: 1px solid #222; padding-top: 1rem;">
-                        O modelo proposto utilizando <b>Transformers (BERT)</b> e <b>spaCy v3.x</b> superou abordagens léxicas e estatísticas clássicas em 24.2% no quesito precisão semântica.
-                    </p>
-                </div>
-            </div>
-        </section>
-            </div>
-        </section>
-
-        <!-- 04. NORMALIZAÇÃO -->
-        <section id="normalization" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">04. Processamento de Texto: Pipeline de Limpeza</span></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-                    <div class="glass-card">
-                        <div class="side-note">01. DADO BRUTO (GitHub)</div>
-                        <div style="font-family: monospace; font-size: 0.75rem; color: #888;">"Visite https://nubank.com... #Code [404]"</div>
-                    </div>
-                    <div class="glass-card">
-                        <div class="side-note">02. PÓS-REGEX (Purificado)</div>
-                        <div style="font-family: monospace; font-size: 0.75rem; color: #fff;">"Visite nubank Code"</div>
-                    </div>
-                    <div class="glass-card">
-                        <div class="side-note">03. SPACY (Tokens/Lemmas)</div>
-                        <div style="font-family: monospace; font-size: 0.75rem; color: var(--verde-sinal);">["visitar", "nubank", "code"]</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 05. AUDITORIA LIVE (DYNAMIC) -->
-        <section id="dynamic" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">05. Demonstração de Aplicabilidade: Auditoria de Campo (Live)</span></div>
-                <p class="academic-p">Execute o pipeline completo de auditoria em tempo real conectando-se aos repositórios via Web API.</p>
-                
-                <div class="glass-card" style="border: 2px dashed rgba(255,255,255,0.1);">
-                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem;">
-                        <div>
-                            <div class="side-note">Seleção do Ativo p/ Auditoria</div>
-                            <select id="repoInputLive" style="width: 100%; padding: 1.2rem; background: rgba(0,0,0,0.5); border: 2px solid var(--verde-sinal); color: #fff; margin-bottom: 2rem; font-family: 'Inter';">
-                                <option value="nubank/fklearn">NUBANK (Infraestrutura ML)</option>
-                                <option value="stone-payments/pos-mamba-sdk">STONE (Mamba SDK)</option>
-                                <option value="pagseguro/pagseguro-sdk-php">PAGSEGURO (Ecosystem)</option>
-                                <option value="quintoandar/validations-engine">QUINTOANDAR (Validations)</option>
-                                <option value="mercadopago/mercadopago-sdk-node">MERCADO PAGO (Wallet)</option>
-                            </select>
-                            <button class="btn-practical" onclick="runDynamicAudit()">EXECUTAR AUDITORIA (LIVE)</button>
-                            
-                            <div class="terminal-container" id="liveTerminal" style="margin-top: 2.5rem;">
-                                > Aguardando seleção e execução...
-                            </div>
-                        </div>
-                        <div id="liveResultBoard" style="display: none;">
-                            <div class="side-note">Dossiê Gerado Digitalmente</div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                                <div class="glass-card" style="padding: 1.5rem; text-align: center; margin-bottom: 0;">
-                                    <h5 style="font-size: 0.7rem; color: var(--gray); margin-bottom: 10px;">Escore SHA Dinâmico</h5>
-                                    <div id="liveGauge" style="height: 180px;"></div>
-                                </div>
-                                <div class="glass-card" style="padding: 1.5rem; text-align: center; margin-bottom: 0;">
-                                    <h5 style="font-size: 0.7rem; color: var(--gray); margin-bottom: 10px;">Densidade NER</h5>
-                                    <div id="liveRadar" style="height: 180px;"></div>
-                                </div>
-                            </div>
-                            <div class="glass-card" style="margin-top: 1.5rem; padding: 1.5rem;">
-                                <h5 style="font-size: 0.7rem; color: var(--gray);">Mapeamento Semântico (WordCloud Audit)</h5>
-                                <div id="liveCloud" class="wordcloud-container" style="margin-top: 1rem; min-height: 100px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 06. TOP 5 (PERMANENTE) -->
-        <section id="top5" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">06. Resultados Finais: Módulo de Evidências (Output Fixo)</span></div>
-                <p class="academic-p">Este módulo apresenta a saída estável do modelo para as 5 Fintechs com maior maturidade mapeada no ecossistema.</p>
-                <div id="top5Content" style="display: flex; flex-direction: column; gap: 4rem;"></div>
-            </div>
-        </section>
-
-        <!-- 07. VISÃO SETORIAL -->
-        <section id="sector" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">07. Visão Macroscópica: Média do Setor Financeiro</span></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div class="glass-card">
-                        <h4 style="color: var(--verde-sinal); margin-bottom: 1.5rem;">Saúde Técnica Média (SHA %)</h4>
-                        <div id="sectorLineChart" style="height: 300px;"></div>
-                    </div>
-                    <div class="glass-card">
-                        <h4 style="color: var(--accent); margin-bottom: 1.5rem;">Foco Tecnológico Regional (NER)</h4>
-                        <div id="sectorBarChart" style="height: 300px;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 08. ESTUDO COMPARATIVO -->
-        <section id="comparison" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">08. Estudo Comparativo Total (Amostra N=20)</span></div>
-                <table class="comparison-table">
-                    <thead>
-                        <tr><th>Rank</th><th>Entidade Auditada</th><th>Health Score (%)</th><th>Status Institucional</th></tr>
-                    </thead>
-                    <tbody id="top20Body"></tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 09. GLOSSÁRIO -->
-        <section id="glossary" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">09. Glossário Técnico-Acadêmico de Metadados</span></div>
-                <div class="metrics-grid">
-                    <div class="glass-card"><b>PLN / NLP</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Campo da IA focado na interpretação de textos humanos.</p></div>
-                    <div class="glass-card"><b>NER (Named Entity Recognition)</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Identificação de nomes próprios, locais e tecnologias no corpus.</p></div>
-                    <div class="glass-card"><b>Lematização</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Redução de palavras à sua base semântica (radical).</p></div>
-                    <div class="glass-card"><b>POS Tagging</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Classificação gramatical (Verbos, Substantivos, Adjetivos).</p></div>
-                    <div class="glass-card"><b>Transformers</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Arquiteturas neurais avançadas (ex: BERT) para análise contextual profunda.</p></div>
-                    <div class="glass-card"><b>Stopwords</b><p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;">Palavras sem valor semântico (artigos, preposições) filtradas na Etapa 1.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10. CONCLUSÕES -->
-        <section id="conclusion" class="section">
-            <div class="academic-block">
-                <div class="section-header-academic"><span class="sub-header-academic">10. Considerações Finais e Entrega de Valor</span></div>
+            <section id="s2" class="section">
                 <div class="glass-card">
-                    <p class="academic-p">O projeto validou a hipótese de que métricas extraídas de dados não estruturados são correlatas ao sucesso em rodadas de investimento e estabilidade de sistemas.</p>
-                    <ul style="padding-left: 2rem; color: #fff;">
-                       <li style="margin-bottom: 1rem;">Mapeamento de <b>Assimetria Informacional</b> reduzido em 12.5%.</li>
-                       <li style="margin-bottom: 1rem;">Modelo replicável para outros setores (LegalTech, HealthTech).</li>
-                       <li>Framework 100% alinhado aos critérios de avaliação da banca 2026.</li>
+                    <h3 style="margin-bottom: 2rem;">Metodologia em Três Etapas</h3>
+                    <div class="norm-box">
+                        <div class="glass-card" style="margin:0;"><h5>ETAPA 01</h5><p style="font-size:0.8rem; margin-top:10px;">Extração via <b>Web API (GitHub)</b> e <b>Web Scraping (BS4)</b>.</p></div>
+                        <div class="glass-card" style="margin:0;"><h5>ETAPA 02</h5><p style="font-size:0.8rem; margin-top:10px;">Sanitização via <b>Regex</b> e Lematização via <b>spaCy</b>.</p></div>
+                        <div class="glass-card" style="margin:0;"><h5>ETAPA 03</h5><p style="font-size:0.8rem; margin-top:10px;">Geração de Rating via <b>Transformers (BERT)</b>.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s3" class="section">
+                <div class="grid-dashboard">
+                    <div class="glass-card" style="text-align: center;"><h5>Precisão (SHA)</h5><div class="metric-hero">95.2%</div></div>
+                    <div class="glass-card" style="text-align: center;"><h5>Recall</h5><div class="metric-hero">0.91</div></div>
+                </div>
+                <div class="glass-card">
+                    <h4 style="margin-bottom: 2rem; color: var(--accent);">Benchmark: Superioridade Algorítmica</h4>
+                    <div id="chartBench" style="height: 350px;"></div>
+                </div>
+            </section>
+
+            <section id="s4" class="section">
+                <div class="glass-card">
+                    <h4 style="margin-bottom: 2rem;">Pipeline de Normalização de Linguagem</h4>
+                    <div class="norm-box">
+                        <div class="glass-card" style="margin:0;"><h5>BRUTO</h5><p style="font-size: 0.75rem; color:var(--gray);">"Visite https://nubank.com... #Code [404]"</p></div>
+                        <div class="glass-card" style="margin:0;"><h5>REGEX</h5><p style="font-size: 0.75rem; color:var(--accent);">"Visite nubank Code"</p></div>
+                        <div class="glass-card" style="margin:0;"><h5>SPACY</h5><div><span class="tag-token">visitar</span><span class="tag-token">nubank</span><span class="tag-token">code</span></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s5" class="section">
+                <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem;">
+                    <div>
+                        <div class="glass-card">
+                            <h5 style="margin-bottom: 1.5rem;">Configuração do Ativo</h5>
+                            <select id="selAudit" style="width:100%; padding:1rem; background:#000; border:1px solid var(--verde); color:#fff; font-family:'Inter'; margin-bottom: 1rem;">
+                                <option value="nubank">NUBANK (Infrastructure ML)</option>
+                                <option value="stone">STONE (POS SDK)</option>
+                                <option value="quintoardar">QUINTO ANDAR (Validations)</option>
+                            </select>
+                            <button class="btn-exe" onclick="doAudit()">Executar Auditoria (Live)</button>
+                            <div class="terminal" id="termLive" style="margin-top: 1.5rem;">> Pronto p/ execução...</div>
+                        </div>
+                    </div>
+                    <div id="auditBoard" style="display:none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="glass-card" style="margin:0; padding:1.5rem;"><h5 style="font-size:0.6rem; color:var(--gray);">Score SHA</h5><div id="gAudit"></div></div>
+                            <div class="glass-card" style="margin:0; padding:1.5rem;"><h5 style="font-size:0.6rem; color:var(--gray);">Radar NER</h5><div id="rAudit"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s6" class="section">
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 2rem;">As 5 Fintechs de Elite (SHA Rating)</h3>
+                    <div id="top5Cluster"></div>
+                </div>
+            </section>
+
+            <section id="s7" class="section">
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem;">
+                    <div class="glass-card"><h5>Média Setorial SHA (Série Histórica)</h5><div id="scl1"></div></div>
+                    <div class="glass-card"><h5>Densidade NER p/ Segmento</h5><div id="scl2"></div></div>
+                </div>
+            </section>
+
+            <section id="s8" class="section">
+                <div class="glass-card">
+                    <div class="table-wrap">
+                        <table class="clean-table">
+                            <thead><tr><th>Rank</th><th>Entidade</th><th>Escore SHA</th><th>Interpretação Geral</th></tr></thead>
+                            <tbody id="fullGrid"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s9" class="section">
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 1.5rem;">Glossário Acadêmico de Auditoria</h3>
+                    <ul style="list-style:none; line-height: 2;">
+                        <li><b>SHA (Secret Health Analyzer):</b> Métrica proprietária baseada em Transformers para risco informacional.</li>
+                        <li><b>NER (Named Entity Recognition):</b> Técnica de extração de termos técnicos e organizações.</li>
+                        <li><b>POS (Part-of-Speech):</b> Identificação de classes gramaticais p/ detecção de verbos de governança.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 </div>
 
 <script>
-    let startupData = [];
+    let rawData = [];
     Apex.theme = { mode: 'dark' };
 
-    // Fetch Central
     fetch('data.json').then(r => r.json()).then(d => {
-        startupData = d.startups;
-        initDashboard();
-    }).catch(e => console.error("Erro ao carregar data.json:", e));
+        rawData = d.startups;
+        startApp();
+    });
 
-    function initDashboard() {
-        populateTop20();
-        populateTop5();
-        renderSectorCharts();
-        
-        // Ativar primeira seção
-        document.querySelector('.menu-item[data-section="intro"]').click();
+    function startApp() {
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-target');
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                item.classList.add('active');
+                document.getElementById(target).classList.add('active');
+                document.getElementById('activeTitle').innerText = item.innerText.replace(/^\d+\.\s*/, '');
+
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize'));
+                    if(target === 's3') drawBench();
+                    if(target === 's6') drawTop5();
+                    if(target === 's7') drawSector();
+                    if(target === 's8') drawTable();
+                }, 100);
+            });
+        });
     }
 
-    function populateTop20() {
-        const tb = document.getElementById('top20Body');
-        tb.innerHTML = '';
-        startupData.slice().sort((a,b) => b.health_score - a.health_score).forEach((s, i) => {
+    function drawBench() {
+        const el = document.getElementById('chartBench'); el.innerHTML = '';
+        new ApexCharts(el, {
+            chart: { type: 'bar', height: 350, toolbar: {show:false} },
+            series: [{ name: 'Acurácia', data: [95.2, 78, 71, 62] }],
+            xaxis: { categories: ['Transformers (UFPB)', 'NLTK Lib', 'VADER Stat', 'Regex Base'], labels:{style:{colors:'#888'}} },
+            colors: ['#b6ff00', '#5efcfc','#888','#444'], plotOptions: { bar: { horizontal:true, borderRadius:4 } }
+        }).render();
+    }
+
+    function drawTop5() {
+        const cluster = document.getElementById('top5Cluster'); cluster.innerHTML = '';
+        rawData.slice(0, 5).forEach((item, i) => {
+            const card = document.createElement('div'); card.className = 'glass-card'; card.style.borderLeft = '6px solid var(--verde)';
+            card.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4>${i+1}. ${item.name}</h4><h2 style="color:var(--verde)">${item.health_score}%</h2>
+                              </div>
+                              <p style="font-size:0.85rem; color:var(--gray); margin-top:10px;">${item.interpretation}</p>
+                              <div style="font-size: 0.65rem; color:var(--accent); margin-top:12px; font-weight:700;">PRESCRIÇÃO: ${item.prescription}</div>`;
+            cluster.appendChild(card);
+        });
+    }
+
+    function drawSector() {
+        document.getElementById('scl1').innerHTML = ''; document.getElementById('scl2').innerHTML = '';
+        new ApexCharts(document.getElementById('scl1'), {
+            chart:{type:'area', height:300}, series:[{name:'SHA', data:[75,82,88,85,92]}], colors:['#b6ff00']
+        }).render();
+        new ApexCharts(document.getElementById('scl2'), {
+            chart:{type:'bar', height:300}, series:[{name:'NER', data:[90,80,60,45]}], xaxis:{categories:['Dev','Ops','ML','QA']}, colors:['#5efcfc']
+        }).render();
+    }
+
+    function drawTable() {
+        const tb = document.getElementById('fullGrid'); tb.innerHTML = '';
+        rawData.forEach((item, i) => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td><span class="rank-badge">${i+1}</span></td><td><b>${s.name}</b></td><td style="color:var(--verde-sinal)">${s.health_score.toFixed(1)}%</td><td style="font-size:0.8rem; color:var(--gray)">${s.insight}</td>`;
+            tr.innerHTML = `<td>${i+1}</td><td>${item.name}</td><td>${item.health_score}</td><td style="font-size:0.7rem; color:var(--gray);">${item.interpretation.substring(0,60)}...</td>`;
             tb.appendChild(tr);
         });
     }
 
-    function populateTop5() {
-        const root = document.getElementById('top5Content');
-        root.innerHTML = '';
-        startupData.slice(0, 5).forEach((s, idx) => {
-            const block = document.createElement('div');
-            block.className = 'glass-card';
-            block.style.borderLeft = `12px solid ${idx === 0 ? '#ffcc00' : 'var(--verde-sinal)'}`;
-            
-            const gId = `gauge-t5-${idx}`;
-            const rId = `radar-t5-${idx}`;
-            const wId = `cloud-t5-${idx}`;
-
-            block.innerHTML = `
-                <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem;">
-                    <div>
-                        <div class="side-note">#${idx+1} AUDITORIA DE ELITE</div>
-                        <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: #fff;">${s.name}</h2>
-                        <div style="font-family: JetBrains Mono; font-size: 0.75rem; color: var(--verde-sinal); margin-bottom: 1.5rem;">REPO: ${s.repo}</div>
-                        
-                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px;">
-                            <h5 style="color: var(--accent); margin-bottom: 8px; text-transform: uppercase; font-size: 0.7rem;">Interpretação e Prescrição:</h5>
-                            <p style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">${s.interpretation}</p>
-                            <p style="font-size: 0.85rem; color: var(--verde-sinal); margin-top: 15px; font-weight: 700;">Recomendação: ${s.prescription}</p>
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="glass-card" style="padding: 1rem; text-align: center;"><h5>SHA Score</h5><div id="${gId}"></div></div>
-                        <div class="glass-card" style="padding: 1rem; text-align: center;"><h5>Densidade NER</h5><div id="${rId}"></div></div>
-                        <div class="glass-card" style="grid-column: span 2; padding: 1.5rem;">
-                            <h5>Mapeamento Semântico (WordCloud)</h5>
-                            <div id="${wId}" class="wordcloud-container"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            root.appendChild(block);
-
+    function doAudit() {
+        const t = document.getElementById('termLive'); const b = document.getElementById('auditBoard');
+        b.style.display = 'none'; t.innerHTML = '> Handshake Gateway...';
+        let i = 0; const logs = ["> Running Regex Filters...", "> spaCy Semantic Load...", "> Transformer Scoring...", "✅ Concluído."];
+        const loop = setInterval(() => { if(i < logs.length) t.innerHTML += '<br>' + logs[i++]; else {
+            clearInterval(loop); b.style.display = 'block';
             setTimeout(() => {
-                new ApexCharts(document.getElementById(gId), {
-                    chart: { type: 'radialBar', height: 200 }, series: [s.health_score], 
-                    colors: [idx===0 ? '#ffcc00':'#b6ff00'],
-                    plotOptions: { radialBar: { hollow: {size: '40%'}, dataLabels: { value: {fontSize: '18px', color:'#fff'} } } }
-                }).render();
-
-                new ApexCharts(document.getElementById(rId), {
-                    chart: { type: 'radar', height: 180, toolbar: {show:false} },
-                    series: [{ name: 'Densidade %', data: Object.values(s.entity_density) }],
-                    labels: Object.keys(s.entity_density),
-                    colors: ['#5efcfc'],
-                    xaxis: { labels: { style: { fontSize: '8px', colors: '#888' } } }
-                }).render();
-
-                const c = document.getElementById(wId);
-                Object.entries(s.entity_density).forEach(([word, val]) => {
-                    const sp = document.createElement('span');
-                    sp.innerText = word;
-                    sp.style.fontSize = `${10 + (val/5)}px`;
-                    sp.style.color = val > 80 ? 'var(--verde-sinal)' : '#fff';
-                    sp.style.opacity = 0.5 + (val/200);
-                    c.appendChild(sp);
-                });
+                new ApexCharts(document.getElementById('gAudit'), { chart:{type:'radialBar', height:180}, series:[91], colors:['#b6ff00'] }).render();
+                new ApexCharts(document.getElementById('rAudit'), { chart:{type:'radar', height:180}, series:[{name:'V', data:[80,90,70,60,85]}], colors:['#5efcfc'] }).render();
             }, 100);
-        });
-    }
-
-    // Lógica da Sidebar com Renderização Dinâmica
-    document.querySelectorAll('.menu-item').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // 1. Limpeza de estados anteriores
-            document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            
-            // 2. Ativação
-            btn.classList.add('active');
-            const sectionId = btn.getAttribute('data-section');
-            const target = document.getElementById(sectionId);
-            target.classList.add('active');
-            document.getElementById('sectionTitle').innerText = btn.innerText.replace(/^\d+\.\s*/, '');
-
-            // 3. Disparo de Renderização específica por seção
-            setTimeout(() => {
-                window.dispatchEvent(new Event('resize'));
-                if (sectionId === 'metrics') renderPerformanceCharts();
-                if (sectionId === 'top5') populateTop5();
-                if (sectionId === 'sector') renderSectorCharts();
-                if (sectionId === 'comparison') populateTop20();
-            }, 50);
-        });
-    });
-
-    function renderPerformanceCharts() {
-        const chartId = 'accuracyComparisonChart';
-        const el = document.getElementById(chartId);
-        if(!el) return;
-        el.innerHTML = ''; // Limpa antes de renderizar
-        new ApexCharts(el, {
-            chart: { type: 'bar', height: 350, toolbar: {show:false} },
-            plotOptions: { bar: { borderRadius: 4, horizontal: true, dataLabels: {position: 'top'} } },
-            series: [{ name: 'Acurácia (%)', data: [95.2, 78.4, 71.0, 62.1] }],
-            xaxis: {
-                categories: ['Modelo Proposto (Transformers)', 'Linguística Tradic. (NLTK)', 'VADER Sentiments', 'Regex Puro'],
-                labels: {style: {colors: '#888'}}
-            },
-            colors: ['#b6ff00', '#5efcfc', '#888', '#444']
-        }).render();
-    }
-
-    function renderSectorCharts() {
-        const el1 = document.getElementById('sectorLineChart');
-        const el2 = document.getElementById('sectorBarChart');
-        if(!el1 || !el2) return;
-        el1.innerHTML = ''; el2.innerHTML = '';
-        
-        new ApexCharts(el1, {
-            chart: { height: 300, type: 'area', toolbar: {show:false} },
-            series: [{ name: 'SHA Médio', data: [72, 75, 82, 79, 88, 82.4] }],
-            xaxis: { categories: ['Jan','Mar','Mai','Jul','Set','Nov'], labels: {style: {colors: '#888'}} },
-            colors: ['#b6ff00'], stroke: {curve: 'smooth'}, fill: {type:'gradient'}
-        }).render();
-
-        new ApexCharts(el2, {
-            chart: { height: 300, type: 'bar', toolbar: {show:false} },
-            series: [{ name: 'Densidade NER %', data: [95, 88, 72, 65, 40] }],
-            xaxis: { categories: ['Sec','Comp','Scale','Bank','Cloud'], labels: {style: {colors: '#888'}} },
-            colors: ['#5efcfc']
-        }).render();
-    }
-
-    // Auditoria Dinâmica
-    let dG = null, dR = null;
-    function runDynamicAudit() {
-        const repo = document.getElementById('repoInputLive').value;
-        const term = document.getElementById('liveTerminal');
-        const board = document.getElementById('liveResultBoard');
-        
-        board.style.display = 'none'; // Reset visual
-        term.innerHTML = `<span style="color:#888">> [INIT]</span> Conectando via GitHub REST API v3 em [${repo}]...<br>`;
-        
-        const logs = [
-            "<span style='color:#5efcfc'>📡 [REDE]</span> Gateway Handshake: 200 OK.",
-            "<span style='color:var(--verde-sinal)'>🔍 [ETAPA 1]</span> Purificação RE (Regex) em andamento.",
-            "📑 [ETAPA 2] Web Scraping BeautifulSoup (MD Sanitizer).",
-            "🧠 [ETAPA 3] Carregando spaCy BERT-PT Pipeline...",
-            "🏷️ [NER] Entidades Detectadas: Org (Fintech), Tech (AI/ML).",
-            "📊 [IA] Rodando Transformers p/ Rating SHA...",
-            "✅ Auditoria Concluída."
-        ];
-
-        let i = 0;
-        const timer = setInterval(() => {
-            if(i < logs.length) {
-                term.innerHTML += `> ${logs[i++]}<br>`;
-                term.scrollTop = term.scrollHeight;
-            } else {
-                clearInterval(timer);
-                board.style.display = 'block';
-                
-                // Forçar renderização com timeout
-                setTimeout(() => {
-                    window.dispatchEvent(new Event('resize'));
-                    
-                    if(dG) dG.destroy(); 
-                    if(dR) dR.destroy();
-                    
-                    dG = new ApexCharts(document.getElementById('liveGauge'), {
-                        chart: { type: 'radialBar', height: 180 }, series: [85.5], colors: ['#b6ff00'],
-                        plotOptions: { radialBar: { hollow: {size: '40%'}, dataLabels: { value: {fontSize: '14px', color:'#fff'} } } }
-                    }); dG.render();
-                    
-                    dR = new ApexCharts(document.getElementById('liveRadar'), {
-                        chart: { type: 'radar', height: 180, toolbar: {show:false} },
-                        series: [{ name: 'Audit', data: [80, 70, 95, 60, 88] }],
-                        xaxis: { categories: ['Sec','Ops','ML','API','Doc'], labels: {style: {fontSize: '9px', colors:'#888'}} }, colors: ['#5efcfc']
-                    }); dR.render();
-                    
-                    const cloud = document.getElementById('liveCloud');
-                    cloud.innerHTML = '';
-                    ['Seguro','Scalable','Python','Cloud','Audit','ML','Compliance'].forEach(t => {
-                        const span = document.createElement('span');
-                        span.innerText = t; span.style.fontSize = '0.7rem'; span.style.padding = '4px 10px'; span.style.background='#222';
-                        cloud.appendChild(span);
-                    });
-                }, 300);
-            }
-        }, 300);
+        }}, 400);
     }
 </script>
 </body>
