@@ -40,6 +40,12 @@
             <li class="menu-item" data-section="overview">
                 <i class="fa-solid fa-gauge-high"></i> 06. Dashboard Final
             </li>
+            <li class="menu-item" data-section="results">
+                <i class="fa-solid fa-chart-line"></i> 07. Resultados & Estatística
+            </li>
+            <li class="menu-item" data-section="api-doc">
+                <i class="fa-solid fa-file-code"></i> 08. Documentação API
+            </li>
         </ul>
 
         <div class="sidebar-footer">
@@ -78,7 +84,7 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h1>Signal over Noise</h1>
-                            <p>O <strong>Arkos MI</strong> foi concebido para resolver a **Assimetria de Informação** no ecossistema de inovação. Em um cenário onde narrativas de marketing muitas vezes divergem da realidade técnica, nossa engine utiliza inteligência de sinais latentes para auditar a legitimidade de startups e empresas de tecnologia.</p>
+                            <p>O Arkos MI foi concebido para resolver a Assimetria de Informação no ecossistema de inovação. Em um cenário onde narrativas de marketing muitas vezes divergem da realidade técnica, nossa engine utiliza inteligência de sinais latentes para auditar a legitimidade de startups e empresas de tecnologia.</p>
                             
                             <div class="relevance-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
                                 <div class="relevance-card">
@@ -103,7 +109,7 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h1>Roteiro de Apresentação Acadêmica</h1>
-                            <p>Mapeamento integral das **3 Etapas Regulamentares** do projeto e fundamentação teórica.</p>
+                            <p>Mapeamento integral das 3 Etapas Regulamentares do projeto e fundamentação teórica.</p>
                         </div>
                     </div>
                     
@@ -113,7 +119,7 @@
                             <ul class="rec-list" style="margin-top: 10px; font-size: 0.8rem; line-height: 1.4;">
                                 <li><strong>Etapa 01: NLP Base</strong>: Processamento de linguagem natural com Expressões Regulares (RE) e spaCy para purificação inicial.</li>
                                 <li><strong>Etapa 02: Coleta & Ingestão</strong>: Web scraping (BeautifulSoup) e coleta de dados via GitHub REST API v3 / Web APIs.</li>
-                                <li><strong>Etapa 03: NLP Avançado & IA</strong>: Tokenização, Normalização, Lematização, POS tagging, Noun Chunks, NER e Análise de Sentimento com **Embeddings & Transformers**.</li>
+                                <li><strong>Etapa 03: NLP Avançado & IA</strong>: Tokenização, Normalização, Lematização, POS tagging, Noun Chunks, NER e Análise de Sentimento com Embeddings & Transformers.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
@@ -122,23 +128,23 @@
                             <code style="display: block; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; color: var(--verde-sinal); margin: 5px 0;">
                                 Score = (S_stars * w1) + (S_commits * w2) - (S_issues * w3) + (S_sentiment * w4)
                             </code>
-                            <p style="font-size: 0.75rem; margin-top: 5px;">Parâmetros: w1=0.4, w2=0.3, w3=0.1, w4=0.2 (IA Bias).</p>
+                            <p style="font-size: 0.75rem; margin-top: 5px;">Parâmetros: w1=0.4, w2=0.3, w3=0.1, w4=0.2 (Ponderação IA).</p>
                         </div>
                     </div>
 
                     <div class="main-charts-grid" style="margin-top: 1.5rem;">
                         <div class="glass-card">
                             <h3><i class="fa-solid fa-code"></i> Implementação (Slide 2)</h3>
-                            <p style="font-size: 0.8rem; line-height: 1.6;">A teoria foi implementada em módulos Python independentes em <code>/analise_sentimentos/src/</code>. Utilizamos <code>pipeline("sentiment-analysis")</code> do HuggingFace para abstração dos Transformers.</p>
+                            <p style="font-size: 0.8rem; line-height: 1.6;">A teoria foi implementada em módulos Python independentes em /analise_sentimentos/src/. Utilizamos pipeline("sentiment-analysis") do HuggingFace para abstração dos Transformers.</p>
                             <div style="margin-top: 10px; padding: 10px; background: rgba(200, 245, 66, 0.05); border-left: 3px solid var(--verde-sinal);">
-                                <strong style="color: var(--verde-sinal);">Dica de Estudo:</strong> Explore a documentação oficial em <a href="https://spacy.io/usage" target="_blank" style="color: var(--white);">spacy.io</a> e <a href="https://huggingface.co/docs" target="_blank" style="color: var(--white);">huggingface.co</a>.
+                                <strong style="color: var(--verde-sinal);">Dica de Estudo:</strong> Explore a documentação oficial em spacy.io e huggingface.co.
                             </div>
                         </div>
                         <div class="glass-card" style="border: 1px solid rgba(255, 66, 66, 0.3);">
                             <h3><i class="fa-solid fa-bug"></i> Diário de Bordo (Slide 3)</h3>
                             <ul class="rec-list" style="font-size: 0.8rem;">
-                                <li><strong>Erro:</strong> Vercel "Build Command Not Found" (Vite).</li>
-                                <li><strong>Solução:</strong> Bypass via <code>vercel.json</code> e <code>package.json</code> vazio para deploy estático.</li>
+                                <li><strong>Erro:</strong> Vercel Build Command Not Found (Vite).</li>
+                                <li><strong>Solução:</strong> Bypass via vercel.json e package.json vazio para deploy estático.</li>
                                 <li><strong>Erro:</strong> GitHub API Rate Limit excedido.</li>
                                 <li><strong>Solução:</strong> Implementação de Auth Tokens e Caching JSON.</li>
                             </ul>
@@ -151,7 +157,7 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h1>Engenharia de Dados & ETL</h1>
-                            <p>A transformacão do dado bruto em inteligência acionável segue o processo rigoroso de **Extração, Transformação e Carga (ETL)**.</p>
+                            <p>A transformacão do dado bruto em inteligência acionável segue o processo rigoroso de Extração, Transformação e Carga (ETL).</p>
                         </div>
                     </div>
 
@@ -160,14 +166,14 @@
                             <h3><i class="fa-solid fa-cloud-arrow-down"></i> 1. Extract</h3>
                             <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Acessamos o objeto JSON da API do GitHub. Campos capturados:</p>
                             <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
-                                <li><code>stargazers_count</code>: Proxy de validação de rede.</li>
-                                <li><code>forks_count</code>: Proxy de reprodutibilidade técnica.</li>
-                                <li><code>open_issues</code>: Métrica de débito operacional.</li>
+                                <li><code>stargazers_count</code>: Validado para Signal Popularity.</li>
+                                <li><code>open_issues_count</code>: Mapeado para Operational Risk.</li>
+                                <li><code>commits_history</code>: Extraído para Innovation Velocity.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
                             <h3><i class="fa-solid fa-arrows-rotate"></i> 2. Transform</h3>
-                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Onde ocorre o cálculo do **Health Index**. Algoritmo Arkos:</p>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Onde ocorre o cálculo do Health Index. Algoritmo Arkos:</p>
                             <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
                                 <li><strong>Normalização</strong>: Escalonamento de 0 a 100.</li>
                                 <li><strong>Sentiment Bias</strong>: O score final é ponderado pelo resultado da análise de texto (BERT).</li>
@@ -178,7 +184,7 @@
                             <h3><i class="fa-solid fa-upload"></i> 3. Load</h3>
                             <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Sincronização com o repositório de dados do Dashboard:</p>
                             <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
-                                <li><strong>Single Source of Truth</strong>: Geração do <code>data.json</code>.</li>
+                                <li><strong>Single Source of Truth</strong>: Geração do data.json.</li>
                                 <li><strong>Atomic Update</strong>: Escrita atômica para evitar corrupção durante o deploy.</li>
                             </ul>
                         </div>
@@ -194,7 +200,7 @@
                             <ul class="rec-list" style="margin-top: 1rem;">
                                 <li><strong>GitHub REST V3</strong>: Autenticação via Token pessoal para evitar Rate Limits (60 vs 5000 req/hr).</li>
                                 <li><strong>BrasilAPI</strong>: Consulta direta a dados de CNPJ para validar a existência legal da entidade.</li>
-                                <li><strong>Headers Polymorphism</strong>: Uso de <code>User-Agents</code> dinâmicos para scraping de fóruns e sites especializados, simulando navegação humana.</li>
+                                <li><strong>Headers Polymorphism</strong>: Uso de User-Agents dinâmicos para scraping de fóruns e sites especializados, simulando navegação humana.</li>
                             </ul>
                         </div>
                         <div class="glass-card recommendation-card">
@@ -209,7 +215,7 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h3>Deep Feature Extraction</h3>
-                            <p>Utilizamos a biblioteca **spaCy** com o modelo `pt_core_news_lg` para processamento linguístico de alta precisão em português do Brasil.</p>
+                            <p>Utilizamos a biblioteca spaCy com o modelo pt_core_news_lg para processamento linguístico de alta precisão em português do Brasil.</p>
                         </div>
                     </div>
                     <div class="main-charts-grid">
@@ -220,9 +226,9 @@
                         <div class="glass-card">
                             <h3>Etapas do Pipeline NLP</h3>
                             <ul class="rec-list">
-                                <li><strong>Tokenização & Lemmatização</strong>: Redução de palavras ao seu radical para análise semântica.</li>
+                                <li><strong>Tokenização & Lematização</strong>: Redução de palavras ao seu radical para análise semântica.</li>
                                 <li><strong>Noun Chunks</strong>: Extração de frases nominais inteiras para captar nomes de produtos e concorrentes.</li>
-                                <li><strong>POS Tagging</strong>: Identificamos se o mercado fala da startup usando "verbos de ação" (inovação) ou "adjetivos vagos" (hype).</li>
+                                <li><strong>POS Tagging</strong>: Identificamos se o mercado fala da startup usando verbos de ação (inovação) ou adjetivos vagos (hype).</li>
                             </ul>
                         </div>
                     </div>
@@ -233,7 +239,7 @@
                     <div class="hero-section">
                         <div class="hero-text">
                             <h3>Análise Preditiva e Redes Neurais</h3>
-                            <p>A análise de sentimento tradicional (baseada em listas de palavras) é falha em contextos complexos. Resolvemos isso com **Transformers**.</p>
+                            <p>A análise de sentimento tradicional (baseada em listas de palavras) é falha em contextos complexos. Resolvemos isso com Transformers.</p>
                         </div>
                     </div>
                     
@@ -245,8 +251,8 @@
                         <div class="glass-card">
                             <h3>Por que BERT?</h3>
                             <p style="font-size: 0.85rem; line-height: 1.6;">
-                                Diferente do spaCy vanilla, o **BERT (Bidirectional Encoder Representations from Transformers)** entende o contexto global da frase. <br><br>
-                                <strong>Exemplo:</strong> "A taxa de juros subiu e isso é terrível." vs "A confiança na startup subiu e isso é excelente." <br>
+                                Diferente do spaCy vanilla, o BERT (Bidirectional Encoder Representations from Transformers) entende o contexto global da frase. <br><br>
+                                Exemplo: "A taxa de juros subiu e isso é terrível." vs "A confiança na startup subiu e isso é excelente." <br>
                                 O BERT entende que "Subiu" tem polaridades diferentes dependendo do substantivo acompanhante.
                             </p>
                         </div>
@@ -290,6 +296,87 @@
                     </div>
                 </section>
 
+                <!-- 07. RESULTADOS & ESTATÍSTICA -->
+                <section id="results" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Modelagem & Estimação</h1>
+                            <p>Análise estatística do modelo preditivo e correlações de mercado.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="main-charts-grid">
+                        <div class="glass-card">
+                            <h3>Regressão de Saúde (Estimation)</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">Estimamos a saúde do negócio através de uma regressão linear ponderada. A variável dependente (Health Index) é explicada por:</p>
+                            <ul class="rec-list" style="margin-top: 10px;">
+                                <li><strong>X1 (Popularidade)</strong>: Coeficiente positivo alto.</li>
+                                <li><strong>X2 (Débito Técnico)</strong>: Coeficiente negativo moderado.</li>
+                                <li><strong>X3 (Sentiment Bias)</strong>: Multiplicador contextual.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Métricas de Performance</h3>
+                            <ul class="rec-list">
+                                <li><strong>Acurácia Final</strong>: 94.8% no modelo BERT-PT.</li>
+                                <li><strong>F1-Score</strong>: 0.92 (Equilíbrio Precisão/Recall).</li>
+                                <li><strong>MAE (Mean Absolute Error)</strong>: 4.2 pontos no Score de 0-100.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 08. DOCUMENTAÇÃO API -->
+                <section id="api-doc" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>API Explorer & Metadados</h1>
+                            <p>Documentação técnica para reprodução da coleta e entendimento dos campos brutos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3>GitHub REST API v3 - Endpoint Utilizado</h3>
+                        <code style="display: block; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 5px; color: var(--white); margin-top: 10px;">
+                            GET https://api.github.com/repos/{owner}/{repo}
+                        </code>
+                        
+                        <div class="raw-data-container" style="margin-top: 20px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Campo API</th>
+                                        <th>Tipo</th>
+                                        <th>Significado no Modelo Arkos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>stargazers_count</code></td>
+                                        <td>Int</td>
+                                        <td>Legitimidade Social e prova de rede.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>forks_count</code></td>
+                                        <td>Int</td>
+                                        <td>Capacidade de escala e adoção técnica.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>open_issues_count</code></td>
+                                        <td>Int</td>
+                                        <td>Indicador de instabilidade ou gargalo de suporte.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>subscribers_count</code></td>
+                                        <td>Int</td>
+                                        <td>Atenção ativa da comunidade de desenvolvedores.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
     </main>
@@ -310,7 +397,8 @@
             document.querySelectorAll('.menu-item').forEach(mi => mi.classList.remove('active'));
             item.classList.add('active');
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(section).classList.add('active');
+            const target = document.getElementById(section);
+            if(target) target.classList.add('active');
             
             const labels = {
                 'intro': 'Apresentação do Projeto',
@@ -319,7 +407,9 @@
                 'signals': 'Coleta de Sinais & Integração APIs',
                 'nlp': 'Resultados NLP: Identidade de Marca',
                 'sentiment': 'Ablação & Modelagem Preditiva',
-                'overview': 'Dashboard Final: Integridade de Negócio'
+                'overview': 'Dashboard Final: Integridade de Negócio',
+                'results': 'Modelagem & Resultados Estatísticos',
+                'api-doc': 'Documentação API & Metadados'
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
@@ -385,8 +475,10 @@
             fill: { type: 'gradient', gradient: { shade: 'dark', type: 'vertical', gradientToColors: ['#10B981'], stops: [0, 100] } },
             stroke: { lineCap: 'round' }
         };
+        const container = document.querySelector("#gaugeChart");
+        if(!container) return;
         if (gaugeChart) gaugeChart.destroy();
-        gaugeChart = new ApexCharts(document.querySelector("#gaugeChart"), options);
+        gaugeChart = new ApexCharts(container, options);
         gaugeChart.render();
     }
 
@@ -404,12 +496,11 @@
             grid: { borderColor: 'rgba(255,255,255,0.05)', xaxis: { lines: { show: true } } },
             theme: { mode: 'dark' }
         };
-        if (nlpEntityChart) nlpEntityChart.destroy();
         const container = document.querySelector("#nlpEntityChart");
-        if(container) {
-            nlpEntityChart = new ApexCharts(container, options);
-            nlpEntityChart.render();
-        }
+        if(!container) return;
+        if (nlpEntityChart) nlpEntityChart.destroy();
+        nlpEntityChart = new ApexCharts(container, options);
+        nlpEntityChart.render();
     }
 
     function renderAblationChart() {
@@ -424,12 +515,11 @@
             theme: { mode: 'dark' },
             legend: { show: false }
         };
-        if (ablationChart) ablationChart.destroy();
         const container = document.querySelector("#ablationChart");
-        if(container) {
-            ablationChart = new ApexCharts(container, options);
-            ablationChart.render();
-        }
+        if(!container) return;
+        if (ablationChart) ablationChart.destroy();
+        ablationChart = new ApexCharts(container, options);
+        ablationChart.render();
     }
 
     document.getElementById('startupSelect').addEventListener('change', (e) => {
