@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkos MI | Signal Intelligence System</title>
+    <title>ARKOS MI | Intelligence Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
@@ -14,8 +14,8 @@
 <div class="app-container">
     <nav class="sidebar">
         <div class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
-            <div class="logo-text">Arkos <span>Intelligence</span></div>
+            <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="logo-text">ARKOS<span>MI</span></div>
         </div>
         
         <ul class="menu">
@@ -34,14 +34,17 @@
             <li class="menu-item" data-section="overview">
                 <i class="fa-solid fa-gauge-high"></i> 04. Dashboard Final
             </li>
+            <li class="menu-item" data-section="methodology">
+                <i class="fa-solid fa-layer-group"></i> 05. Metodologia & Arquitetura
+            </li>
         </ul>
 
         <div class="sidebar-footer">
             <div class="startup-selector">
                 <label>Monitorando Ativo:</label>
                 <select id="startupSelect">
-                    <option value="ifood_(líder)">iFood (Líder)</option>
-                    <option value="fintech_x_(crise)">Fintech X (Crise)</option>
+                    <option value="fintech_x_(crise)">Fintech X (Simulada)</option>
+                    <option value="mockfn">Nubank Mockfn (Real GitHub)</option>
                 </select>
             </div>
             <div class="system-health">
@@ -195,6 +198,67 @@
                     </div>
                 </section>
 
+                <!-- 05. METODOLOGIA SECTION -->
+                <section id="methodology" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Metodologia & Arquitetura</h1>
+                            <p>Explicação detalhada da aplicação dos requisitos acadêmicos e técnicos do projeto <strong>Arkos MI</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="glass-card">
+                            <h3>Objetivo Geral</h3>
+                            <p style="font-size: 0.95rem; color: var(--white);">Reduzir a assimetria de informação no ecossistema de investimentos através da análise de dados não estruturados, transformando narrativas em scores de legitimidade.</p>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Métricas de Sucesso</h3>
+                            <ul class="rec-list">
+                                <li><strong>Commit Velocity</strong>: Agilidade técnica.</li>
+                                <li><strong>Sentiment Score</strong>: Saúde reputacional.</li>
+                                <li><strong>Entity Coverage</strong>: Visibilidade de rede.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3>Mapeamento Técnica x Arquitetura</h3>
+                        <div class="raw-data-container" style="margin-top: 1rem;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Etapa Projeto</th>
+                                        <th>Técnica Principal</th>
+                                        <th>O que é / Para que serve</th>
+                                        <th>Arquivo Fonte</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Etapa 1</strong></td>
+                                        <td>Regex + spaCy</td>
+                                        <td>Extração de "Trust Markers" para medir maturidade documental.</td>
+                                        <td><code>src/limpeza.py</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Etapa 2</strong></td>
+                                        <td>Web APIs + Scraping</td>
+                                        <td>Coleta de sinais latentes do GitHub e BrasilAPI (CVM).</td>
+                                        <td><code>src/coleta.py</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Etapa 3</strong></td>
+                                        <td>Transformers + BERT</td>
+                                        <td>Deep Learning para classificar o sentimento e tom da narrativa.</td>
+                                        <td><code>src/sentimentos.py</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
     </main>
@@ -222,7 +286,8 @@
                 'signals': 'Coleta & Técnicas de Ingestão',
                 'nlp': 'Resultados NLP: Identidade de Marca',
                 'sentiment': 'Ablação & Modelagem Preditiva',
-                'overview': 'Monitor de Integridade de Negócio'
+                'overview': 'Monitor de Integridade de Negócio',
+                'methodology': 'Transparência Técnica & Metodologia'
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
@@ -292,6 +357,7 @@
 
     function renderNlpChart() {
         const startup = appData.startups.find(s => s.id === document.getElementById('startupSelect').value);
+        if (!startup) return;
         const options = {
             series: [{ name: 'Densidade', data: Object.values(startup.entity_density) }],
             chart: { type: 'bar', height: 300, toolbar: { show: false } },

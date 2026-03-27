@@ -1,61 +1,40 @@
 {
-  "startups": [
-    {
-      "id": "ifood_(líder)",
-      "name": "iFood (Líder)",
-      "health_score": 85.5,
-      "health_status": "EXCELENTE",
-      "recommendations": [
-        "Manter consistência em micro-comunicações pós-venda.",
-        "Expandir visibilidade de NER de parceiros logísticos."
-      ],
-      "sentiment": "Positivo",
-      "top_chunks": [
-        "logística",
-        "IA",
-        "atendimento"
-      ],
-      "entity_density": {
-        "ORG": 12,
-        "LOC": 5,
-        "PER": 8,
-        "MISC": 4
-      },
-      "corpus_sample": "A logística do iFood está impecável após a nova atualização...",
-      "interpretation": "O iFood apresenta uma dominância de sentimentos positivos vinculados à inovação logística e atendimento. A densidade de entidades ORG e PER sugere uma rede forte de stakeholders.",
-      "prescription": "Recomendação estratégica: Consolidar a liderança através de marketing focado em 'tecnologia invisível' e eficiência operacional.",
-      "insight": "Excelente momento para rodada de investimento (Series D/E)."
-    },
-    {
-      "id": "fintech_x_(crise)",
-      "name": "Fintech X (Crise)",
-      "health_score": 32.5,
-      "health_status": "CRÍTICA",
-      "recommendations": [
-        "Investir em canais de suporte para reverter sentimentos negativos.",
-        "Declarar estado de emergência para o time de SRE."
-      ],
-      "sentiment": "Negativo",
-      "top_chunks": [
-        "erro",
-        "atendimento",
-        "falha"
-      ],
-      "entity_density": {
-        "ORG": 4,
-        "LOC": 2,
-        "PER": 3,
-        "MISC": 1
-      },
-      "corpus_sample": "O app da Fintech X trava no login há 2 dias...",
-      "interpretation": "A Fintech X está em uma espiral negativa de reputação técnica. A predominância de termos como 'erro' e 'falha' indica problemas estruturais no produto.",
-      "prescription": "Plano de mitigação imediato: Comunicado transparente sobre downtime e bonificação agressiva de usuários afetados para estancar o churn.",
-      "insight": "Alto risco de churn técnico e perda de reputação."
-    }
-  ],
-  "system_status": {
-    "version": "1.1.0-stable",
-    "last_run": "2026-03-27T06:30:00Z",
-    "active_nodes": 4
-  }
+    "startups": [
+        {
+            "id": "fintech_x_(crise)",
+            "name": "FINTECH X (CRISE)",
+            "health_score": 38.2,
+            "interpretation": "Queda brusca na reputação digital detectada. Mismatch entre narrativa e código.",
+            "prescription": "Garantir blindagem de dados e transparência com stakeholders.",
+            "insight": "Sinal de Alerta Crítico.",
+            "recommendations": [
+                "Auditoria de Segurança",
+                "Plano de Resposta Rápida"
+            ],
+            "entity_density": {
+                "Crise": 45,
+                "Risco": 30,
+                "Security": 5
+            }
+        },
+        {
+            "id": "mockfn",
+            "name": "MOCKFN",
+            "health_score": 45,
+            "interpretation": "A presença digital do repositório nubank/mockfn é alta, com 92 estrelas. A base de código está em movimento contínuo.",
+            "prescription": "Promover maior documentação para issues abertas. O radar Arkos sugere blindagem estratégica da infraestrutura.",
+            "insight": "Referência Técnica no Setor.",
+            "recommendations": [
+                "Manter cobertura CI/CD ativa",
+                "Refatorar módulos legados",
+                "Expandir testes de integração"
+            ],
+            "entity_density": {
+                "Cloud": 7,
+                "Python": 20,
+                "Security": 14,
+                "Scalability": 0
+            }
+        }
+    ]
 }
