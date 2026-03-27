@@ -1,0 +1,14 @@
+companies.csv
+outputs/
+venv/
+.venv/
+env/
+.env/
+node_modules/
+dist/
+.vercel
+.ipynb_checkpoints/
+__pycache__/
+*.log
+.gemini/
+.vscode/
