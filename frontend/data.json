@@ -1,112 +1,76 @@
 {
     "startups": [
         {
-            "id": 1, "name": "NUBANK (Machine Learning)", "repo": "nubank/fklearn", "health_score": 98.2, "rank": 1, "stars": 1539, "forks": 320, "issues": 15,
-            "interpretation": "A presença digital do projeto fklearn é robusta, indicando alta maturidade em engenharia de dados.",
-            "prescription": "Recomendação: Manter a governança sobre o ciclo de lançamentos e monitorar forks ativos.",
-            "insight": "Referência em ML & Engenharia.",
-            "entity_density": {"Cloud": 85, "Python": 95, "Security": 70, "Scalability": 90, "DevOps": 80}
+            "id": "nubank",
+            "name": "NUBANK (Infraestrutura de ML)",
+            "repo": "nubank/fklearn",
+            "health_score": 98.2,
+            "stars": 1539,
+            "forks": 320,
+            "interpretation": "O corpus técnico do Nubank (via fklearn) demonstra o mais alto nível de maturidade algorítmica mapeado pelo estudo. A densidade de entidades ligadas a Machine Learning e DevOps indica governança robusta.",
+            "prescription": "Manter a regularidade de commits; o modelo sugere blindagem contra entropia técnica em módulos legados.",
+            "insight": "Referência Estadual (PB/Brasil) em Engenharia.",
+            "entity_density": {"Machine Learning": 95, "Python": 88, "DevOps": 85, "Calculus": 70, "Big Data": 92}
         },
         {
-            "id": 2, "name": "PAGSEGURO (PHP SDK)", "repo": "pagseguro/sdk-php", "health_score": 91.5, "rank": 2, "stars": 980, "forks": 150, "issues": 42,
-            "interpretation": "Indicadores de confiabilidade e integração API estáveis para meios de pagamento.",
-            "prescription": "Recomendação: Reduzir tempo de resposta para pull requests da comunidade PHP.",
-            "insight": "Solidez em Pagamentos.",
-            "entity_density": {"Cloud": 70, "Python": 40, "Security": 95, "Scalability": 85, "DevOps": 60}
+            "id": "stone",
+            "name": "STONE (Mamba SDK Pagamentos)",
+            "repo": "stone-payments/pos-mamba-sdk",
+            "health_score": 92.5,
+            "stars": 1200,
+            "forks": 210,
+            "interpretation": "Indicadores excepcionais no setor de hardware-fintech. A integração entre o código-fonte e as narrativas de segurança via RE (Regex) confirma a estabilidade institucional.",
+            "prescription": "Auditoria bianual de bibliotecas de segurança para mitigar vulnerabilidades em POS (Point of Sale).",
+            "insight": "Liderança em Pagamentos via Hardware.",
+            "entity_density": {"Security": 98, "Embedded": 85, "C++": 80, "Compliance": 90, "Kernel": 65}
         },
         {
-            "id": 3, "name": "STONE (Mamba SDK)", "repo": "stone/mamba-sdk", "health_score": 88.0, "rank": 4, "stars": 750, "forks": 120, "issues": 12,
-            "interpretation": "Foco em hardware/POS com documentação técnica rigorosa e atualizada.",
-            "prescription": "Recomendação: Validar compatibilidade com novas versões de firmware via CI/CD.",
-            "insight": "Referência em Fintech Hardware.",
-            "entity_density": {"Cloud": 50, "Python": 60, "Security": 98, "Scalability": 80, "DevOps": 75}
+            "id": "pagseguro",
+            "name": "PAGSEGURO (Ecosystem API)",
+            "repo": "pagseguro/pagseguro-sdk-php",
+            "health_score": 89.0,
+            "stars": 980,
+            "forks": 150,
+            "interpretation": "Maturidade estável com foco em interoperabilidade. Atende aos critérios de auditoria externa com documentação técnica limpa processada pelo spaCy.",
+            "prescription": "Modernizar SDKs legados; o modelo detectou 'Noun Chunks' obsoletos em repositórios periféricos.",
+            "insight": "Engajamento Robustez com SDKs.",
+            "entity_density": {"API": 95, "PHP": 60, "Cloud": 82, "Sandbox": 75, "E-commerce": 88}
         },
         {
-            "id": 4, "name": "QUINTOANDAR (Engine)", "repo": "quintoandar/engine", "health_score": 82.4, "rank": 5, "stars": 600, "forks": 90, "issues": 25,
-            "interpretation": "Métrica de validação de negócios integrada ao core tecnológico imobiliário.",
-            "prescription": "Recomendação: Ampliar a cobertura de testes unitários em módulos críticos.",
-            "insight": "Inovação Imobiliária.",
-            "entity_density": {"Cloud": 90, "Python": 45, "Security": 65, "Scalability": 88, "DevOps": 70}
+            "id": "quintoandar",
+            "name": "QUINTOANDAR (Proptech Engine)",
+            "repo": "quintoandar/validations-engine",
+            "health_score": 84.4,
+            "stars": 600,
+            "forks": 95,
+            "interpretation": "Transição para automação de contratos via PLN. O reconhecimento de entidades (NER) identificou fluxos avançados de validação documental automátizada.",
+            "prescription": "Expandir modelos de análise de sentimento para reviews de usuários em tempo real via BERT/Transformers.",
+            "insight": "Inovação Imobiliária Algorítmica.",
+            "entity_density": {"LegalTech": 80, "NodeJS": 75, "Automation": 88, "Cloud": 82, "Documents": 91}
         },
-        { 
-            "id": 5, "name": "LOJA INTEGRADA (Core)", "repo": "loja/core", "health_score": 81.0, "rank": 6, "stars": 550, "forks": 80, "issues": 18, 
-            "interpretation": "Estabilidade em e-commerce.", "prescription": "Revisar logs de erro.", "insight": "Escalabilidade de Varejo.", 
-            "entity_density": {"Cloud": 80, "Python": 50, "Security": 70, "Scalability": 92, "DevOps": 65} 
+        {
+            "id": "mercadopago",
+            "name": "MERCADO PAGO (Wallet Core)",
+            "repo": "mercadopago/mercadopago-sdk-node",
+            "health_score": 81.2,
+            "stars": 550,
+            "forks": 80,
+            "interpretation": "Foco massivo em escalabilidade de carteiras digitais. O pipeline de sentimentos detectou alta confiança da comunidade técnica em ferramentas de integração.",
+            "prescription": "Monitorar latência de APIs durante picos sazonais; fortalecer a normalização de dados brutos.",
+            "insight": "Soberania em Carteiras Digitais.",
+            "entity_density": {"Scale": 95, "Finance": 85, "NodeJS": 75, "Security": 80, "Global": 90}
         },
-        { 
-            "id": 6, "name": "HOTMART (Member API)", "repo": "hotmart/api", "health_score": 79.5, "rank": 7, "stars": 500, "forks": 70, "issues": 30, 
-            "interpretation": "API de membros com alta carga.", "prescription": "Otimizar queries.", "insight": "Liderança em Info-produtos.", 
-            "entity_density": {"Cloud": 85, "Python": 30, "Security": 75, "Scalability": 90, "DevOps": 80} 
-        },
-        { 
-            "id": 7, "name": "IFOOD (Delivery App)", "repo": "ifood/delivery", "health_score": 78.8, "rank": 8, "stars": 480, "forks": 65, "issues": 40, 
-            "interpretation": "Logística complexa mapeada via logs.", "prescription": "Melhorar geolocalização.", "insight": "Giganete de Delivery.", 
-            "entity_density": {"Cloud": 95, "Python": 70, "Security": 60, "Scalability": 98, "DevOps": 85} 
-        },
-        { 
-            "id": 8, "name": "PICPAY (Wallet Core)", "repo": "picpay/wallet", "health_score": 77.2, "rank": 9, "stars": 450, "forks": 60, "issues": 55, 
-            "interpretation": "Base de usuários crítica exigindo alta disponibilidade.", "prescription": "Investir em infra serverless.", "insight": "Banca Digital Ágil.", 
-            "entity_density": {"Cloud": 75, "Python": 55, "Security": 88, "Scalability": 80, "DevOps": 60} 
-        },
-        { 
-            "id": 9, "name": "GYMPASS (Search Engine)", "repo": "gympass/search", "health_score": 76.5, "rank": 10, "stars": 420, "forks": 55, "issues": 22, 
-            "interpretation": "Busca facetada com resultados precisos.", "prescription": "Otimizar ElasticSearch.", "insight": "Inovação em Wellness.", 
-            "entity_density": {"Cloud": 88, "Python": 82, "Security": 50, "Scalability": 85, "DevOps": 70} 
-        },
-        { 
-            "id": 10, "name": "CREDITAS (Auto Finance)", "repo": "creditas/auto", "health_score": 75.0, "rank": 11, "stars": 400, "forks": 50, "issues": 28, 
-            "interpretation": "Fluxo de crédito automatizado.", "prescription": "Auditar bias de crédito.", "insight": "Fintech de Garantias.", 
-            "entity_density": {"Cloud": 65, "Python": 70, "Security": 90, "Scalability": 75, "DevOps": 55} 
-        },
-        { 
-            "id": 11, "name": "EBANX (Payments)", "repo": "ebanx/pay", "health_score": 71.8, "rank": 14, "stars": 320, "forks": 35, "issues": 25, 
-            "interpretation": "Fluxo cross-border seguro.", "prescription": "Validar certificados SSL.", "insight": "Pagamentos Globais.", 
-            "entity_density": {"Cloud": 70, "Python": 35, "Security": 92, "Scalability": 80, "DevOps": 60} 
-        },
-        { 
-            "id": 12, "name": "NEON (Banking UI)", "repo": "neon/ui", "health_score": 73.1, "rank": 13, "stars": 350, "forks": 40, "issues": 12, 
-            "interpretation": "Design System funcional mas com débitos técnicos secundários.", "prescription": "Refatorar componentes herdados.", "insight": "Foco no Usuário.", 
-            "entity_density": {"Cloud": 60, "Python": 45, "Security": 70, "Scalability": 65, "DevOps": 50} 
-        },
-        { 
-            "id": 13, "name": "VTEX (IO Framework)", "repo": "vtex/io", "health_score": 68.9, "rank": 16, "stars": 280, "forks": 25, "issues": 50, 
-            "interpretation": "Framework poderoso porém complexo.", "prescription": "Simplificar onboarding de devs.", "insight": "Plataforma Enterprise.", 
-            "entity_density": {"Cloud": 92, "Python": 40, "Security": 65, "Scalability": 85, "DevOps": 78} 
-        },
-        { 
-            "id": 14, "name": "LOGGI (Routing ML)", "repo": "loggi/routing", "health_score": 74.2, "rank": 12, "stars": 380, "forks": 45, "issues": 35, 
-            "interpretation": "ML aplicado a roteamento urbano.", "prescription": "Refinar algoritmos de IA.", "insight": "Pioneira em Logística Inteligente.", 
-            "entity_density": {"Cloud": 80, "Python": 98, "Security": 55, "Scalability": 85, "DevOps": 75} 
-        },
-        { 
-            "id": 15, "name": "MELI-CUZ (Search)", "repo": "mercadolivre/search", "health_score": 65.5, "rank": 17, "stars": 250, "forks": 20, "issues": 45, 
-            "interpretation": "Rankeamento de produtos.", "prescription": "Evitar SEO Blackhat.", "insight": "Cashback & Busca.", 
-            "entity_density": {"Cloud": 88, "Python": 60, "Security": 55, "Scalability": 90, "DevOps": 65} 
-        },
-        { 
-            "id": 16, "name": "ENJOEI (Marketplace)", "repo": "enjoei/api", "health_score": 62.0, "rank": 18, "stars": 220, "forks": 15, "issues": 60, 
-            "interpretation": "Grande volume de imagens e dados.", "prescription": "Otimizar CDN.", "insight": "Economia Circular.", 
-            "entity_density": {"Cloud": 70, "Python": 45, "Security": 40, "Scalability": 65, "DevOps": 50} 
-        },
-        { 
-            "id": 17, "name": "FINTECH Z (Alerta)", "repo": "fintechz/legacy", "health_score": 52.1, "rank": 19, "stars": 100, "forks": 5, "issues": 85, 
-            "interpretation": "Queda sistêmica de commits e engajamento.", "prescription": "Avaliar retenção de talentos.", "insight": "Sinal de Fadiga Tecnológica.", 
-            "entity_density": {"Cloud": 30, "Python": 20, "Security": 35, "Scalability": 40, "DevOps": 25} 
-        },
-        { 
-            "id": 18, "name": "FINTECH X (Crise)", "repo": "fintechx/crash", "health_score": 38.2, "rank": 20, "stars": 50, "forks": 2, "issues": 150, 
-            "interpretation": "Anomalias em canais não estruturados.", "prescription": "Sala de guerra técnica.", "insight": "Sinal de Alerta Crítico.", 
-            "entity_density": {"Cloud": 15, "Python": 10, "Security": 25, "Scalability": 20, "DevOps": 10} 
-        },
-        { 
-            "id": 19, "name": "BANK-ABC (Old Core)", "repo": "bank/legacy", "health_score": 45.0, "rank": 21, "stars": 120, "forks": 10, "issues": 90, 
-            "interpretation": "Obsolecência técnica detectada.", "prescription": "Migrar para cloud.", "insight": "Resíduo Legado.", 
-            "entity_density": {"Cloud": 10, "Python": 15, "Security": 40, "Scalability": 10, "DevOps": 5} 
-        },
-        { 
-            "id": 20, "name": "MODERN-PAY (Edge)", "repo": "pay/edge", "health_score": 94.5, "rank": 22, "stars": 1100, "forks": 200, "issues": 8, 
-            "interpretation": "Alta performance em pagamentos edge.", "prescription": "Escalar para novas regiões.", "insight": "Potência em Pagamentos.", 
-            "entity_density": {"Cloud": 95, "Python": 80, "Security": 85, "Scalability": 92, "DevOps": 90} 
+        {
+            "id": "fintech_x",
+            "name": "FINTECH X (Exemplo Modo Crise)",
+            "repo": "fintechx/legacy-crash",
+            "health_score": 12.5,
+            "stars": 20,
+            "forks": 2,
+            "interpretation": "ALERTA: Queda sistêmica de indicadores. O modelo detectou sentimentos negativos predominantes (85%) e inatividade técnica severa no GitHub.",
+            "prescription": "Paralisação imediata de lançamentos; Auditoria Forense Digital de 180 dias exigida.",
+            "insight": "Risco de Falência Tecnológica.",
+            "entity_density": {"Error": 95, "Legacy": 80, "Downtime": 90, "Complaint": 75, "Debt": 85}
         }
     ]
 }
