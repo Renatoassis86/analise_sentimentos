@@ -188,8 +188,18 @@ def calcular_health_index(corpus_textos, classificador_bert, nlp):
     """
     Métrica híbrida proprietária da ARKOS MI.
     """
-    res_sent = analisar_sentimento_bert(corpus_textos, classificador_bert)
-    pct_positivo = (res_sent['sentimento'] == 'POSITIVO').mean()
+    if classificador_bert:
+        res_sent = analisar_sentimento_bert(corpus_textos, classificador_bert)
+        pct_positivo = (res_sent['sentimento'] == 'POSITIVO').mean()
+    else:
+        # Fallback se o transformer não carregar (vibe check simplificado para demo)
+        txt_total = " ".join(corpus_textos).lower()
+        pos_words = ['bom', 'ótimo', 'excelente', 'incrível', 'sucesso', 'parabéns', 'resolvido', 'rápido', 'estável', 'impecável']
+        neg_words = ['erro', 'falha', 'bug', 'travando', 'horrível', 'péssimo', 'inexistente', 'ruim', 'crise', 'ninguém responde']
+        
+        pos_count = sum(1 for w in pos_words if w in txt_total)
+        neg_count = sum(1 for w in neg_words if w in txt_total)
+        pct_positivo = pos_count / (pos_count + neg_count + 1)
     
     # Riqueza Narrativa (Noun Chunks e NER)
     texto_total = " ".join(corpus_textos)

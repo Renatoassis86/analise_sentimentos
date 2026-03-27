@@ -39,7 +39,7 @@ def coletar_brasilapi_corretoras():
     """
     Coleta dados de corretoras via BrasilAPI para análise de mercado financeiro.
     """
-    url = "https://brasilapi.com.br/api/cvm/corretora/v1"
+    url = "https://brasilapi.com.br/api/cvm/corretoras/v1"
     print("Coletando dados de corretoras na BrasilAPI (CVM)...")
     try:
         response = requests.get(url, timeout=10)

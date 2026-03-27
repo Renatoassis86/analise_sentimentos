@@ -26,6 +26,30 @@ Este documento registra o desenvolvimento, as falhas e as correções de curso d
 
 ---
 
+## 🟢 27/03/2026 — Sessão 02: Coleta, NLP e Dashboard de Negócio
+
+### 🎯 Objetivos de Hoje:
+1. Integrar APIs (GitHub, BrasilAPI) e Scraping.
+2. Implementar Pipeline NLP (spaCy) e Estudo de Ablação (Baseline vs Transformers).
+3. Desenvolver Front-end interativo para apresentação passo-a-passo do projeto.
+
+### 🚀 O que fizemos:
+- **Pipeline:** Integramos `sentimentos.py` com o dashboard final.
+- **Dashboard:** Criamos uma plataforma interativa em 5 etapas (Apresentação, Coleta, NLP, Sentimento, Dashboard).
+- **Inovação:** Implementamos a lógica de **Interpretação e Prescrição** para transformar dados em ação.
+- **Visual:** Overhaul visual seguindo o sistema 'Arkos Neural Grid' (Acid Green, Raw Borders 1px, 90/10 Asymmetry).
+- **Agentes:** Otimizamos o projeto seguindo as regras de todos os agentes (Frontend Specialist, Backend Architect, Security Auditor).
+
+### ⚠️ Erros e Correções de Rumo:
+1. **Deploy Interface:** O deploy inicial via Vercel falhou por tentar rodar scripts de build inexistentes.
+   - *Correção:* Adicionamos `vercel.json` para forçar o modo estático `version: 2`.
+2. **Design Standards:** O design inicial usava glassmorphism excessivo (clichê de IA).
+   - *Correção:* Seguindo o `frontend-specialist`, mudamos para superfícies brutas (1px borders) e tipografia de alto impacto.
+3. **Segurança:** Identificamos o risco de exposição de tokens de API.
+   - *Correção:* Criamos `.gitignore` e `.env.example` para documentar a segurança do projeto.
+
+---
+
 ## ⏭️ Próximos Passos (Próxima Sessão):
-- Construir o wrapper de APIs e Scraping em `src/coleta.py`.
-- Iniciar o primeiro Notebook para visualização das frequências narrativas.
+- Expandir o corpus de treinamento para 50 startups.
+- Refinar as métricas do Health Index com pesos dinâmicos por setor.

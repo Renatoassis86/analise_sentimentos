@@ -169,16 +169,16 @@ def rodar_pipeline_completa(corpus_textos, nlp_obj=None):
     print("Pipeline finalizada com sucesso.")
     return res
 
+# --- CORPUS DE EXEMPLO (STARTUP MATURITY) ---
+corpus_startups = [
+    "O iFood é a empresa líder de delivery na América Latina, investindo pesado em IA para logística.",
+    "O Nubank revolucionou o setor bancário no Brasil com seu cartão roxo e atendimento digital.",
+    "QuintoAndar simplifica o aluguel e venda de imóveis usando dados para prever preços de mercado.",
+    "Stone oferece soluções de pagamento para empreendedores brasileiros com foco em transparência.",
+    "Creditas é a principal plataforma digital de crédito com garantia na América Latina."
+]
+
 if __name__ == "__main__":
-    # Corpus de 5 Textos sobre Startups Brasileiras (Maturidade Analítica)
-    corpus_startups = [
-        "O iFood é a empresa líder de delivery na América Latina, investindo pesado em IA para logística.",
-        "O Nubank revolucionou o setor bancário no Brasil com seu cartão roxo e atendimento digital.",
-        "QuintoAndar simplifica o aluguel e venda de imóveis usando dados para prever preços de mercado.",
-        "Stone oferece soluções de pagamento para empreendedores brasileiros com foco em transparência.",
-        "Creditas é a principal plataforma digital de crédito com garantia na América Latina."
-    ]
-    
     if nlp:
         resultados = rodar_pipeline_completa(corpus_startups, nlp)
         

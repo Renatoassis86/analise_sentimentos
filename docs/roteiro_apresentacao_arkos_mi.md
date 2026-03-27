@@ -74,13 +74,13 @@ Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetiv
 
 ---
 
-### 🖼️ SLIDE 8 — Startup Health Index
-**Visual:** Painel com o Score (Gauge Chart ou Progress Bar).
+### 🖼️ SLIDE 8 — Startup Health Dashboard (INTERATIVO)
+**Visual:** Navegação live pelo Front-end Arkos Intelligence.
 **Conteúdo:**
-- **Fórmula:** (50% Sentimento + 30% Noun Chunks + 20% NER).
-- **Exemplo Real:** "Repositório PayBR — Score: 82.5/100 — 💚 BOA".
-- **Ação:** Recomendações geradas: "Melhorar clareza narrativa no README".
-**Fala sugerida:** *"O Health Index é o nosso produto final. Ele resume toda a complexidade do PLN em um KPI de negócio que qualquer investidor entende."*
+- **Etapas:** Demonstração visual de Coleta -> Processamento -> Sentimento -> Veredito.
+- **Diferencial:** Inclusão de **Interpretação e Prescrição** automatizada para cada startup.
+- **Saúde Real:** Foco no KPI consolidado (Health Index).
+**Fala sugerida:** *"O nosso Health Dashboard não é apenas um gráfico estático. Ele é uma plataforma interativa que guia o stakeholder através de cada técnica aplicada, culminando em uma prescrição de negócio clara."*
 
 ---
 

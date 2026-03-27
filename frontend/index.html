@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkos MI | Signal Intelligence System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+
+<div class="app-container">
+    <nav class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="logo-text">Arkos <span>Intelligence</span></div>
+        </div>
+        
+        <ul class="menu">
+            <li class="menu-item active" data-section="intro">
+                <i class="fa-solid fa-play"></i> 00. Apresentação
+            </li>
+            <li class="menu-item" data-section="signals">
+                <i class="fa-solid fa-satellite-dish"></i> 01. Coleta & Integração
+            </li>
+            <li class="menu-item" data-section="nlp">
+                <i class="fa-solid fa-brain"></i> 02. Processamento NLP
+            </li>
+            <li class="menu-item" data-section="sentiment">
+                <i class="fa-solid fa-heart-circle-check"></i> 03. Máquina de Sentimento
+            </li>
+            <li class="menu-item" data-section="overview">
+                <i class="fa-solid fa-gauge-high"></i> 04. Dashboard Final
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <div class="startup-selector">
+                <label>Monitorando Ativo:</label>
+                <select id="startupSelect">
+                    <option value="ifood_(líder)">iFood (Líder)</option>
+                    <option value="fintech_x_(crise)">Fintech X (Crise)</option>
+                </select>
+            </div>
+            <div class="system-health">
+                <div class="pulse"></div> Motor Arkos Ativo
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-area">
+        <div class="hero-banner" id="pageHeroBanner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2 id="sectionTitle">Apresentação do Projeto</h2>
+                    <p id="sectionSubtitle">Arkos MI: Neural Marketing Intelligence para Startups</p>
+                </div>
+                <div class="user-profile">
+                    <div class="current-date" id="currentDate"></div>
+                    <div class="avatar">RA</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-content">
+            <div class="sections-container">
+                
+                <!-- 00. INTRO SECTION -->
+                <section id="intro" class="section active">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Signal Intelligence</h1>
+                            <p>O <strong>Arkos MI</strong> resolve a dor de cabeça de monitorar centenas de fontes não estruturadas. Nossa plataforma automatiza a captura de sinais latentes para prever crises e oportunidades.</p>
+                            <div class="relevance-grid">
+                                <div class="relevance-card">
+                                    <h4>Técnica: Híbrida</h4>
+                                    <p>Integração de Web Scraping e APIs REST para ingestão massiva de dados crus.</p>
+                                </div>
+                                <div class="relevance-card">
+                                    <h4>Aplicação Prática</h4>
+                                    <p>Decisões baseadas em dados (Data-Driven) para VC's, Heads de Produto e Fundadores sob pressão.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 01. SIGNALS & INTEGRATION -->
+                <section id="signals" class="section">
+                    <div class="main-charts-grid">
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-terminal"></i> Ingestão via Python</h3>
+                            <p style="color: var(--gray); font-size: 0.85rem;">Utilizamos <code>requests</code> e <code>BeautifulSoup</code> para extrair narrativas estruturadas.</p>
+                            <ul class="rec-list" style="margin-top: 1rem;">
+                                <li><i class="fa-solid fa-code"></i> <strong>GitHub REST V3</strong>: Coleta de commits e stars como proxy de saúde técnica.</li>
+                                <li><i class="fa-solid fa-code"></i> <strong>BrasilAPI (CVM)</strong>: Validação de registros oficiais de CNPJ e financeiros.</li>
+                                <li><i class="fa-solid fa-code"></i> <strong>Scraping</strong>: Extração de reviews e threads de discussão.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-key"></i> Como pego o Token do GitHub?</h3>
+                            <ol style="color: var(--gray); font-size: 0.85rem; padding-left: 20px; line-height: 1.6;">
+                                <li>Vá em <strong>Github Settings</strong> > <strong>Developer settings</strong></li>
+                                <li>Escolha <strong>Personal access tokens (classic)</strong></li>
+                                <li>Gere um token com escopos <code>repo</code> e <code>read:org</code></li>
+                                <li>Adicione ao seu script: <code>headers={"Authorization": "token SUA_KEY"}</code></li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 02. NLP PROCESSAMENTO -->
+                <section id="nlp" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h3>Extração de Identidade (spaCy)</h3>
+                            <p>Transformamos texto cru em <strong>Entity Knowledge Graphs</strong> para entender de quem o mercado está falando.</p>
+                        </div>
+                    </div>
+                    <div class="main-charts-grid">
+                        <div class="glass-card chart-container">
+                            <h3>Densidade de Entidades (NER)</h3>
+                            <div id="nlpEntityChart"></div>
+                        </div>
+                        <div class="glass-card recommendation-card">
+                            <h3>Resultados Técnicos</h3>
+                            <ul class="rec-list">
+                                <li><i class="fa-solid fa-microchip"></i> <strong>POS Tagging</strong>: Identificação de verbos de ação para avaliar agilidade.</li>
+                                <li><i class="fa-solid fa-microchip"></i> <strong>Noun Chunks</strong>: Agrupamento de substantivos para definir a proposta de valor percebida.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 03. SENTIMENT MÁQUINA -->
+                <section id="sentiment" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h3>Deep Learning & Ablação</h3>
+                            <p>Comparamos o modelo baseline com o estado da arte para garantir robustez nos resultados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="main-charts-grid">
+                        <div class="glass-card chart-container">
+                            <h3>Estudo de Ablação (Acurácia)</h3>
+                            <div id="ablationChart"></div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Técnicas Aplicadas</h3>
+                            <p style="color: var(--white); font-size: 0.85rem;">
+                                <strong>Transformers (BERT/RoBERTa)</strong>: Captura de sentimentos contextuais em frases longas.<br><br>
+                                <strong>Sentence Transformers</strong>: Geração de embeddings para visualização semântica (PCA/t-SNE).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 04. DASHBOARD FINAL -->
+                <section id="overview" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1 id="startupName">Loading...</h1>
+                            <p id="startupSummary">Análise Final Arkos MI: Da Coleta Crue à Prescrição Estratégica.</p>
+                        </div>
+                        <div class="hero-score">
+                            <div id="gaugeChart"></div>
+                            <div class="score-label">Health Index</div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="glass-card stat-card">
+                            <div class="stat-header"><i class="fa-solid fa-magnifying-glass-chart"></i> Interpretação</div>
+                            <div class="stat-meta" id="startupInterpretation" style="font-size: 0.85rem; line-height: 1.4; color: var(--white);">Aguardando...</div>
+                        </div>
+                        <div class="glass-card stat-card">
+                            <div class="stat-header"><i class="fa-solid fa-file-medical"></i> Prescrição Arkos</div>
+                            <div class="stat-meta" id="startupPrescription" style="font-size: 0.85rem; line-height: 1.4; color: var(--verde-sinal);">Processando...</div>
+                        </div>
+                    </div>
+
+                    <div class="main-charts-grid" style="margin-top: 2rem;">
+                        <div class="glass-card recommendation-card">
+                            <h3>Recomendações Práticas</h3>
+                            <ul class="rec-list" id="recList"></ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Veredito Estratégico</h3>
+                            <div class="stat-value" id="practicalInsight" style="font-size: 1.2rem; color: var(--verde-sinal);">...</div>
+                            <div class="stat-meta" style="margin-top: 10px;">Monitoramento consolidado disponível para exportação CSV/JSON.</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    let appData = null;
+    let gaugeChart = null;
+    let nlpEntityChart = null;
+    let ablationChart = null;
+
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', day: 'numeric', year: 'numeric' });
+
+    // NAVIGATION LOGIC
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const section = item.getAttribute('data-section');
+            document.querySelectorAll('.menu-item').forEach(mi => mi.classList.remove('active'));
+            item.classList.add('active');
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            
+            const labels = {
+                'intro': 'Apresentação do Projeto',
+                'signals': 'Coleta & Técnicas de Ingestão',
+                'nlp': 'Resultados NLP: Identidade de Marca',
+                'sentiment': 'Ablação & Modelagem Preditiva',
+                'overview': 'Monitor de Integridade de Negócio'
+            };
+            document.getElementById('sectionTitle').textContent = labels[section];
+            
+            if (section === 'nlp') renderNlpChart();
+            if (section === 'sentiment') renderAblationChart();
+            if (section === 'overview') updateDashboard(document.getElementById('startupSelect').value);
+        });
+    });
+
+    async function loadData() {
+        try {
+            const response = await fetch('data.json');
+            appData = await response.json();
+            initDashboard();
+        } catch (err) {
+            console.warn("Retrying data load...");
+            setTimeout(loadData, 1000);
+        }
+    }
+
+    function initDashboard() {
+        updateDashboard(appData.startups[0].id);
+    }
+
+    function updateDashboard(startupId) {
+        const startup = appData.startups.find(s => s.id === startupId);
+        if (!startup) return;
+
+        document.getElementById('startupName').textContent = startup.name;
+        document.getElementById('startupInterpretation').textContent = startup.interpretation || "Análise processada.";
+        document.getElementById('startupPrescription').textContent = startup.prescription || "Monitorar tendências.";
+        document.getElementById('practicalInsight').textContent = startup.insight || "Nenhuma ação imediata.";
+        
+        const recList = document.getElementById('recList');
+        recList.innerHTML = '';
+        startup.recommendations.forEach(rec => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fa-solid fa-bolt"></i> ${rec}`;
+            recList.appendChild(li);
+        });
+
+        updateGauge(startup.health_score);
+    }
+
+    function updateGauge(score) {
+        const options = {
+            series: [score],
+            chart: { height: 280, type: 'radialBar', sparkline: { enabled: true } },
+            plotOptions: {
+                radialBar: {
+                    startAngle: -120, endAngle: 120,
+                    hollow: { size: '70%', background: 'transparent' },
+                    track: { background: 'rgba(138, 143, 153, 0.1)', strokeWidth: '100%' },
+                    dataLabels: {
+                        name: { show: false },
+                        value: { offsetY: 15, fontSize: '42px', fontWeight: '900', color: '#C8F542', formatter: (val) => Math.round(val) }
+                    }
+                }
+            },
+            fill: { type: 'gradient', gradient: { shade: 'dark', type: 'horizontal', gradientToColors: ['#10B981'], stops: [0, 100] } },
+            stroke: { lineCap: 'round' }
+        };
+        if (gaugeChart) gaugeChart.destroy();
+        gaugeChart = new ApexCharts(document.querySelector("#gaugeChart"), options);
+        gaugeChart.render();
+    }
+
+    function renderNlpChart() {
+        const startup = appData.startups.find(s => s.id === document.getElementById('startupSelect').value);
+        const options = {
+            series: [{ name: 'Densidade', data: Object.values(startup.entity_density) }],
+            chart: { type: 'bar', height: 300, toolbar: { show: false } },
+            plotOptions: { bar: { borderRadius: 10, horizontal: true, barHeight: '50%' } },
+            colors: ['#C8F542'],
+            xaxis: { categories: Object.keys(startup.entity_density), labels: { style: { colors: '#8A8F99' } } },
+            yaxis: { labels: { style: { colors: '#8A8F99' } } },
+            grid: { borderColor: 'rgba(255,255,255,0.05)' }
+        };
+        if (nlpEntityChart) nlpEntityChart.destroy();
+        nlpEntityChart = new ApexCharts(document.querySelector("#nlpEntityChart"), options);
+        nlpEntityChart.render();
+    }
+
+    function renderAblationChart() {
+        const options = {
+            series: [{ name: 'Acurácia (%)', data: [72, 94] }],
+            chart: { type: 'bar', height: 250, toolbar: { show: false } },
+            plotOptions: { bar: { borderRadius: 8, distributed: true, columnWidth: '60%' } },
+            colors: ['#8A8F99', '#C8F542'],
+            xaxis: { categories: ['spaCy Baseline', 'Transformers (BERT)'], labels: { style: { colors: '#8A8F99' } } },
+            yaxis: { max: 100, labels: { style: { colors: '#8A8F99' } } },
+            grid: { borderColor: 'rgba(255,255,255,0.05)' }
+        };
+        if (ablationChart) ablationChart.destroy();
+        ablationChart = new ApexCharts(document.querySelector("#ablationChart"), options);
+        ablationChart.render();
+    }
+
+    document.getElementById('startupSelect').addEventListener('change', (e) => {
+        const activeSection = document.querySelector('.section.active').id;
+        if (activeSection === 'overview') updateDashboard(e.target.value);
+        if (activeSection === 'nlp') renderNlpChart();
+    });
+
+    loadData();
+</script>
+</body>
+</html>
+renderNlpChart();
+    });
+
+    loadData();
+</script>
+</body>
+</html>
