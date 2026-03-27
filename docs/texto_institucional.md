@@ -1,8 +1,8 @@
-# 🏢 ARKOS Intelligence — Motor de Marketing Intelligence (MI)
+# 🏢 Neural Platform Intelligence — Motor de Marketing Intelligence (MI)
 
-## O que estamos fazendo? (A Ciência por trás do ARKOS MI)
+## O que estamos fazendo? (A Ciência por trás do Neural Marketing Intelligence)
 
-A plataforma **ARKOS** é uma infraestrutura de inteligência de dados que resolve o gargalo da tomada de decisão em organizações que ainda operam com "achismos". O módulo **MI** foca especificamente em converter a **Narrativa Pública** de startups e empresas em **Vantagem Competitiva**.
+A plataforma **Neural Platform** é uma infraestrutura de inteligência de dados que resolve o gargalo da tomada de decisão em organizações que ainda operam com "achismos". O módulo **MI** foca especificamente em converter a **Narrativa Pública** de startups e empresas em **Vantagem Competitiva**.
 
 ### As 3 Etapas do Processo:
 
@@ -23,4 +23,4 @@ A etapa final e mais avançada utiliza **Deep Learning (HuggingFace)** para ler 
 
 ---
 **Status do Projeto:** 🟢 Stage 1 (Infraestrutura e Regex) Completo.
-**Autor:** Renato Assis | ARKOS Intelligence
+**Autor:** Renato Assis | Neural Platform Intelligence

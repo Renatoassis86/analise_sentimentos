@@ -1,9 +1,9 @@
 """
-Módulo de Coleta e Web Scraping - ARKOS MI
+Módulo de Coleta e Web Scraping - Neural Marketing Intelligence
 Este módulo integra APIs públicas e técnicas de scraping com BeautifulSoup 
 para alimentar o Startup Signal Intelligence.
 
-Autor: Renato Assis | ARKOS Intelligence
+Autor: Renato Assis | Neural Platform Intelligence
 """
 
 import requests
@@ -91,8 +91,8 @@ def gerar_grafico_bolhas_corretoras(df):
     return fig
 
 if __name__ == "__main__":
-    print("--- ARKOS MI coleta.py Demo ---")
-    df_gh = coletar_github_repos("arkos-intelligence") # Exemplo
+    print("--- Neural Marketing Intelligence coleta.py Demo ---")
+    df_gh = coletar_github_repos("Neural Platform-intelligence") # Exemplo
     print(df_gh.head() if not df_gh.empty else "Nenhum dado GitHub.")
     
     df_quotes = scraping_quotes_demo()

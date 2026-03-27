@@ -1,5 +1,5 @@
 """
-ARKOS MI — Exportador de Resultados para Frontend
+Neural Marketing Intelligence — Exportador de Resultados para Frontend
 Gera o arquivo de dados JSON que alimenta o Dashboard Interativo.
 """
 
@@ -46,7 +46,7 @@ def processar_startup(nome, corpus, score_base=None):
     }
 
 def main():
-    print("🚀 Arkos MI: Processando dados para o Frontend...")
+    print("🚀 Neural Marketing Intelligence: Processando dados para o Frontend...")
     
     # Case I: iFood
     corpus_ifood = [

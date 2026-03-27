@@ -1,9 +1,9 @@
 """
-Módulo de Sentimentos e Estudo de Ablação - ARKOS MI
+Módulo de Sentimentos e Estudo de Ablação - Neural Marketing Intelligence
 Este módulo integra classificação estatística (spaCy TextCat) com
 Deep Learning (Transformers) para análise de reputação.
 
-Autor: Renato Assis | ARKOS Intelligence
+Autor: Renato Assis | Neural Platform Intelligence
 """
 
 import spacy
@@ -88,7 +88,7 @@ def plotar_loss(historico):
     """
     plt.figure(figsize=(10, 5))
     plt.plot(historico, color='#C8F542', linewidth=2, marker='o')
-    plt.title("Curva de Aprendizado (Loss) - ARKOS MI TextCat")
+    plt.title("Curva de Aprendizado (Loss) - Neural Marketing Intelligence TextCat")
     plt.xlabel("Época")
     plt.ylabel("Loss")
     plt.grid(True, alpha=0.3)
@@ -143,7 +143,7 @@ def visualizar_embeddings_pca(embeddings, sentimentos):
     df_plot['Sentimento'] = sentimentos
     
     fig = px.scatter(df_plot, x='PCA 1', y='PCA 2', color='Sentimento',
-                     title="Aglomerados Semânticos (PCA) - ARKOS MI",
+                     title="Aglomerados Semânticos (PCA) - Neural Marketing Intelligence",
                      color_discrete_map={"POSITIVO": "#C8F542", "NEGATIVO": "#FF4B4B", "NEUTRO": "#8A8F99"})
     fig.show()
 
@@ -186,7 +186,7 @@ def ablation_study(dados_teste, modelo_spacy, classificador_bert):
 
 def calcular_health_index(corpus_textos, classificador_bert, nlp):
     """
-    Métrica híbrida proprietária da ARKOS MI.
+    Métrica híbrida proprietária da Neural Marketing Intelligence.
     """
     if classificador_bert:
         res_sent = analisar_sentimento_bert(corpus_textos, classificador_bert)
@@ -267,5 +267,5 @@ if __name__ == "__main__":
     # except Exception as e:
     #     print(f"Transformers fail (normal for local dry runs): {e}")
     
-    print("\n--- ARKOS MI SENTIMENT ENGINE INITIALIZED ---")
+    print("\n--- Neural Marketing Intelligence SENTIMENT ENGINE INITIALIZED ---")
     print("Módulo pronto para processamento híbrido e cálculo do Health Index.")

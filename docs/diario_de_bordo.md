@@ -1,4 +1,4 @@
-# 📓 Diário de Bordo — ARKOS MI (Startup Signal Intelligence)
+# 📓 Diário de Bordo — Neural Marketing Intelligence (Startup Signal Intelligence)
 
 Este documento registra o desenvolvimento, as falhas e as correções de curso do módulo de Marketing Intelligence (MI).
 
@@ -13,7 +13,7 @@ Este documento registra o desenvolvimento, as falhas e as correções de curso d
 
 ### 🚀 O que fizemos:
 - **Arquitetura:** Criamos `src/`, `notebooks/`, `data/`, e `assets/`.
-- **Identidade:** Definimos as cores da ARKOS no README e geramos o logo para o módulo MI.
+- **Identidade:** Definimos as cores da Neural Platform no README e geramos o logo para o módulo MI.
 - **Implementação:** Finalizamos `src/limpeza.py` com todas as funções regex (Markdown, E-mails, Versões, Qualidade de README).
 
 ### ⚠️ Erros e Correções de Rumo:
@@ -22,7 +22,7 @@ Este documento registra o desenvolvimento, as falhas e as correções de curso d
 2. **Ambiente Python:** Tentamos testar o script e encontramos erro de bibliotecas independentes (`platform independent libraries`).
    - *Causa provável:* O Anaconda não está inicializado no shell atual do VS Code.
    - *Correção:* Validamos o código manualmente e garantimos que as dependências estão no `requirements.txt`.
-3. **Escopo:** Decidimos unificar o "Sentiment Analysis" com o framework de maturidade da ARKOS (Davenport Stage 1 to 5). Isso elevou o projeto de um simples script para uma ferramenta de consultoria.
+3. **Escopo:** Decidimos unificar o "Sentiment Analysis" com o framework de maturidade da Neural Platform (Davenport Stage 1 to 5). Isso elevou o projeto de um simples script para uma ferramenta de consultoria.
 
 ---
 
@@ -37,7 +37,7 @@ Este documento registra o desenvolvimento, as falhas e as correções de curso d
 - **Pipeline:** Integramos `sentimentos.py` com o dashboard final.
 - **Dashboard:** Criamos uma plataforma interativa em 5 etapas (Apresentação, Coleta, NLP, Sentimento, Dashboard).
 - **Inovação:** Implementamos a lógica de **Interpretação e Prescrição** para transformar dados em ação.
-- **Visual:** Overhaul visual seguindo o sistema 'Arkos Neural Grid' (Acid Green, Raw Borders 1px, 90/10 Asymmetry).
+- **Visual:** Overhaul visual seguindo o sistema 'Neural Platform Neural Grid' (Acid Green, Raw Borders 1px, 90/10 Asymmetry).
 - **Agentes:** Otimizamos o projeto seguindo as regras de todos os agentes (Frontend Specialist, Backend Architect, Security Auditor).
 
 ### ⚠️ Erros e Correções de Rumo:

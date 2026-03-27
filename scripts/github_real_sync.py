@@ -54,7 +54,7 @@ def fetch_github_data(repo_full_name):
         "name": repo_full_name.split("/")[0].upper() + " / " + resp_repo.get("name"),
         "health_score": round(score, 1),
         "interpretation": f"A presença digital da empresa {repo_full_name.split('/')[0]} é robusta. O repositório possui {stars} estrelas e atividade constante.",
-        "prescription": f"Manter a governança sobre as {num_issues} issues abertas. O radar Arkos sugere blindagem estratégica.",
+        "prescription": f"Manter a governança sobre as {num_issues} issues abertas. O radar Marketing Intelligence sugere blindagem estratégica.",
         "insight": "Referência de Engenharia Brasileira.",
         "recommendations": [
             "Monitorar novas forks ativos",

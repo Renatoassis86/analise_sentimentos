@@ -1,4 +1,4 @@
-# 📖 Como Executar o Projeto ARKOS MI
+# 📖 Como Executar o Projeto Neural Marketing Intelligence
 
 Siga estas instruções para rodar o pipeline de **Startup Signal Intelligence** no seu ambiente local ou no Google Colab.
 

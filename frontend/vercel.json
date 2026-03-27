@@ -1,7 +1,7 @@
 {
   "version": 2,
   "public": true,
-  "name": "arkos-mi-dashboard",
+  "name": "marketing-intelligence-mi-dashboard",
   "cleanUrls": true,
   "buildCommand": "npm run build",
   "outputDirectory": "."

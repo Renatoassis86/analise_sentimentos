@@ -1,9 +1,9 @@
 """
-Módulo de Limpeza e Extração Estruturada - ARKOS MI
+Módulo de Limpeza e Extração Estruturada - Neural Marketing Intelligence
 Este módulo contém as funções de Processamento de Linguagem Natural (PLN) baseadas em
 Expressões Regulares (Regex) para o Startup Signal Intelligence.
 
-Autor: Renato Assis | ARKOS Intelligence
+Autor: Renato Assis | Neural Platform Intelligence
 """
 
 import re
@@ -50,8 +50,8 @@ def extrair_emails(texto: str) -> list:
         list: Lista de e-mails encontrados.
         
     Exemplo:
-        >>> extrair_emails("Contato: sac@arkos.com.br")
-        ['sac@arkos.com.br']
+        >>> extrair_emails("Contato: sac@Neural Platform.com.br")
+        ['sac@Neural Platform.com.br']
     """
     # Uso de re.findall para capturar padrões de e-mail
     padrao = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
@@ -204,21 +204,21 @@ def moderar_conteudo(texto: str, palavras_ofensivas: list) -> str:
     return re.sub(padrao, '***', texto, flags=re.IGNORECASE)
 
 if __name__ == "__main__":
-    # Simulação de um README de uma Startup Fintech Brasileira (Ex: "ArkosPay")
+    # Simulação de um README de uma Startup Fintech Brasileira (Ex: "Neural PlatformPay")
     readme_simulado = """
-    # ArkosPay - API de Pagamentos Instantâneos v1.2.0
+    # Neural PlatformPay - API de Pagamentos Instantâneos v1.2.0
     
-    [![Build Status](https://img.shields.io/travis/arkos/pay.svg)](url)
+    [![Build Status](https://img.shields.io/travis/Neural Platform/pay.svg)](url)
     
-    Sistema disruptivo para transações B2B. Resolva o problema de fluxo de caixa com @arkospay.
+    Sistema disruptivo para transações B2B. Resolva o problema de fluxo de caixa com @Neural Platformpay.
     
     ## Instalação
     ```bash
-    pip install arkospay
+    pip install Neural Platformpay
     ```
     
     ### Docs
-    Documentação em https://arkos.com.br/docs/api
+    Documentação em https://Neural Platform.com.br/docs/api
     
     ## Changelog
     ### v1.2.0
@@ -228,10 +228,10 @@ if __name__ == "__main__":
     ### v1.1.0
     - Lançamento inicial
     
-    Contato: suporte@arkospay.com.br ou falar com @dev-master.
+    Contato: suporte@Neural Platformpay.com.br ou falar com @dev-master.
     """
     
-    print("--- ARKOS MI - TESTE DE LIMPEZA E EXTRAÇÃO ---")
+    print("--- Neural Marketing Intelligence - TESTE DE LIMPEZA E EXTRAÇÃO ---")
     
     print(f"E-mails encontrados: {extrair_emails(readme_simulado)}")
     print(f"Versões detectadas: {extrair_versoes(readme_simulado)}")

@@ -1,9 +1,9 @@
 """
-Pipeline de Processamento de Linguagem Natural (PLN) - ARKOS MI
+Pipeline de Processamento de Linguagem Natural (PLN) - Neural Marketing Intelligence
 Este módulo implementa os componentes fundamentais do spaCy para análise profunda
 de narrativas de startups brasileiras.
 
-Autor: Renato Assis | ARKOS Intelligence
+Autor: Renato Assis | Neural Platform Intelligence
 """
 
 import spacy
@@ -75,7 +75,7 @@ def pos_tagging(texto, nlp_obj):
     if not df.empty:
         plt.figure(figsize=(10, 5))
         df['POS'].value_counts().plot(kind='bar', color='#C8F542', edgecolor='#0A0C0F')
-        plt.title("Distribuição de Part-of-Speech (POS) - ARKOS MI")
+        plt.title("Distribuição de Part-of-Speech (POS) - Neural Marketing Intelligence")
         plt.xlabel("Categoria Gramatical")
         plt.ylabel("Frequência")
         plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -128,7 +128,7 @@ def reconhecer_entidades(corpus_textos, nlp_obj):
     if not df.empty:
         plt.figure(figsize=(10, 5))
         df['Tipo'].value_counts().plot(kind='bar', color='#C8F542', edgecolor='#0A0C0F')
-        plt.title("Distribuição de Entidades (NER) - ARKOS MI")
+        plt.title("Distribuição de Entidades (NER) - Neural Marketing Intelligence")
         plt.show()
         
     return df, doc
@@ -156,7 +156,7 @@ def rodar_pipeline_completa(corpus_textos, nlp_obj=None):
 
     texto_unico = " ".join(corpus_textos)
     
-    print("Iniciando Pipeline ARKOS MI...")
+    print("Iniciando Pipeline Neural Marketing Intelligence...")
     
     res = {}
     res["tokens"] = tokenizar(texto_unico, nlp_obj)

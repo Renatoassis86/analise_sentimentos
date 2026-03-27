@@ -1,17 +1,17 @@
-# 🎭 Roteiro de Apresentação — ARKOS MI: Startup Signal Intelligence
+# 🎭 Roteiro de Apresentação — Neural Marketing Intelligence: Startup Signal Intelligence
 
-Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetivo é equilibrar o **rigor técnico da disciplina** com a **visão executiva da ARKOS**.
+Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetivo é equilibrar o **rigor técnico da disciplina** com a **visão executiva da Neural Platform**.
 
 ---
 
 ### 🖼️ SLIDE 1 — Capa
-**Visual:** Logo ARKOS MI centralizado (Obsidiana + Verde Sinal).
+**Visual:** Logo Neural Marketing Intelligence centralizado (Obsidiana + Verde Sinal).
 **Texto:** 
-- **TítuloPrincipal:** ARKOS MI — Startup Signal Intelligence
+- **TítuloPrincipal:** Neural Marketing Intelligence — Startup Signal Intelligence
 - **Subtítulo:** Módulo Marketing Intelligence | Análise de Sentimentos com PLN
-- **Apresentadores:** Renato Assis & Equipe ARKOS
+- **Apresentadores:** Renato Assis & Equipe Neural Platform
 - **Data:** Março de 2026
-**Fala sugerida (1 min):** *"Bom dia a todos. Hoje apresentamos o ARKOS MI, o motor de inteligência por trás do nosso ecossistema corporativo. Nosso objetivo é transformar o mar de dados não estruturados de startups em indicadores de reputação e tração real."*
+**Fala sugerida (1 min):** *"Bom dia a todos. Hoje apresentamos o Neural Marketing Intelligence, o motor de inteligência por trás do nosso ecossistema corporativo. Nosso objetivo é transformar o mar de dados não estruturados de startups em indicadores de reputação e tração real."*
 
 ---
 
@@ -20,7 +20,7 @@ Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetiv
 **Texto:** "Por que monitorar sentimentos de startups?"
 - **Qiu et al. (2025):** Sentimento positivo em mídias sociais prediz o financiamento futuro ($F1 = 0.82$).
 - **Saura et al. (2019):** Distribuição típica de startups: 57% Positivo, 29% Neutro, 14% Negativo.
-- **Slogan:** "ARKOS MI: Do dado bruto à decisão executiva."
+- **Slogan:** "Neural Marketing Intelligence: Do dado bruto à decisão executiva."
 **Fala sugerida:** *"Startups não falham por falta de tecnologia, mas por falta de legitimidade. A ciência prova que o sentimento digital é um proxy direto para a captação de investimento."*
 
 ---
@@ -75,7 +75,7 @@ Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetiv
 ---
 
 ### 🖼️ SLIDE 8 — Startup Health Dashboard (INTERATIVO)
-**Visual:** Navegação live pelo Front-end Arkos Intelligence.
+**Visual:** Navegação live pelo Front-end Neural Platform Intelligence.
 **Conteúdo:**
 - **Etapas:** Demonstração visual de Coleta -> Processamento -> Sentimento -> Veredito.
 - **Diferencial:** Inclusão de **Interpretação e Prescrição** automatizada para cada startup.
@@ -100,5 +100,5 @@ Este roteiro organiza os 10 slides estratégicos para a banca da UFPB. O objetiv
 **Resumo:**
 - Todas as estratégias da UFPB cobertas.
 - Suporte científico em 5 artigos de impacto.
-- **Slogan Final:** "ARKOS MI — Do dado bruto à decisão executiva."
-**Fala sugerida:** *"Concluímos que a modelagem de dados não estruturados não é apenas técnica, é estratégica. A ARKOS MI está pronta para o mercado. Obrigado."*
+- **Slogan Final:** "Neural Marketing Intelligence — Do dado bruto à decisão executiva."
+**Fala sugerida:** *"Concluímos que a modelagem de dados não estruturados não é apenas técnica, é estratégica. A Neural Marketing Intelligence está pronta para o mercado. Obrigado."*

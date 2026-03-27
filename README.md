@@ -1,11 +1,11 @@
-# <p align="center">ARKOS MI — Análise de Sentimentos</p>
+# <p align="center">Neural Marketing Intelligence — Análise de Sentimentos</p>
 
 <p align="center">
-  <img src="assets/arkos_mi_logo.png" alt="ARKOS MI Logo" width="200"/>
+  <img src="assets/Neural Platform_mi_logo.png" alt="Neural Marketing Intelligence Logo" width="200"/>
 </p>
 
 <p align="center">
-  <strong>Motor de PLN do módulo Marketing Intelligence da plataforma ARKOS</strong>
+  <strong>Motor de PLN do módulo Marketing Intelligence da plataforma Neural Platform</strong>
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 ---
 
 ## 🚀 Sobre o Projeto
-A **ARKOS** é uma infraestrutura de inteligência corporativa brasileira focada em elevar o nível de maturidade analítica das organizações (Framework de Davenport). O módulo **MI (Marketing Intelligence)** é o motor de reputação, NPS e inteligência profunda de mercado.
+A **Neural Platform** é uma infraestrutura de inteligência corporativa brasileira focada em elevar o nível de maturidade analítica das organizações (Framework de Davenport). O módulo **MI (Marketing Intelligence)** é o motor de reputação, NPS e inteligência profunda de mercado.
 
 Este repositório contém o **Startup Signal Intelligence**, um sistema que aplica Processamento de Linguagem Natural (PLN) para analisar narrativas de startups e predizer indicadores de sucesso e engajamento.
 
@@ -66,4 +66,4 @@ Consulte os arquivos no diretório `notebooks/` para uma execução guiada passo
 ---
 
 **Créditos:** 
-ARKOS Intelligence | **Renato Assis**
+Neural Platform Intelligence | **Renato Assis**

@@ -21,7 +21,6 @@
 body {
     background-color: var(--bg-deep);
     color: var(--white);
-    overflow: hidden;
     line-height: 1.6;
 }
 
@@ -39,6 +38,8 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 10;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .logo {
@@ -114,10 +115,13 @@ body {
 }
 
 .hero-banner {
-    background: var(--bg-card);
+    background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)), url('./marketing-intelligence_mi_dashboard_hero.png');
+    background-size: cover;
+    background-position: center;
     border-bottom: var(--border-raw);
-    padding: 40px 60px;
+    padding: 60px 80px;
     position: relative;
+    overflow: hidden;
 }
 
 .banner-content {
