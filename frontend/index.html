@@ -77,99 +77,176 @@
                 <section id="intro" class="section active">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h1>Signal Intelligence</h1>
-                            <p>O <strong>Arkos MI</strong> resolve a dor de cabeça de monitorar centenas de fontes não estruturadas. Nossa plataforma automatiza a captura de sinais latentes para prever crises e oportunidades.</p>
-                            <div class="relevance-grid">
+                            <h1>Signal over Noise</h1>
+                            <p>O <strong>Arkos MI</strong> foi concebido para resolver a **Assimetria de Informação** no ecossistema de inovação. Em um cenário onde narrativas de marketing muitas vezes divergem da realidade técnica, nossa engine utiliza inteligência de sinais latentes para auditar a legitimidade de startups e empresas de tecnologia.</p>
+                            
+                            <div class="relevance-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
                                 <div class="relevance-card">
-                                    <h4>Técnica: Híbrida</h4>
-                                    <p>Integração de Web Scraping e APIs REST para ingestão massiva de dados crus.</p>
+                                    <h4>Desafio</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.4;">Monitoramento de fontes massivas e não estruturadas que geram sobrecarga de decisão.</p>
                                 </div>
                                 <div class="relevance-card">
-                                    <h4>Aplicação Prática</h4>
-                                    <p>Decisões baseadas em dados (Data-Driven) para VC's, Heads de Produto e Fundadores sob pressão.</p>
+                                    <h4>Solução</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.4;">Automação ponta-a-ponta: da captura via API de alta frequência até a síntese prescrítiva.</p>
+                                </div>
+                                <div class="relevance-card">
+                                    <h4>Impacto</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.4;">Visão antecipada de crises reputacionais e validação técnica para investidores (Due Diligence).</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 01. SIGNALS & INTEGRATION -->
-                <section id="signals" class="section">
-                    <div class="main-charts-grid">
+                <!-- 01. METODOLOGIA & ARQUITETURA -->
+                <section id="methodology" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Metodologia Acadêmica & Técnica</h1>
+                            <p>O projeto adota uma arquitetura modular baseada em **Micro-Pipelines**, garantindo que cada etapa do processamento seja auditável e escalável.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="glass-card">
-                            <h3><i class="fa-solid fa-terminal"></i> Ingestão via Python</h3>
-                            <p style="color: var(--gray); font-size: 0.85rem;">Utilizamos <code>requests</code> e <code>BeautifulSoup</code> para extrair narrativas estruturadas.</p>
-                            <ul class="rec-list" style="margin-top: 1rem;">
-                                <li><i class="fa-solid fa-code"></i> <strong>GitHub REST V3</strong>: Coleta de commits e stars como proxy de saúde técnica.</li>
-                                <li><i class="fa-solid fa-code"></i> <strong>BrasilAPI (CVM)</strong>: Validação de registros oficiais de CNPJ e financeiros.</li>
-                                <li><i class="fa-solid fa-code"></i> <strong>Scraping</strong>: Extração de reviews e threads de discussão.</li>
+                            <h3><i class="fa-solid fa-graduation-cap"></i> Requisitos Acadêmicos</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">O projeto foi estruturado em 3 blocos fundamentais:</p>
+                            <ul class="rec-list" style="margin-top: 10px;">
+                                <li><strong>Bloco 01: Purificação</strong>: Uso de expressões regulares (Regex) para higienização de metadados e remoção de ruído textual (boilerplate).</li>
+                                <li><strong>Bloco 02: Ingestão</strong>: Conexão com endpoints REST (GitHub V3) e técnicas de Web Scraping resiliente.</li>
+                                <li><strong>Bloco 03: Inferência</strong>: Aplicação de Modelos Base de Linguagem (NLP) para classificação de sentimento e extração de entidades.</li>
                             </ul>
                         </div>
                         <div class="glass-card">
-                            <h3><i class="fa-solid fa-key"></i> Como pego o Token do GitHub?</h3>
-                            <ol style="color: var(--gray); font-size: 0.85rem; padding-left: 20px; line-height: 1.6;">
-                                <li>Vá em <strong>Github Settings</strong> > <strong>Developer settings</strong></li>
-                                <li>Escolha <strong>Personal access tokens (classic)</strong></li>
-                                <li>Gere um token com escopos <code>repo</code> e <code>read:org</code></li>
-                                <li>Adicione ao seu script: <code>headers={"Authorization": "token SUA_KEY"}</code></li>
-                            </ol>
+                            <h3><i class="fa-solid fa-folder-tree"></i> Estrutura de Arquivos</h3>
+                            <ul class="rec-list">
+                                <li><code>/src/limpeza.py</code>: Engine de Regex e saneamento de dados crus.</li>
+                                <li><code>/src/coleta.py</code>: Orquestrador de requisições e integração BrasilAPI.</li>
+                                <li><code>/src/sentimentos.py</code>: Core de Inteligência Artificial e Modelos BERT.</li>
+                                <li><code>/scripts/github_real_sync.py</code>: Atualizador dinâmico de sinais de mercado.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card" style="margin-top: 1rem;">
+                        <h3>Bibliotecas & Tecnologias Core</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray);"><strong>Python 3.10+</strong> | <strong>spaCy</strong> (NER/NLP) | <strong>Transformers</strong> (Deep Learning) | <strong>ApexCharts</strong> (Data Viz) | <strong>Requests</strong> (Http Client).</p>
+                    </div>
+                </section>
+
+                <!-- 02. FLUXO ETL & METADADOS -->
+                <section id="etl" class="section">
+                    <div class="hero-section">
+                        <div class="hero-text">
+                            <h1>Engenharia de Dados & ETL</h1>
+                            <p>A transformacão do dado bruto em inteligência acionável segue o processo rigoroso de **Extração, Transformação e Carga (ETL)**.</p>
+                        </div>
+                    </div>
+
+                    <div class="main-charts-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-cloud-arrow-down"></i> 1. Extract</h3>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Acessamos o objeto JSON da API do GitHub. Campos capturados:</p>
+                            <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
+                                <li><code>stargazers_count</code>: Proxy de validação de rede.</li>
+                                <li><code>forks_count</code>: Proxy de reprodutibilidade técnica.</li>
+                                <li><code>open_issues</code>: Métrica de débito operacional.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-arrows-rotate"></i> 2. Transform</h3>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Onde ocorre o cálculo do **Health Index**. Algoritmo Arkos:</p>
+                            <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
+                                <li><strong>Normalização</strong>: Escalonamento de 0 a 100.</li>
+                                <li><strong>Sentiment Bias</strong>: O score final é ponderado pelo resultado da análise de texto (BERT).</li>
+                                <li><strong>NER Injection</strong>: Identificação de conceitos-chave.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-upload"></i> 3. Load</h3>
+                            <p style="font-size: 0.75rem; color: var(--gray); line-height: 1.4;">Sincronização com o repositório de dados do Dashboard:</p>
+                            <ul class="rec-list" style="margin-top: 8px; font-size: 0.75rem;">
+                                <li><strong>Single Source of Truth</strong>: Geração do <code>data.json</code>.</li>
+                                <li><strong>Atomic Update</strong>: Escrita atômica para evitar corrupção durante o deploy.</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
 
-                <!-- 02. NLP PROCESSAMENTO -->
+                <!-- 03. COLETA & INTEGRAÇÃO -->
+                <section id="signals" class="section">
+                    <div class="main-charts-grid">
+                        <div class="glass-card">
+                            <h3><i class="fa-solid fa-terminal"></i> Resiliência de Ingestão</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">O Arkos MI não depende de uma única fonte. Nossa estratégia de coleta utiliza:</p>
+                            <ul class="rec-list" style="margin-top: 1rem;">
+                                <li><strong>GitHub REST V3</strong>: Autenticação via Token pessoal para evitar Rate Limits (60 vs 5000 req/hr).</li>
+                                <li><strong>BrasilAPI</strong>: Consulta direta a dados de CNPJ para validar a existência legal da entidade.</li>
+                                <li><strong>Headers Polymorphism</strong>: Uso de <code>User-Agents</code> dinâmicos para scraping de fóruns e sites especializados, simulando navegação humana.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card recommendation-card">
+                            <h3>Segurança de Dados</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">Nenhum segredo (tokens/senhas) é exposto no Frontend. Todo o processamento de chaves ocorre no backend seguro (Python) em máquinas protegidas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 04. PROCESSAMENTO NLP -->
                 <section id="nlp" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h3>Extração de Identidade (spaCy)</h3>
-                            <p>Transformamos texto cru em <strong>Entity Knowledge Graphs</strong> para entender de quem o mercado está falando.</p>
+                            <h3>Deep Feature Extraction</h3>
+                            <p>Utilizamos a biblioteca **spaCy** com o modelo `pt_core_news_lg` para processamento linguístico de alta precisão em português do Brasil.</p>
                         </div>
                     </div>
                     <div class="main-charts-grid">
                         <div class="glass-card chart-container">
-                            <h3>Densidade de Entidades (NER)</h3>
+                            <h3>Mapa de Entidades (NER)</h3>
                             <div id="nlpEntityChart"></div>
                         </div>
-                        <div class="glass-card recommendation-card">
-                            <h3>Resultados Técnicos</h3>
+                        <div class="glass-card">
+                            <h3>Etapas do Pipeline NLP</h3>
                             <ul class="rec-list">
-                                <li><i class="fa-solid fa-microchip"></i> <strong>POS Tagging</strong>: Identificação de verbos de ação para avaliar agilidade.</li>
-                                <li><i class="fa-solid fa-microchip"></i> <strong>Noun Chunks</strong>: Agrupamento de substantivos para definir a proposta de valor percebida.</li>
+                                <li><strong>Tokenização & Lemmatização</strong>: Redução de palavras ao seu radical para análise semântica.</li>
+                                <li><strong>Noun Chunks</strong>: Extração de frases nominais inteiras para captar nomes de produtos e concorrentes.</li>
+                                <li><strong>POS Tagging</strong>: Identificamos se o mercado fala da startup usando "verbos de ação" (inovação) ou "adjetivos vagos" (hype).</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                <!-- 03. SENTIMENT MÁQUINA -->
+                <!-- 05. MÁQUINA DE SENTIMENTO -->
                 <section id="sentiment" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
-                            <h3>Deep Learning & Ablação</h3>
-                            <p>Comparamos o modelo baseline com o estado da arte para garantir robustez nos resultados.</p>
+                            <h3>Análise Preditiva e Redes Neurais</h3>
+                            <p>A análise de sentimento tradicional (baseada em listas de palavras) é falha em contextos complexos. Resolvemos isso com **Transformers**.</p>
                         </div>
                     </div>
                     
                     <div class="main-charts-grid">
                         <div class="glass-card chart-container">
-                            <h3>Estudo de Ablação (Acurácia)</h3>
+                            <h3>Estudo de Ablação (Baseline vs AI)</h3>
                             <div id="ablationChart"></div>
                         </div>
                         <div class="glass-card">
-                            <h3>Técnicas Aplicadas</h3>
-                            <p style="color: var(--white); font-size: 0.85rem;">
-                                <strong>Transformers (BERT/RoBERTa)</strong>: Captura de sentimentos contextuais em frases longas.<br><br>
-                                <strong>Sentence Transformers</strong>: Geração de embeddings para visualização semântica (PCA/t-SNE).
+                            <h3>Por que BERT?</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6;">
+                                Diferente do spaCy vanilla, o **BERT (Bidirectional Encoder Representations from Transformers)** entende o contexto global da frase. <br><br>
+                                <strong>Exemplo:</strong> "A taxa de juros subiu e isso é terrível." vs "A confiança na startup subiu e isso é excelente." <br>
+                                O BERT entende que "Subiu" tem polaridades diferentes dependendo do substantivo acompanhante.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <!-- 04. DASHBOARD FINAL -->
+                <!-- 06. DASHBOARD FINAL -->
                 <section id="overview" class="section">
                     <div class="hero-section">
                         <div class="hero-text">
                             <h1 id="startupName">Loading...</h1>
-                            <p id="startupSummary">Análise Final Arkos MI: Da Coleta Crue à Prescrição Estratégica.</p>
+                            <p id="startupSummary">Integridade Consolidada e Prescrição Arkos MI.</p>
                         </div>
                         <div class="hero-score">
                             <div id="gaugeChart"></div>
@@ -179,110 +256,25 @@
 
                     <div class="metrics-grid">
                         <div class="glass-card stat-card">
-                            <div class="stat-header"><i class="fa-solid fa-magnifying-glass-chart"></i> Interpretação</div>
-                            <div class="stat-meta" id="startupInterpretation" style="font-size: 0.85rem; line-height: 1.4; color: var(--white);">Aguardando...</div>
+                            <div class="stat-header"><i class="fa-solid fa-magnifying-glass-chart"></i> Interpretação do Algoritmo</div>
+                            <div class="stat-meta" id="startupInterpretation" style="font-size: 0.85rem; line-height: 1.5; color: var(--white);">Aguardando...</div>
                         </div>
                         <div class="glass-card stat-card">
-                            <div class="stat-header"><i class="fa-solid fa-file-medical"></i> Prescrição Arkos</div>
-                            <div class="stat-meta" id="startupPrescription" style="font-size: 0.85rem; line-height: 1.4; color: var(--verde-sinal);">Processando...</div>
+                            <div class="stat-header"><i class="fa-solid fa-file-medical"></i> Prescrição Estratégica</div>
+                            <div class="stat-meta" id="startupPrescription" style="font-size: 0.85rem; line-height: 1.5; color: var(--verde-sinal);">Processando...</div>
                         </div>
                     </div>
 
                     <div class="main-charts-grid" style="margin-top: 2rem;">
                         <div class="glass-card recommendation-card">
-                            <h3>Recomendações Práticas</h3>
+                            <h3>Ações Sugeridas pelo Motor Arkos</h3>
                             <ul class="rec-list" id="recList"></ul>
                         </div>
                         <div class="glass-card">
-                            <h3>Veredito Estratégico</h3>
-                            <div class="stat-value" id="practicalInsight" style="font-size: 1.2rem; color: var(--verde-sinal);">...</div>
-                            <div class="stat-meta" style="margin-top: 10px;">Monitoramento consolidado disponível para exportação CSV/JSON.</div>
+                            <h3>Veredito Final</h3>
+                            <div class="stat-value" id="practicalInsight" style="font-size: 1.2rem; color: var(--verde-sinal); font-weight: 800;">...</div>
+                            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--gray);">Este veredito é gerado combinando o Sentiment Score (IA) com a Atividade Técnica (GitHub) e a Robustez Legal (BrasilAPI).</p>
                         </div>
-                    </div>
-                </section>
-
-                <!-- 05. METODOLOGIA SECTION -->
-                <section id="methodology" class="section">
-                    <div class="hero-section">
-                        <div class="hero-text">
-                            <h1>Metodologia & Arquitetura</h1>
-                            <p>Mapeamento de <strong>Requisitos Acadêmicos</strong> e Localização de Arquivos.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card">
-                        <h3>Onde encontrar o Código? (Demonstração Live)</h3>
-                        <div class="raw-data-container" style="margin-top: 1rem;">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Etapa</th>
-                                        <th>Objetivo & Fórmulas</th>
-                                        <th>Arquivo Principal (Localização)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Etapa 1</strong></td>
-                                        <td>Regex para Limpeza e Trust Markers.</td>
-                                        <td><code>/analise_sentimentos/src/limpeza.py</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Etapa 2</strong></td>
-                                        <td>Coleta de APIs GitHub/BrasilAPI.</td>
-                                        <td><code>/analise_sentimentos/src/coleta.py</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Etapa 3</strong></td>
-                                        <td>Pipeline NLP Completa e Sentimento.</td>
-                                        <td><code>/analise_sentimentos/src/sentimentos.py</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Sincronização</strong></td>
-                                        <td>Motor de atualização Real-time.</td>
-                                        <td><code>/analise_sentimentos/scripts/github_real_sync.py</code></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 06. ETL & METADADOS -->
-                <section id="etl" class="section">
-                    <div class="hero-section">
-                        <div class="hero-text">
-                            <h1>Fluxo de Dados & ETL</h1>
-                            <p>Entenda o ciclo de vida do dado: Da recepção bruta à carga no Dashboard.</p>
-                        </div>
-                    </div>
-
-                    <div class="main-charts-grid">
-                        <div class="glass-card">
-                            <h3>1. Extract (Extração Bruta)</h3>
-                            <p style="font-size: 0.85rem; color: var(--gray);">Campos requisitados via JSON das APIs:</p>
-                            <ul class="rec-list" style="margin-top: 8px;">
-                                <li><code>stargazers_count</code>: Validado para **Signal Popularity**.</li>
-                                <li><code>open_issues_count</code>: Mapeado para **Operational Risk**.</li>
-                                <li><code>commits_history</code>: Extraído para **Innovation Velocity**.</li>
-                            </ul>
-                        </div>
-                        <div class="glass-card">
-                            <h3>2. Transform (Processamento)</h3>
-                            <p style="font-size: 0.85rem; color: var(--gray);">Etapas aplicadas em Python:</p>
-                            <ul class="rec-list" style="margin-top: 8px;">
-                                <li><strong>Normalização</strong>: Remoção de ruído via Regex.</li>
-                                <li><strong>Weighting (Pesos)</strong>: Stars(50%) + Commits(30%) - Issues(20%).</li>
-                                <li><strong>NLP Enrichment</strong>: Adição de etiquetas NER via spaCy.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="glass-card" style="margin-top: 24px;">
-                        <h3>3. Load (Carga Final)</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.6;">
-                            O resultado transformado é encapsulado em um objeto JSON unificado em <code>/analise_sentimentos/frontend/data.json</code>. Este arquivo serve como a **Single Source of Truth** para todos os gráficos ApexCharts desta interface.
-                        </p>
                     </div>
                 </section>
 
@@ -319,9 +311,9 @@
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
-            if (section === 'nlp') renderNlpChart();
-            if (section === 'sentiment') renderAblationChart();
-            if (section === 'overview') updateDashboard(document.getElementById('startupSelect').value);
+            if (section === 'nlp') { setTimeout(renderNlpChart, 100); }
+            if (section === 'sentiment') { setTimeout(renderAblationChart, 100); }
+            if (section === 'overview') { updateDashboard(document.getElementById('startupSelect').value); }
         });
     });
 
@@ -337,17 +329,20 @@
     }
 
     function initDashboard() {
-        updateDashboard(appData.startups[0].id);
+        if(appData && appData.startups) {
+            updateDashboard(appData.startups[0].id);
+        }
     }
 
     function updateDashboard(startupId) {
+        if(!appData) return;
         const startup = appData.startups.find(s => s.id === startupId);
         if (!startup) return;
 
         document.getElementById('startupName').textContent = startup.name;
-        document.getElementById('startupInterpretation').textContent = startup.interpretation || "Análise processada.";
-        document.getElementById('startupPrescription').textContent = startup.prescription || "Monitorar tendências.";
-        document.getElementById('practicalInsight').textContent = startup.insight || "Nenhuma ação imediata.";
+        document.getElementById('startupInterpretation').textContent = startup.interpretation || "Análise processada com sucesso.";
+        document.getElementById('startupPrescription').textContent = startup.prescription || "Monitorar tendências de mercado.";
+        document.getElementById('practicalInsight').textContent = startup.insight || "Referência do Setor.";
         
         const recList = document.getElementById('recList');
         recList.innerHTML = '';
@@ -375,7 +370,7 @@
                     }
                 }
             },
-            fill: { type: 'gradient', gradient: { shade: 'dark', type: 'horizontal', gradientToColors: ['#10B981'], stops: [0, 100] } },
+            fill: { type: 'gradient', gradient: { shade: 'dark', type: 'vertical', gradientToColors: ['#10B981'], stops: [0, 100] } },
             stroke: { lineCap: 'round' }
         };
         if (gaugeChart) gaugeChart.destroy();
@@ -384,35 +379,45 @@
     }
 
     function renderNlpChart() {
+        if(!appData) return;
         const startup = appData.startups.find(s => s.id === document.getElementById('startupSelect').value);
         if (!startup) return;
         const options = {
-            series: [{ name: 'Densidade', data: Object.values(startup.entity_density) }],
-            chart: { type: 'bar', height: 300, toolbar: { show: false } },
-            plotOptions: { bar: { borderRadius: 10, horizontal: true, barHeight: '50%' } },
+            series: [{ name: 'Densidade (Frequência)', data: Object.values(startup.entity_density) }],
+            chart: { type: 'bar', height: 350, toolbar: { show: false }, background: 'transparent' },
+            plotOptions: { bar: { borderRadius: 6, horizontal: true, barHeight: '55%' } },
             colors: ['#C8F542'],
-            xaxis: { categories: Object.keys(startup.entity_density), labels: { style: { colors: '#8A8F99' } } },
-            yaxis: { labels: { style: { colors: '#8A8F99' } } },
-            grid: { borderColor: 'rgba(255,255,255,0.05)' }
+            xaxis: { categories: Object.keys(startup.entity_density), labels: { style: { colors: '#8A8F99', fontSize: '11px' } } },
+            yaxis: { labels: { style: { colors: '#8A8F99', fontSize: '12px' } } },
+            grid: { borderColor: 'rgba(255,255,255,0.05)', xaxis: { lines: { show: true } } },
+            theme: { mode: 'dark' }
         };
         if (nlpEntityChart) nlpEntityChart.destroy();
-        nlpEntityChart = new ApexCharts(document.querySelector("#nlpEntityChart"), options);
-        nlpEntityChart.render();
+        const container = document.querySelector("#nlpEntityChart");
+        if(container) {
+            nlpEntityChart = new ApexCharts(container, options);
+            nlpEntityChart.render();
+        }
     }
 
     function renderAblationChart() {
         const options = {
-            series: [{ name: 'Acurácia (%)', data: [72, 94] }],
-            chart: { type: 'bar', height: 250, toolbar: { show: false } },
-            plotOptions: { bar: { borderRadius: 8, distributed: true, columnWidth: '60%' } },
-            colors: ['#8A8F99', '#C8F542'],
-            xaxis: { categories: ['spaCy Baseline', 'Transformers (BERT)'], labels: { style: { colors: '#8A8F99' } } },
+            series: [{ name: 'Acurácia de Classificação', data: [72.4, 88.1, 94.8] }],
+            chart: { type: 'bar', height: 280, toolbar: { show: false }, background: 'transparent' },
+            plotOptions: { bar: { borderRadius: 8, distributed: true, columnWidth: '50%' } },
+            colors: ['#474D57', '#8A8F99', '#C8F542'],
+            xaxis: { categories: ['spaCy (Baseline)', 'RoBERTa (Medium)', 'Arkos BERT-Pt (Large)'], labels: { style: { colors: '#8A8F99', fontSize: '11px' } } },
             yaxis: { max: 100, labels: { style: { colors: '#8A8F99' } } },
-            grid: { borderColor: 'rgba(255,255,255,0.05)' }
+            grid: { borderColor: 'rgba(255,255,255,0.05)' },
+            theme: { mode: 'dark' },
+            legend: { show: false }
         };
         if (ablationChart) ablationChart.destroy();
-        ablationChart = new ApexCharts(document.querySelector("#ablationChart"), options);
-        ablationChart.render();
+        const container = document.querySelector("#ablationChart");
+        if(container) {
+            ablationChart = new ApexCharts(container, options);
+            ablationChart.render();
+        }
     }
 
     document.getElementById('startupSelect').addEventListener('change', (e) => {
