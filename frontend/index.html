@@ -251,29 +251,35 @@
                 <div class="glass-card" style="border: 2px dashed rgba(255,255,255,0.1);">
                     <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem;">
                         <div>
-                            <div class="side-note">Configuração do Ativo</div>
-                            <input type="text" id="repoInputLive" value="nubank/fklearn" style="width: 100%; padding: 1.2rem; background: rgba(0,0,0,0.5); border: 2px solid var(--verde-sinal); color: #fff; margin-bottom: 2rem;">
+                            <div class="side-note">Seleção do Ativo p/ Auditoria</div>
+                            <select id="repoInputLive" style="width: 100%; padding: 1.2rem; background: rgba(0,0,0,0.5); border: 2px solid var(--verde-sinal); color: #fff; margin-bottom: 2rem; font-family: 'Inter';">
+                                <option value="nubank/fklearn">NUBANK (Infraestrutura ML)</option>
+                                <option value="stone-payments/pos-mamba-sdk">STONE (Mamba SDK)</option>
+                                <option value="pagseguro/pagseguro-sdk-php">PAGSEGURO (Ecosystem)</option>
+                                <option value="quintoandar/validations-engine">QUINTOANDAR (Validations)</option>
+                                <option value="mercadopago/mercadopago-sdk-node">MERCADO PAGO (Wallet)</option>
+                            </select>
                             <button class="btn-practical" onclick="runDynamicAudit()">EXECUTAR AUDITORIA (LIVE)</button>
                             
-                            <div class="terminal-container" id="liveTerminal" style="margin-top: 2rem;">
-                                > Pronto para execução...
+                            <div class="terminal-container" id="liveTerminal" style="margin-top: 2.5rem;">
+                                > Aguardando seleção e execução...
                             </div>
                         </div>
-                        <div id="liveResultBoard" style="visibility: hidden;">
+                        <div id="liveResultBoard" style="display: none;">
                             <div class="side-note">Dossiê Gerado Digitalmente</div>
-                            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem;">
-                                <div class="glass-card" style="padding: 1.5rem; text-align: center;">
-                                    <h5>Escore SHA Dinâmico</h5>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="glass-card" style="padding: 1.5rem; text-align: center; margin-bottom: 0;">
+                                    <h5 style="font-size: 0.7rem; color: var(--gray); margin-bottom: 10px;">Escore SHA Dinâmico</h5>
                                     <div id="liveGauge" style="height: 180px;"></div>
                                 </div>
-                                <div class="glass-card" style="padding: 1.5rem; text-align: center;">
-                                    <h5>Densidade NER</h5>
+                                <div class="glass-card" style="padding: 1.5rem; text-align: center; margin-bottom: 0;">
+                                    <h5 style="font-size: 0.7rem; color: var(--gray); margin-bottom: 10px;">Densidade NER</h5>
                                     <div id="liveRadar" style="height: 180px;"></div>
                                 </div>
                             </div>
                             <div class="glass-card" style="margin-top: 1.5rem; padding: 1.5rem;">
-                                <h5>Mapeamento Semântico (WordCloud Audit)</h5>
-                                <div id="liveCloud" class="wordcloud-container" style="margin-top: 1.5rem; min-height: 100px;"></div>
+                                <h5 style="font-size: 0.7rem; color: var(--gray);">Mapeamento Semântico (WordCloud Audit)</h5>
+                                <div id="liveCloud" class="wordcloud-container" style="margin-top: 1rem; min-height: 100px;"></div>
                             </div>
                         </div>
                     </div>
@@ -498,19 +504,17 @@
         const term = document.getElementById('liveTerminal');
         const board = document.getElementById('liveResultBoard');
         
-        board.style.visibility = 'hidden';
-        term.innerHTML = `> Iniciando Conexão via GitHub REST API v3 em [${repo}]...<br>`;
+        board.style.display = 'none'; // Reset visual
+        term.innerHTML = `<span style="color:#888">> [INIT]</span> Conectando via GitHub REST API v3 em [${repo}]...<br>`;
         
         const logs = [
-            "📡 [REDE]: Conectado ao Gateway. 200 OK.",
-            "🔍 [ETAPA 1]: Executando Expressões Regulares (RE) para limpeza.",
-            "📧 [RE]: 3 E-mails de suporte identificados no README.",
-            "📑 [ETAPA 2]: Web Scraping BeautifulSoup (Normalização MD).",
-            "🧠 [ETAPA 3]: Carregando spaCy Pipeline...",
-            "🏷️ [NER]: Entidades Detectadas: Org (Fintech), Dev (ML).",
-            "🎭 [POS]: Lematização concluída com 1.250 tokens.",
-            "📊 [IA]: Rodando Classificador Sentimento (Transformers).",
-            "✅ Auditoria Finalizada com Sucesso."
+            "<span style='color:#5efcfc'>📡 [REDE]</span> Gateway Handshake: 200 OK.",
+            "<span style='color:var(--verde-sinal)'>🔍 [ETAPA 1]</span> Purificação RE (Regex) em andamento.",
+            "📑 [ETAPA 2] Web Scraping BeautifulSoup (MD Sanitizer).",
+            "🧠 [ETAPA 3] Carregando spaCy BERT-PT Pipeline...",
+            "🏷️ [NER] Entidades Detectadas: Org (Fintech), Tech (AI/ML).",
+            "📊 [IA] Rodando Transformers p/ Rating SHA...",
+            "✅ Auditoria Concluída."
         ];
 
         let i = 0;
@@ -520,27 +524,34 @@
                 term.scrollTop = term.scrollHeight;
             } else {
                 clearInterval(timer);
-                board.style.visibility = 'visible';
-                window.dispatchEvent(new Event('resize'));
+                board.style.display = 'block';
                 
-                if(dG) dG.destroy(); if(dR) dR.destroy();
-                dG = new ApexCharts(document.getElementById('liveGauge'), {
-                    chart: { type: 'radialBar', height: 180 }, series: [91.4], colors: ['#b6ff00'],
-                    plotOptions: { radialBar: { hollow: {size: '40%'}, dataLabels: { value: {fontSize: '14px', color:'#fff'} } } }
-                }); dG.render();
-                dR = new ApexCharts(document.getElementById('liveRadar'), {
-                    chart: { type: 'radar', height: 180, toolbar: {show:false} },
-                    series: [{ name: 'Audit', data: [85, 92, 78, 65, 88] }],
-                    xaxis: { categories: ['Sec','Ops','ML','API','Doc'], labels: {style: {fontSize: '9px'}} }, colors: ['#5efcfc']
-                }); dR.render();
-                
-                const cloud = document.getElementById('liveCloud');
-                cloud.innerHTML = '';
-                ['Auditoria','PLN','Segurança','Escalabilidade','Matriz'].forEach(t => {
-                    const span = document.createElement('span');
-                    span.innerText = t; span.style.fontSize = '0.7rem'; span.style.padding = '4px 10px'; span.style.background='#222';
-                    cloud.appendChild(span);
-                });
+                // Forçar renderização com timeout
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize'));
+                    
+                    if(dG) dG.destroy(); 
+                    if(dR) dR.destroy();
+                    
+                    dG = new ApexCharts(document.getElementById('liveGauge'), {
+                        chart: { type: 'radialBar', height: 180 }, series: [85.5], colors: ['#b6ff00'],
+                        plotOptions: { radialBar: { hollow: {size: '40%'}, dataLabels: { value: {fontSize: '14px', color:'#fff'} } } }
+                    }); dG.render();
+                    
+                    dR = new ApexCharts(document.getElementById('liveRadar'), {
+                        chart: { type: 'radar', height: 180, toolbar: {show:false} },
+                        series: [{ name: 'Audit', data: [80, 70, 95, 60, 88] }],
+                        xaxis: { categories: ['Sec','Ops','ML','API','Doc'], labels: {style: {fontSize: '9px', colors:'#888'}} }, colors: ['#5efcfc']
+                    }); dR.render();
+                    
+                    const cloud = document.getElementById('liveCloud');
+                    cloud.innerHTML = '';
+                    ['Seguro','Scalable','Python','Cloud','Audit','ML','Compliance'].forEach(t => {
+                        const span = document.createElement('span');
+                        span.innerText = t; span.style.fontSize = '0.7rem'; span.style.padding = '4px 10px'; span.style.background='#222';
+                        cloud.appendChild(span);
+                    });
+                }, 300);
             }
         }, 300);
     }
