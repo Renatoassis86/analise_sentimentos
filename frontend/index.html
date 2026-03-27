@@ -22,23 +22,23 @@
             <li class="menu-item active" data-section="intro">
                 <i class="fa-solid fa-play"></i> 00. Apresentação
             </li>
-            <li class="menu-item" data-section="signals">
-                <i class="fa-solid fa-satellite-dish"></i> 01. Coleta & Integração
-            </li>
-            <li class="menu-item" data-section="nlp">
-                <i class="fa-solid fa-brain"></i> 02. Processamento NLP
-            </li>
-            <li class="menu-item" data-section="sentiment">
-                <i class="fa-solid fa-heart-circle-check"></i> 03. Máquina de Sentimento
-            </li>
-            <li class="menu-item" data-section="overview">
-                <i class="fa-solid fa-gauge-high"></i> 04. Dashboard Final
-            </li>
             <li class="menu-item" data-section="methodology">
-                <i class="fa-solid fa-layer-group"></i> 05. Metodologia & Arquitetura
+                <i class="fa-solid fa-layer-group"></i> 01. Metodologia & Arquitetura
             </li>
             <li class="menu-item" data-section="etl">
-                <i class="fa-solid fa-database"></i> 06. Metadados & ETL
+                <i class="fa-solid fa-database"></i> 02. Fluxo ETL & Metadados
+            </li>
+            <li class="menu-item" data-section="signals">
+                <i class="fa-solid fa-satellite-dish"></i> 03. Coleta & Integração
+            </li>
+            <li class="menu-item" data-section="nlp">
+                <i class="fa-solid fa-brain"></i> 04. Processamento NLP
+            </li>
+            <li class="menu-item" data-section="sentiment">
+                <i class="fa-solid fa-heart-circle-check"></i> 05. Máquina de Sentimento
+            </li>
+            <li class="menu-item" data-section="overview">
+                <i class="fa-solid fa-gauge-high"></i> 06. Dashboard Final
             </li>
         </ul>
 
@@ -310,12 +310,12 @@
             
             const labels = {
                 'intro': 'Apresentação do Projeto',
-                'signals': 'Coleta & Técnicas de Ingestão',
+                'methodology': 'Metodologia & Localização de Arquivos',
+                'etl': 'Fluxo ETL & Pipeline de Dados',
+                'signals': 'Coleta de Sinais & Integração APIs',
                 'nlp': 'Resultados NLP: Identidade de Marca',
                 'sentiment': 'Ablação & Modelagem Preditiva',
-                'overview': 'Monitor de Integridade de Negócio',
-                'methodology': 'Transparência Técnica & Metodologia',
-                'etl': 'Fluxo de Dados & Pipeline ETL'
+                'overview': 'Dashboard Final: Integridade de Negócio'
             };
             document.getElementById('sectionTitle').textContent = labels[section];
             
