@@ -1,10 +1,10 @@
-# 🚀 Arquitetura de Inteligência Neural para Auditoria de Narrativas e Análise de Sentimentos em Ecossistemas de Inovação: O Caso Arkos MI
+# 🚀 Arquitetura de Inteligência Neural para Auditoria de Narrativas e Análise de Sentimentos em Ecossistemas de Inovação: O Caso Neural Marketing Intelligence
 ## Documento Completo para Apresentação Técnica e Acadêmica
 
 ---
 
 ### 1. TÍTULO DO PROJETO
-**Arkos MI: Neural Marketing Intelligence para Startups**
+**Neural Marketing Intelligence: Neural Marketing Intelligence para Startups**
 *Codinome Técnico: Startup Signal Intelligence — Análise de Linguagem Natural sobre Repositórios GitHub e Ecossistema de Inovação.*
 
 ---
@@ -19,7 +19,7 @@ O mercado de startups e inovação é caracterizado por uma profunda **Assimetri
 
 *   **Saturação de Buzzwords:** O uso excessivo de termos como "IA", "Escalabilidade" e "Disrupção" dificulta a distinção entre empresas com tecnologia sólida e aquelas baseadas apenas em hype.
 *   **Velocidade de Crises:** Em empresas de tecnologia, crises reputacionais ou falhas críticas (bugs) manifestam-se primeiro em repositórios (GitHub) ou redes sociais (X/Twitter). Métodos tradicionais de auditoria são lentos demais para capturar esses sinais.
-*   **A Abordagem "Signal over Noise":** O Arkos MI justifica-se como uma ferramenta de **Due Diligence Automatizada**. Ao analisar o "ruído" (comentários em issues, descrições de repositórios, tweets), a engine identifica o "sinal" (frequência de correção de bugs, sentimento da comunidade, diversidade de entidades técnicas mencionadas). Isso reduz o risco para investidores e melhora a transparência do ecossistema.
+*   **A Abordagem "Signal over Noise":** O Neural Marketing Intelligence justifica-se como uma ferramenta de **Due Diligence Automatizada**. Ao analisar o "ruído" (comentários em issues, descrições de repositórios, tweets), a engine identifica o "sinal" (frequência de correção de bugs, sentimento da comunidade, diversidade de entidades técnicas mencionadas). Isso reduz o risco para investidores e melhora a transparência do ecossistema.
 *   **Fundamentação Teórica:** O projeto baseia-se em estudos como *Jin et al. (2017)* sobre análise de sentimentos em redes sociais e *Qiu et al. (2025)* sobre o uso de Transformers para classificar textos técnicos.
 
 ---
@@ -77,7 +77,7 @@ Todas as fases planejadas foram executadas e verificadas no sistema final:
 ---
 
 ### 8. O QUE SE ESPERA DO PROJETO (RESULTADOS E IMPACTO)
-*   **Redução da Incerteza:** Espera-se que o Arkos MI reduza o tempo de análise preliminar de startups em até 80%, focando nos pontos críticos detectados pelo PLN.
+*   **Redução da Incerteza:** Espera-se que o Neural Marketing Intelligence reduza o tempo de análise preliminar de startups em até 80%, focando nos pontos críticos detectados pelo PLN.
 *   **Detecção de Alertas Precoces:** O sistema deve alertar investidores sobre "Derretimento de Sentimento" em repositórios muito antes de uma crise se tornar pública na mídia tradicional.
 *   **Validação de Competência:** Ao analisar os *Noun Chunks* técnicos, o projeto entrega uma prova de competência tecnológica, verificando se a startup realmente domina as ferramentas que afirma utilizar.
 *   **Startup Health Index (SHI):** A entrega final é um score integrado que serve como um "Termômetro de Legitimidade", consolidando sinais técnicos, governamentais e de mercado em uma única métrica acionável.
