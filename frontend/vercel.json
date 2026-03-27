@@ -1,7 +1,8 @@
 {
   "version": 2,
   "public": true,
+  "name": "arkos-mi-dashboard",
   "cleanUrls": true,
-  "buildCommand": null,
+  "buildCommand": "npm run build",
   "outputDirectory": "."
 }
