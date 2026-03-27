@@ -1,4 +1,4 @@
-# 📄 Auditoria Algorítmica de Sinais Latentes em Repositórios GitHub: Uma Metodologia Neuro-Estatística para Validação de Narrativas Técnicas em Ecossistemas de Inovação
+# 📄 Auditoria Algorítmica de Sinais Latentes em Fintechs: Uma Metodologia Neuro-Estatística para Validação de Narrativas Técnicas via Repositórios GitHub no Setor Financeiro
 
 ---
 
