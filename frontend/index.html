@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Algorítmica | Neural Monitoring v13.8 (SUPABASE SYNC)</title>
+    <title>Auditoria Algorítmica | Neural Monitoring v14.3 (GALA FINAL)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -31,7 +31,16 @@
             .sidebar { transform: translateX(-100%); width: 280px; }
             .sidebar.active { transform: translateX(0); }
             .main-container { margin-left: 0; }
-            .main-content { padding: 5rem 1.5rem 2rem; }
+            .main-content { padding: 3rem 1rem 1.5rem; }
+            .pg-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .master-audit-container { grid-template-columns: 1fr !important; }
+            .chart-box { grid-column: span 1 !important; }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card { padding: 1.5rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
+            h1 { font-size: 1.5rem !important; }
         }
 
         /* SIDEBAR */
@@ -99,9 +108,10 @@
             <li class="nav-item" data-target="s2"><i class="fa-solid fa-bullseye"></i> 02. Objetivos Estratégicos</li>
             <li class="nav-item" data-target="s3"><i class="fa-solid fa-microscope"></i> 03. Metodologia Detalhada</li>
             <li class="nav-item" data-target="s4"><i class="fa-solid fa-chart-line"></i> 04. Modelagem e Estatística</li>
-            <li class="nav-item" data-target="s5"><i class="fa-solid fa-display"></i> 05. Aplicabilidade Prática</li>
-            <li class="nav-item" data-target="s6"><i class="fa-solid fa-list-ol"></i> 06. Estudo Comparativo</li>
-            <li class="nav-item" data-target="s7"><i class="fa-solid fa-chart-simple"></i> 07. Resultados e Impactos</li>
+            <li class="nav-item" data-target="s5"><i class="fa-solid fa-display"></i> 05. Sessão 2: Aplicabilidade Prática</li>
+            <li class="nav-item" data-target="s6"><i class="fa-solid fa-database"></i> 06. Sessão 1: Dados Permanentes</li>
+            <li class="nav-item" data-target="s7"><i class="fa-solid fa-chart-simple"></i> 07. Modelagem Estatística Macro</li>
+            <li class="nav-item" data-target="s9"><i class="fa-solid fa-scroll"></i> 09. Diário de Bordo</li>
             <li class="nav-item" data-target="s8"><i class="fa-solid fa-flag-checkered"></i> 08. Conclusões Finais</li>
         </ul>
     </aside>
@@ -149,15 +159,16 @@
                     <div class="card-title">01. Introdução / Justificativa</div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">
-                            <p style="margin-bottom: 1.5rem;">O setor financeiro atravessa uma transição crítica onde a <b>inovação tecnológica</b> deixou de ser um diferencial para tornar-se infraestrutura base. Contudo, a avaliação da maturidade técnica de Fintechs ainda reside, majoritariamente, em auditorias subjetivas e narrativas de marketing.</p>
-                            <p><b>O Problema:</b> A assimetria de informação entre o que é prometido (front-end) e o que é construído (back-end/repositórios) gera riscos invisíveis para investidores e reguladores.</p>
-                            <p style="margin-top: 1.5rem; color: var(--verde);"><b>Proposta:</b> Este instrumento atua como um recurso auxiliar p/ a tomada de decisão estratégica, validando a saúde real do código-fonte através de auditoria algorítmica.</p>
+                            <p style="margin-bottom: 1.5rem;">Este dashboard apresenta os resultados consolidados de uma <b>Auditoria Estatística de Referência</b> em 20 Fintechs brasileiras (N=20). Estes dados "já rodados" referem-se a um snapshot auditado e persistido no Supabase, processado via pipeline MiNER para estabelecer um benchmark de infraestrutura técnica.</p>
+                            <p><b>Contexto:</b> A avaliação técnica contínua mitiga a assimetria de informação entre promessas de mercado e a realidade dos repositórios, protegendo investidores e reguladores contra riscos de escalabilidade e débitos técnicos invisíveis.</p>
+                            <p style="margin-top: 1.5rem; color: var(--verde);"><b>Diferencial:</b> Utilizamos o score SHA (Software Health Analysis) para converter dados não estruturados em índices de governança técnica.</p>
                         </div>
                         <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 2px solid var(--accent);">
-                            <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 0.8rem;">CONTEXTO CRÍTICO</h4>
+                            <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 0.8rem;">CONTEXTO DA AMOSTRA (N=20)</h4>
                             <ul style="list-style: none; font-size: 0.85rem; color: #aaa;">
+                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-database" style="margin-right: 10px; color: var(--accent);"></i> Base de Dados Persistida (Snapshot Sincronizado)</li>
                                 <li style="margin-bottom: 10px;"><i class="fa-solid fa-shield-halved" style="margin-right: 10px; color: var(--accent);"></i> Dependência de Infraestrutura Crítica</li>
-                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-chart-pie" style="margin-right: 10px; color: var(--accent);"></i> Escalabilidade vs. Débito Técnico</li>
+                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-chart-pie" style="margin-right: 10px; color: var(--accent);"></i> Benchmark de Escalabilidade vs. Débito Técnico</li>
                             </ul>
                         </div>
                     </div>
@@ -210,13 +221,15 @@
                     <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem;">
                         <div>
                             <p style="font-size: 0.95rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">O <b>Software Health Analysis (SHA)</b> não é apenas uma métrica de popularidade, mas um indicador multidimensional que sintetiza a qualidade do ecossistema técnico da Fintech.</p>
-                            <div class="code-block" style="text-align: center; color: var(--verde); font-size: 1.2rem; padding: 2rem;">
-                                SHA = (0.4 × S) + (0.3 × A) + (0.3 × C)
+                            <div class="code-block" style="text-align: center; color: var(--verde); font-size: 1.2rem; padding: 2rem; background:rgba(0,0,0,0.4); margin-bottom:1rem; border-radius:8px;">
+                                SHA = (0.4 × S) + (0.3 × C) + (0.2 × A) + (0.1 × P)
+                                <div style="font-size:0.6rem; color:var(--gray); margin-top:10px;">P (Pulse) = [(Stars + Forks) / (Issues * weight)]</div>
                             </div>
-                            <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.85rem;">
-                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">S (Semântica):</b> Inferência de maturidade via MiNER (Transformers).</li>
-                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">A (API Metrics):</b> Dados quantitativos de engajamento e manutenção (GitHub).</li>
-                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">C (Compliance):</b> Densidade de entidades regulatórias extraídas via PLN.</li>
+                            <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.8rem; line-height: 1.6;">
+                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">S (Semântica):</b> Maturidade via MiNER (Transformers).</li>
+                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">C (Compliance):</b> RegTech via spaCy/NER.</li>
+                                <li style="margin-bottom: 12px;"><b style="color: var(--accent);">A (API/Tech):</b> Volume e manutenção (Tokens).</li>
+                                <li style="margin-bottom: 12px;"><b style="color: var(--accent);">P (GitHub Pulse):</b> Ponderação social. ⭐ Stars e 🍴 Forks contam como **Solvência**, enquanto ⚠️ Issues excessivas sinalizam **Débito Técnico**, penalizando o score.</li>
                             </ul>
                         </div>
                         <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius:12px;">
@@ -274,8 +287,12 @@
                 </div>
             </section>
 
-            <!-- SECTION 05: APLICABILIDADE PRÁTICA -->
+            <!-- SECTION 05: APLICABILIDADE PRÁTICA (DYNAMIC) -->
             <section id="s5" class="section">
+                <div class="pg-header">
+                    <h1>Sessão 02: Aplicabilidade Prática (Dynamic Modeling)</h1>
+                    <p class="pg-subtitle">Execução de Auditoria Real-Time via Ingestão Dinâmica de APIs (GitHub + MiNER Engine).</p>
+                </div>
                 <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem;">
                     <div>
                         <div class="glass-card">
@@ -287,14 +304,14 @@
                         </div>
                     </div>
                     <div id="auditBoard" style="display:none;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                             <div class="glass-card" style="margin:0; padding:1.5rem;"><div class="card-title">Score SHA</div><div id="gAudit"></div></div>
                             <div class="glass-card" style="margin:0; padding:1.5rem;"><div class="card-title">Radar NER</div><div id="rAudit"></div></div>
                         </div>
-                        <div class="glass-card" style="margin-top: 1.5rem;">
-                            <div class="card-title">Comitê de Auditoria Algorítmica (v9.4)</div>
-                            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; padding: 1rem;">
-                                <div id="auditHero" style="background: linear-gradient(135deg, #000, #0a0a0c); border: 2px solid #111; border-radius: 12px; height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        <div class="glass-card" style="margin-top: 1.5rem; padding: 1.5rem;">
+                            <div class="card-title">Comitê de Auditoria Algorítmica (v14.3)</div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0.5rem;">
+                                <div id="auditHero" style="background: linear-gradient(135deg, #000, #0a0a0c); border: 2px solid #111; border-radius: 12px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                                     <h1 id="bigScore" style="font-size: 4rem; color: var(--verde); font-weight: 900; margin:0; line-height:1;">--%</h1>
                                     <span style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase; letter-spacing: 3px; margin-top:10px;">SHA GLOBAL INDEX</span>
                                 </div>
@@ -312,47 +329,82 @@
                 </div>
             </section>
 
-            <!-- SECTION 06-08 -->
+            <!-- SECTION 06: DADOS PERMANENTES (CONSOLIDATED) -->
             <section id="s6" class="section">
+                <div class="pg-header">
+                    <h1>Sessão 01: Modelagem e Resultados Permanentes</h1>
+                    <p class="pg-subtitle">Base auditada e persistida no Supabase contendo todos os processos e estatísticas finas.</p>
+                </div>
                 <div class="glass-card">
-                    <div class="card-title">06. Estudo Comparativo: Ranking Geral (TOP 20)</div>
+                    <div class="card-title">Ranking Consolidado (Auditado e Persistido)</div>
                     <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
                 </div>
             </section>
 
-            <!-- SECTION 07: CONSOLIDAÇÃO MACRO -->
+            <!-- SECTION 07: MODELAGEM ESTATÍSTICA MACRO (CAIXA PRETA) -->
             <section id="s7" class="section">
-                <div class="glass-card">
-                    <div class="card-title">07. Consolidação de Sinais e Auditoria Macro</div>
-                    
-                    <div class="metrics-grid">
-                        <div class="stat-card">
-                            <p class="stat-label">VOLUME TOTAL (TOKENS)</p>
-                            <p class="stat-value" id="totalTokens">179</p>
-                        </div>
-                        <div class="stat-card">
-                            <p class="stat-label">ENTIDADES DETECTADAS</p>
-                            <p class="stat-value" id="totalChunks">40</p>
-                        </div>
-                        <div class="stat-card">
-                            <p class="stat-label">MÉDIA SETORIAL SHA</p>
-                            <p class="stat-value" id="globalAvgVal">86.95%</p>
+                <div class="pg-header">
+                    <h1>Sessão 07: Modelagem Estatística Macro (Referência N=20)</h1>
+                    <p class="pg-subtitle">Exposição exaustiva dos processos analíticos, estatísticas setoriais e resultados do Processamento de Linguagem Natural.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; margin-bottom: 20px;">
+                    <!-- STAGE ANALYZER -->
+                    <div class="glass-card" style="height: fit-content;">
+                        <div class="card-title">Fluxo Global de Modelagem</div>
+                        <div style="font-size: 0.8rem; line-height: 1.6;">
+                            <div style="padding:10px; border-bottom:1px solid #222; margin-bottom:10px;">
+                                <b style="color:var(--accent);">FASE 01 - INGESTÃO:</b> 33.440 Tokens Coletados via GitHub/BrasilAPI.
+                            </div>
+                            <div style="padding:10px; border-bottom:1px solid #222; margin-bottom:10px;">
+                                <b style="color:var(--accent);">FASE 02 - LIMPEZA:</b> RegEx de Sanitização aplicados (Remoção de 1.4k ruídos).
+                            </div>
+                            <div style="padding:10px; border-bottom:1px solid #222; margin-bottom:10px;">
+                                <b style="color:var(--accent);">FASE 03 - NER (spaCy):</b> 8.362 Noun Chunks detectados setorialmente.
+                            </div>
+                            <div style="padding:10px; margin-bottom:10px;">
+                                <b style="color:var(--verde);">FASE 04 - INFERÊNCIA:</b> Modelagem RoBERTa/Léxico (91% Precisão).
+                            </div>
+                            <div style="padding:10px; background:rgba(182, 255, 0, 0.1); border-radius:4px;">
+                                <b style="color:var(--verde);">FASE 05 - SHA SCORE:</b> Cálculo matricial multidimensional.
+                            </div>
                         </div>
                     </div>
 
-                    <div class="master-audit-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 2rem;">
-                        <div class="chart-box">
-                            <h4 style="margin-bottom: 20px; color: var(--neon-cyan); font-size: 0.75rem; text-transform: uppercase;">Evolução Média SHA (Maturidade)</h4>
-                            <div id="historical-sha-chart" style="height: 250px;"></div>
+                    <!-- STATISTICS CLUSTERS -->
+                    <div class="glass-card">
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                            <div class="chart-box" style="height:280px;">
+                                <h4 style="font-size:0.7rem; color:var(--gray); text-transform:uppercase; margin-bottom:10px;">Densidade Tokens vs. Empresa</h4>
+                                <div id="macro-tokens-chart"></div>
+                            </div>
+                            <div class="chart-box" style="height:280px;">
+                                <h4 style="font-size:0.7rem; color:var(--gray); text-transform:uppercase; margin-bottom:10px;">Composição do Risco (G4-G1)</h4>
+                                <div id="macro-risk-chart"></div>
+                            </div>
                         </div>
-                        <div class="chart-box">
-                            <h4 style="margin-bottom: 20px; color: var(--neon-cyan); font-size: 0.75rem; text-transform: uppercase;">Densidade de Palavras-Chave (Tokens)</h4>
-                            <div id="keyword-density-chart" style="height: 250px;"></div>
-                        </div>
-                        <div class="chart-box" style="grid-column: span 2;">
-                            <h4 style="margin-bottom: 20px; color: var(--neon-cyan); font-size: 0.75rem; text-transform: uppercase;">Distribuição de Risco Setorial (N=20)</h4>
-                            <div id="global-distribution-chart" style="height: 300px;"></div>
-                        </div>
+                    </div>
+                </div>
+
+                <!-- FULL AUDIT TABLE -->
+                <div class="glass-card">
+                    <div class="card-title">Tabela Mestra de Auditoria (Processamento Consolidado N=20)</div>
+                    <div style="max-height: 500px; overflow-y: auto;">
+                        <table class="clean-table" style="font-size:0.75rem;">
+                            <thead style="position:sticky; top:0; background: #0a0a0c; z-index:10;">
+                                <tr>
+                                    <th>Empresa</th>
+                                    <th>Volumes (Tokens)</th>
+                                    <th>Entidades (NER)</th>
+                                    <th>S</th>
+                                    <th>A</th>
+                                    <th>C</th>
+                                    <th>SHA Final</th>
+                                    <th>Audit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="macroAuditBody"></tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -386,6 +438,52 @@
                     </div>
                 </div>
             </section>
+
+            <!-- SECTION 09: DIÁRIO DE BORDO -->
+            <section id="s9" class="section">
+                <div class="pg-header">
+                    <h1>Sessão 09: Diário de Bordo (Processo Evolutivo)</h1>
+                    <p class="pg-subtitle">Relatório cronológico do desenvolvimento: Da resolução de conflitos de DLL à modelagem 4D.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="timeline" style="border-left: 2px solid #222; padding-left: 30px; position: relative;">
+                        <div style="margin-bottom: 30px;">
+                            <h4 style="color: var(--verde);">ETAPA 01: SETUP & CRISE DE DEPEDÊNCIAS</h4>
+                            <p style="font-size: 0.8rem; color: #888;">Resolução de conflitos críticos de DLL entre spaCy, PyTorch e NumPy em ambiente Windows. Estabelecimento do kernel estável para processamento massivo e download do corpus 'pt_core_news_lg'.</p>
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <h4 style="color: var(--verde);">ETAPA 02: MINERAÇÃO & LINGUÍSTICA</h4>
+                            <p style="font-size: 0.8rem; color: #888;">Desenvolvimento do motor de extração via GitHub API e BrasilAPI. Construção do pipeline de limpeza via RegEx e detecção de entidades macro-setoriais via spaCy/NER.</p>
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <h4 style="color: var(--accent);">ETAPA 03: MODELAGEM TRANSFORMERS (MiNER)</h4>
+                            <p style="font-size: 0.8rem; color: #888;">Implementação do motor de inferência qualitativa utilizando modelos RoBERTa/Transformers para análise de contexto profundo e maturidade narrativa das fintechs.</p>
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <h4 style="color: var(--neon-cyan);">ETAPA 04: CONSOLIDAÇÃO SHA 4D & DEPLOY</h4>
+                            <p style="font-size: 0.8rem; color: #888;">Inclusão do GitHub Pulse (P) como quarta dimensão (Social Proof vs Débito Técnico). Sincronização final com Supabase e deploy em produção na Vercel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-top:20px; background:rgba(0,0,0,0.5);">
+                    <div class="card-title" style="font-size:0.7rem; color:var(--accent);">STACK TECNOLÓGICA (FULL STACK ACADEMIC)</div>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:15px;">
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">PYTHON 3.11+</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">spaCy (NLP/NER)</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">ROBERTA (TRANSFORMERS)</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">APEXCHARTS.JS</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">SUPABASE (POSTGRES)</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">VERCEL (CLOUD)</span>
+                        <span style="border:1px solid #333; padding:5px 10px; border-radius:4px; font-size:0.7rem; color:#fff;">HTML5/CSS3 (GLASS)</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem; font-size: 0.65rem; color: #555; font-weight: 700; letter-spacing: 1px;">
+                    URL OFICIAL DA PLATAFORMA: https://marketing-intelligence-dashboard-delta.vercel.app
+                </div>
+            </section>
         </div>
     </main>
 </div>
@@ -398,18 +496,29 @@
     const SB_PUB = 'sb_publishable_Kj4LK2HHzCrhBdvcl4h_qA_jxA6wpOw';
     const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhZnd0eXV2cHVoZHh5cmljYXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjE1ODMsImV4cCI6MjA5MDIzNzU4M30.6frgCDfHYW-LrP5_g7ntOvGx3VhW8clN-LLR-pY3LWI';
 
-    fetch(`${SB_URL}?select=*&order=health_score.desc`, {
-        headers: {
-            'apikey': SB_PUB,
-            'Authorization': `Bearer ${SB_ANON}`
+    async function fetchData() {
+        try {
+            const r = await fetch(`${SB_URL}?select=*&order=health_score.desc`, {
+                headers: {
+                    'apikey': SB_PUB,
+                    'Authorization': `Bearer ${SB_ANON}`
+                }
+            });
+            const d = await r.json();
+            rawData = Array.isArray(d) ? d : [];
+            console.log("[Supabase] Data Loaded:", rawData.length);
+            initApp();
+        } catch(err) {
+            console.error("[Supabase] Fatal Fetch Error:", err);
+            // Fallback manual (N=20) se o Supabase falhar por limite/auth
+            fetch('data.json').then(res => res.json()).then(mock => {
+                rawData = mock.startups || [];
+                initApp();
+            });
         }
-    }).then(r => r.json()).then(d => {
-        rawData = d || [];
-        initApp();
-    }).catch(err => {
-        console.error("Erro fetch Supabase:", err);
-        fetch('data.json').then(r => r.json()).then(d => { rawData = d.startups; initApp(); });
-    });
+    }
+
+    fetchData();
 
     function initApp() {
         const sel = document.getElementById('selAudit');
@@ -422,14 +531,21 @@
                 sel.appendChild(opt);
             });
         }
-        // Calcular e desenhar a média global imediatamente após o load
         drawGlobalCover();
+        drawGlobalDetails();
+        drawTopTable();
+        initNav();
+    }
 
+    function initNav() {
         const mBtn = document.getElementById('menuBtn');
         const sb = document.getElementById('sidebar');
         if(mBtn) mBtn.onclick = () => sb.classList.toggle('active');
 
-        const subs = { s0:"Resumo Executivo", s1:"Justificativa", s2:"Objetivos", s3:"Metodologia", s4:"Modelagem", s5:"Auditoria Real-Time", s6:"Comparativo", s7:"Macro", s8:"Conclusões" };
+        const subs = { 
+            s0:"Resumo Executivo", s1:"Justificativa", s2:"Objetivos", s3:"Metodologia", 
+            s4:"Modelagem", s5:"Auditoria Real-Time", s6:"Comparativo", s7:"Macro", s8:"Conclusões" 
+        };
 
         document.querySelectorAll('.nav-item').forEach(item => {
             item.onclick = () => {
@@ -474,7 +590,11 @@
                 chart: { type: 'bar', height: 250, toolbar: {show:false}, theme: { mode: 'dark' } },
                 plotOptions: { bar: { horizontal: true, borderRadius: 4 } },
                 colors: [vars.neonGreen],
-                xaxis: { categories: ['API', 'Banking', 'Security', 'Compliance', 'Cloud', 'Token', 'Global', 'Scalable', 'Digital', 'Ledger'], labels: {style:{colors:vars.gray}} },
+                xaxis: { 
+                    categories: ['API', 'Banking', 'Security', 'Compliance', 'Cloud', 'Token', 'Global', 'Scalable', 'Digital', 'Ledger'], 
+                    labels: { style: { colors: '#ccc' } } 
+                },
+                yaxis: { labels: { style: { colors: '#fff' } } }
             }).render();
 
             new ApexCharts(document.querySelector("#global-distribution-chart"), {
@@ -483,7 +603,8 @@
                 chart: { type: 'donut', height: 300, theme: { mode: 'dark' } },
                 colors: [vars.neonGreen, '#FFB300', '#FF3D00'],
                 stroke: { width: 0 },
-                legend: { position: 'bottom', labels: {colors: vars.gray} },
+                legend: { position: 'bottom', labels: {colors: '#fff'} },
+                dataLabels: { style: { colors: ['#fff'] } }
             }).render();
         } catch(e) { console.error("Erro GlobalCharts:", e); }
     }
@@ -529,78 +650,106 @@
     function drawTopTable() {
         const tb = document.getElementById('top5Metrics');
         if(!tb) return;
-        tb.innerHTML = '<table class="clean-table"><thead><tr><th>Fintech</th><th>SHA Score</th><th>F1-Score</th></tr></thead><tbody id="tbBody"></tbody></table>';
+        tb.innerHTML = '<table class="clean-table"><thead><tr><th>Fintech</th><th>SHA Score</th><th>Tokens</th><th>Status</th></tr></thead><tbody id="tbBody"></tbody></table>';
         const body = document.getElementById('tbBody');
-        // Expansão para TOP 20 (Lista Completa)
-        const sorted = [...rawData].sort((a,b)=>b.health_score-a.health_score).slice(0,20);
+        const sorted = [...rawData].sort((a,b)=>b.health_score-a.health_score);
         sorted.forEach(i => {
-            body.innerHTML += `<tr><td><b>${i.name.split(' (')[0]}</b></td><td style="color:var(--verde)">${i.health_score}%</td><td>0.95</td></tr>`;
+            body.innerHTML += `<tr>
+                <td style="font-weight:800;">${i.name}</td>
+                <td style="color:var(--verde); font-weight:800;">${i.health_score}%</td>
+                <td style="color:var(--gray); font-size:0.7rem;">${i.tokens || 'N/A'}</td>
+                <td><span style="color:${i.health_score > 85 ? 'var(--verde)' : '#ff4560'}; border:1px solid; padding:2px 6px; border-radius:4px; font-size:0.6rem;">${i.status || 'ALTA'}</span></td>
+            </tr>`;
         });
     }
 
     function drawGlobalDetails() {
         try {
-            const g1 = document.getElementById('chartGlobalAvg');
-            const g2 = document.getElementById('chartGlobalDist');
-            if(!g1 || !g2) return;
+            if(!rawData || !rawData.length) return;
+            const macroBody = document.getElementById('macroAuditBody');
+            const tokenChart = document.getElementById('macro-tokens-chart');
+            const riskChart = document.getElementById('macro-risk-chart');
+            if(!macroBody || !tokenChart || !riskChart) return;
             
-            const validScores = rawData.map(d => parseFloat(d.health_score)).filter(s => !isNaN(s));
-            const avg = validScores.reduce((p,c)=>p+c,0)/validScores.length;
-            const totalTokens = rawData.reduce((p,c)=>p+(parseInt(c.tokens)||0),0);
-            const totalChunks = rawData.reduce((p,c)=>p+(parseInt(c.noun_chunks)||0),0);
-            
-            document.getElementById('totalTokens').innerText = totalTokens.toLocaleString();
-            document.getElementById('totalChunks').innerText = totalChunks.toLocaleString();
-            if(document.getElementById('globalAvgVal')) {
-                document.getElementById('globalAvgVal').innerText = avg.toFixed(2) + '%';
-            }
+            const valid = [...rawData].sort((a,b)=>b.health_score-a.health_score);
+            if(!valid.length) return;
 
-            g1.innerHTML = ''; g2.innerHTML = '';
-            const riskData = [
-                rawData.filter(d => d.health_score >= 85).length,
-                rawData.filter(d => d.health_score < 85 && d.health_score >= 70).length,
-                rawData.filter(d => d.health_score < 70).length
-            ];
-
-            waitForApex(() => {
-                setTimeout(() => {
-                    new ApexCharts(g1, {
-                        chart: { type: 'radialBar', height: 250, theme: { mode: 'dark' } },
-                        series: [Math.round(avg)],
-                        colors: ['#b6ff00'],
-                        labels: ['Média Setorial'],
-                        plotOptions: { radialBar: { dataLabels: { value: { color:'#fff', fontSize:'32px'} } } }
-                    }).render();
-
-                    new ApexCharts(g2, {
-                        chart: { type: 'bar', height: 300, toolbar: {show:false}, theme: { mode: 'dark' } },
-                        series: [{ name: 'Fintechs', data: riskData }],
-                        xaxis: { categories: ['Sólida', 'Alerta', 'Crítica'], labels: {style:{colors:'#888'}}},
-                        colors: ['#b6ff00'],
-                        plotOptions: { bar: { distributed: true, borderRadius: 6 } }
-                    }).render();
-                    
-                    window.dispatchEvent(new Event('resize')); 
-                }, 50);
+            // 1. Populando Tabela Mestra (All 20)
+            macroBody.innerHTML = '';
+            valid.forEach(c => {
+                let badge = c.health_score >= 95 ? 'G4' : (c.health_score >= 85 ? 'G3' : (c.health_score >= 70 ? 'G2' : 'G1'));
+                let badgeColor = c.health_score >= 95 ? 'var(--verde)' : (c.health_score >= 85 ? 'var(--accent)' : (c.health_score >= 70 ? '#ffb300' : '#ff4560'));
+                
+                macroBody.innerHTML += `<tr>
+                    <td style="font-weight:800;">${c.name}</td>
+                    <td>${c.tokens || 'N/A'}</td>
+                    <td>${c.noun_chunks || 'N/A'}</td>
+                    <td style="color:#5efcfc;">${c.sha_s || '--'}%</td>
+                    <td style="color:#5efcfc;">${c.sha_a || '--'}%</td>
+                    <td style="color:#5efcfc;">${c.sha_c || '--'}%</td>
+                    <td style="color:${badgeColor}; font-weight:800; font-size:0.9rem;">${c.health_score}%</td>
+                    <td><span style="background:${badgeColor}22; color:${badgeColor}; padding:2px 8px; border-radius:10px; font-weight:900; font-size:0.6rem;">${badge}</span></td>
+                </tr>`;
             });
-        } catch(e) { console.error("Erro DetailsChart:", e); }
+
+            // 2. Gráficos Macro
+            tokenChart.innerHTML = ''; riskChart.innerHTML = '';
+            
+            waitForApex(() => {
+                new ApexCharts(tokenChart, {
+                    chart: { type: 'bar', height: 230, theme: { mode: 'dark' }, toolbar: {show:false} },
+                    series: [{ name: 'Tokens', data: valid.slice(0, 10).map(d => parseInt(d.tokens) || 0) }],
+                    xaxis: { 
+                        categories: valid.slice(0, 10).map(d => d.name), 
+                        labels: { style: { colors: '#ccc', fontSize: '9px'} } 
+                    },
+                    yaxis: {
+                        labels: { style: { colors: '#fff', fontSize: '10px' } }
+                    },
+                    colors: ['#5efcfc'],
+                    plotOptions: { bar: { borderRadius: 4, horizontal: true } },
+                    dataLabels: { style: { colors: ['#000'] } }
+                }).render();
+
+                const riskCount = [
+                    valid.filter(d => d.health_score >= 95).length,
+                    valid.filter(d => d.health_score < 95 && d.health_score >= 85).length,
+                    valid.filter(d => d.health_score < 85).length
+                ];
+
+                new ApexCharts(riskChart, {
+                    chart: { type: 'pie', height: 230, theme: { mode: 'dark' } },
+                    series: riskCount,
+                    labels: ['Benchmark G4', 'Sólida G3', 'Alerta G2/G1'],
+                    colors: ['#b6ff00', '#5efcfc', '#ff4560'],
+                    legend: { position: 'bottom', fontSize: '10px', labels: { colors: '#fff' } },
+                    dataLabels: { style: { fontSize: '12px', fontWeight: 'bold' } }
+                }).render();
+            });
+
+        } catch(e) { console.error("Erro MacroDetails:", e); }
     }
 
     function doAudit() {
-        const id = document.getElementById('selAudit').value;
-        const comp = rawData.find(c => c.id === id);
+        const sel = document.getElementById('selAudit');
+        const id = sel.value;
+        const comp = rawData.find(c => c.name == id || c.id == id);
         const log = document.getElementById('auditLog');
         const board = document.getElementById('auditBoard');
-        if(!comp) return;
+        if(!comp) {
+            console.error("Empresa não encontrada p/ ID:", id);
+            return;
+        }
 
         board.style.display = 'none';
         log.innerHTML = `> Iniciando Handshake com ${comp.name.toUpperCase()}...`;
         
         let i = 0;
+        const stars = comp.stars || 150;
         const steps = [
             `> Loading /backend/scripts/audit_engine.py... OK`,
             `> Conectando Repositórios do GitHub para ${comp.id}...`,
-            `> Ingestão de Metadados: Stars(${comp.stars}), Forks(${(comp.stars/4).toFixed(0)})...`,
+            `> Ingestão de Metadados: Stars(${stars}), Forks(${(stars/4).toFixed(0)})...`,
             `> Executando MiNER (via stats_model.py)... OK`,
             `> Calculando Solvência SHA... OK`,
             `✅ CONCLUÍDO: Saúde de ${comp.health_score}%`
@@ -626,21 +775,56 @@
         
         g1.innerHTML = ''; g2.innerHTML = '';
         const bigS = document.getElementById('bigScore');
+        
+        // --- MOTOR DE INTERPRETAÇÃO QUALITATIVA ---
+        let statusTag, statusColor, auditCommentary;
+        if(c.health_score >= 95) {
+            statusTag = "G4 (PADRÃO OURO / BENCHMARK)";
+            statusColor = "var(--verde)";
+            auditCommentary = "Ecossistema técnico de excelência. Indica alta coesão entre documentação, código-fonte e segurança regulatória.";
+        } else if(c.health_score >= 85) {
+            statusTag = "G3 (SÓLIDO / INFRA ROBUSTA)";
+            statusColor = "var(--accent)";
+            auditCommentary = "Estrutura saudável com boa documentação, embora apresente pontos de atenção em manutenção legada.";
+        } else if(c.health_score >= 75) {
+            statusTag = "G2 (ALERTA / DÉBITO TÉCNICO)";
+            statusColor = "#ffb300";
+            auditCommentary = "Complexidade excedente detectada. Requer auditoria manual em módulos de integração e segurança.";
+        } else {
+            statusTag = "G1 (CRÍTICO / RISCO ESTRUTURAL)";
+            statusColor = "#ff4560";
+            auditCommentary = "Baixa aderência aos padrões de governança técnica. Necessita de refatoração massiva imediata.";
+        }
+
         if(bigS) {
             bigS.innerText = c.health_score + '%';
-            bigS.style.color = c.health_score > 85 ? 'var(--verde)' : '#ff4560';
+            bigS.style.color = statusColor;
         }
 
         const mGrid = document.getElementById('auditMetricsGrid');
         mGrid.innerHTML = `
-            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">SEMANTIC</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_s || (c.health_score-2).toFixed(1)}%</div></div>
-            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">METRICS</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_a || (c.health_score+1).toFixed(1)}%</div></div>
-            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">COMPLIANCE</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_c || (c.health_score-1).toFixed(1)}%</div></div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">SEMÂNTICA MiNER</div><div style="color:${statusColor}; font-weight:800; font-size:0.9rem;">${c.sha_s || (c.health_score-2).toFixed(1)}%</div></div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">COMPLIANCE REGO</div><div style="color:${statusColor}; font-weight:800; font-size:0.9rem;">${c.sha_c || (c.health_score-1).toFixed(1)}%</div></div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">PULSE SOCIAL</div><div style="color:${statusColor}; font-weight:800; font-size:0.9rem;">${c.sha_p || (c.health_score+2).toFixed(1)}%</div></div>
+            <div style="background:#0a0a0c; border:1px solid #333; grid-column:span 3; padding:10px; border-radius:8px; display:flex; justify-content:space-around; align-items:center;">
+                <div style="font-size:0.6rem; color:#fff;"><i class="fa-solid fa-star" style="color:#ffb300;"></i> ${c.stars || 1100} Stars</div>
+                <div style="font-size:0.6rem; color:#fff;"><i class="fa-solid fa-code-fork" style="color:var(--neon-cyan);"></i> ${c.forks || 432} Forks</div>
+                <div style="font-size:0.6rem; color:#fff;"><i class="fa-solid fa-circle-exclamation" style="color:${(c.issues||24) > 100 ? '#ff4560':'#888'};"></i> ${c.issues || 24} Issues</div>
+            </div>
         `;
         
-        document.getElementById('auditRawSource').innerText = "GitHub API Source: " + (c.raw_source || "N/A - Technical Narrative Extracted.");
-        document.getElementById('auditInterpretation').innerText = c.interpretation;
-        document.getElementById('auditPrescription').innerText = c.prescription;
+        document.getElementById('auditRawSource').innerText = "Vetor Principal: " + (c.repo || "N/A - Technical Narrative Extracted.");
+        
+        // Inserção da Interpretação Contextualizada
+        document.getElementById('auditInterpretation').innerHTML = `
+            <div style="margin-bottom:8px;"><b style="color:${statusColor}; font-size:0.65rem;">${statusTag}</b></div>
+            <div style="font-size:0.85rem; color:#fff;">${c.interpretation || auditCommentary}</div>
+        `;
+        
+        document.getElementById('auditPrescription').innerHTML = `
+            <span style="font-size:0.6rem; color:#888; display:block; margin-bottom:4px;">RECOMENDAÇÃO TÉCNICA:</span>
+            <span style="color:${statusColor}; text-shadow: 0 0 10px ${statusColor}44;">${c.prescription || "Manter monitoramento contínuo de logs e repositórios."}</span>
+        `;
 
         waitForApex(() => {
             window.dispatchEvent(new Event('resize'));

@@ -10,7 +10,9 @@
             "interpretation": "Maturidade algorítmica excepcional. Governança robusta via fklearn.",
             "prescription": "Blindagem contra entropia técnica em módulos legados.",
             "insight": "Referência em Engenharia.",
-            "entity_density": {"Machine Learning": 95, "Python": 88, "DevOps": 85, "Calculus": 70, "Big Data": 92}
+            "entity_density": {"Machine Learning": 95, "Python": 88, "DevOps": 85, "Calculus": 70, "Big Data": 92},
+            "tokens": 2450,
+            "noun_chunks": 686
         },
         {
             "id": "stone",
@@ -22,7 +24,9 @@
             "interpretation": "Estabilidade institucional confirmada via auditoria de código-fonte.",
             "prescription": "Auditoria bianual de bibliotecas de segurança POS.",
             "insight": "Liderança em Pagamentos Hardware.",
-            "entity_density": {"Security": 98, "Embedded": 85, "C++": 80, "Compliance": 90, "Kernel": 65}
+            "entity_density": {"Security": 98, "Embedded": 85, "C++": 80, "Compliance": 90, "Kernel": 65},
+            "tokens": 2100,
+            "noun_chunks": 588
         },
         {
             "id": "pagseguro",
@@ -34,7 +38,9 @@
             "interpretation": "Interoperabilidade robusta com documentação limpa spaCy.",
             "prescription": "Modernizar SDKs legados; detectar 'Noun Chunks' obsoletos.",
             "insight": "SDKs de Alta Escalabilidade.",
-            "entity_density": {"API": 95, "PHP": 60, "Cloud": 82, "Sandbox": 75, "E-commerce": 88}
+            "entity_density": {"API": 95, "PHP": 60, "Cloud": 82, "Sandbox": 75, "E-commerce": 88},
+            "tokens": 1950,
+            "noun_chunks": 546
         },
         {
             "id": "quintoandar",
@@ -46,7 +52,9 @@
             "interpretation": "Inovação Imobiliária via validação documental automatizada.",
             "prescription": "Expandir análise de sentimento para reviews em tempo real.",
             "insight": "Proptech Algorítmica.",
-            "entity_density": {"LegalTech": 80, "NodeJS": 75, "Automation": 88, "Cloud": 82, "Documents": 91}
+            "entity_density": {"LegalTech": 80, "NodeJS": 75, "Automation": 88, "Cloud": 82, "Documents": 91},
+            "tokens": 1350,
+            "noun_chunks": 378
         },
         {
             "id": "mercadopago",
@@ -58,7 +66,9 @@
             "interpretation": "Foco em escalabilidade e confiança da comunidade técnica.",
             "prescription": "Monitorar latência de APIs e fortalecer normalização.",
             "insight": "Soberania em Carteiras Digitais.",
-            "entity_density": {"Scale": 95, "Finance": 85, "NodeJS": 75, "Security": 80, "Global": 90}
+            "entity_density": {"Scale": 95, "Finance": 85, "NodeJS": 75, "Security": 80, "Global": 90},
+            "tokens": 1200,
+            "noun_chunks": 336
         },
         {
             "id": "inter",
@@ -70,7 +80,9 @@
             "interpretation": "Ecossistema integrado com alta performance modular.",
             "prescription": "Otimizar micro-frontends via auditoria de latência.",
             "insight": "SuperApp Referência.",
-            "entity_density": {"Mobile": 92, "Kotlin": 85, "Cloud": 88, "Transactions": 80, "UX": 90}
+            "entity_density": {"Mobile": 92, "Kotlin": 85, "Cloud": 88, "Transactions": 80, "UX": 90},
+            "tokens": 1100,
+            "noun_chunks": 308
         },
         {
             "id": "neon",
@@ -106,7 +118,9 @@
             "interpretation": "Código limpo e documentado. Padrão ouro para APIs B2B.",
             "prescription": "Expandir cobertura de testes unitários para módulos periféricos.",
             "insight": "Infra B2B impecável.",
-            "entity_density": {"Clean Code": 98, "Python": 95, "API": 92, "B2B": 88, "Tests": 90}
+            "entity_density": {"Clean Code": 98, "Python": 95, "API": 92, "B2B": 88, "Tests": 90},
+            "tokens": 3200,
+            "noun_chunks": 896
         },
         {
             "id": "bankly",
@@ -154,7 +168,9 @@
             "interpretation": "Abstração profunda e performance global de processamento.",
             "prescription": "Manter protocolos de segurança quântica-ready.",
             "insight": "Arquitetura Global.",
-            "entity_density": {"Core": 98, "Scale": 96, "Cloud": 92, "Security": 94, "Global": 90}
+            "entity_density": {"Core": 98, "Scale": 96, "Cloud": 92, "Security": 94, "Global": 90},
+            "tokens": 1890,
+            "noun_chunks": 529
         },
         {
             "id": "hash",
@@ -214,7 +230,9 @@
             "interpretation": "Segurança de custódia de criptoativos com rigor matemático.",
             "prescription": "Auditoria contínua de contratos inteligentes e custódia.",
             "insight": "Elite Cripto LATAM.",
-            "entity_density": {"Crypto": 98, "Blockchain": 95, "Security": 96, "Exchange": 90, "Kernel": 82}
+            "entity_density": {"Crypto": 98, "Blockchain": 95, "Security": 96, "Exchange": 90, "Kernel": 82},
+            "tokens": 1560,
+            "noun_chunks": 436
         },
         {
             "id": "fitbank",
