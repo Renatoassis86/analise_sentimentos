@@ -8,3 +8,5 @@ data/*.json
 node_modules/
 venv/
 .vscode/
+
+.vercel
