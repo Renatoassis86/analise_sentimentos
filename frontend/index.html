@@ -393,7 +393,6 @@
 <script>
     let rawData = [];
     const vars = { neonCyan: '#5efcfc', neonGreen: '#b6ff00', gray: '#82828e' };
-    Apex.theme = { mode: 'dark' };
 
     const SB_URL = 'https://nevnoikxrgdxwbbnjebr.supabase.co/rest/v1/fintechs';
     const SB_KEY = 'sb_publishable_OkscIgxZjVxX2BJ1d4VQgg_fLBKPO44';
@@ -457,38 +456,37 @@
         setTimeout(() => {
             const first = document.querySelector('.nav-item[data-target="s0"]');
             if(first) first.click();
-        }, 300);
+        }, 500);
     }
 
     function initGlobalCharts() {
-        new ApexCharts(document.querySelector("#historical-sha-chart"), {
-            series: [{ name: 'SHA Médio', data: [78, 82, 85, 86.9] }],
-            chart: { type: 'area', height: 250, toolbar: {show:false}, background: 'transparent' },
-            colors: [vars.neonCyan],
-            stroke: { curve: 'smooth', width: 2 },
-            xaxis: { categories: ['Jan/26', 'Fev/26', 'Mar/15', 'Mar/28'], labels: {style:{colors:vars.gray}} },
-            grid: { borderColor: '#222' },
-            theme: { mode: 'dark' }
-        }).render();
+        try {
+            new ApexCharts(document.querySelector("#historical-sha-chart"), {
+                series: [{ name: 'SHA Médio', data: [78, 82, 85, 86.9] }],
+                chart: { type: 'area', height: 250, toolbar: {show:false}, background: 'transparent', theme: { mode: 'dark' } },
+                colors: [vars.neonCyan],
+                stroke: { curve: 'smooth', width: 2 },
+                xaxis: { categories: ['Jan/26', 'Fev/26', 'Mar/15', 'Mar/28'], labels: {style:{colors:vars.gray}} },
+                grid: { borderColor: '#222' },
+            }).render();
 
-        new ApexCharts(document.querySelector("#keyword-density-chart"), {
-            series: [{ name: 'Ocorrências', data: [15, 12, 11, 9, 8, 7, 6, 5, 4, 3] }],
-            chart: { type: 'bar', height: 250, toolbar: {show:false} },
-            plotOptions: { bar: { horizontal: true, borderRadius: 4 } },
-            colors: [vars.neonGreen],
-            xaxis: { categories: ['API', 'Banking', 'Security', 'Compliance', 'Cloud', 'Token', 'Global', 'Scalable', 'Digital', 'Ledger'], labels: {style:{colors:vars.gray}} },
-            theme: { mode: 'dark' }
-        }).render();
+            new ApexCharts(document.querySelector("#keyword-density-chart"), {
+                series: [{ name: 'Ocorrências', data: [15, 12, 11, 9, 8, 7, 6, 5, 4, 3] }],
+                chart: { type: 'bar', height: 250, toolbar: {show:false}, theme: { mode: 'dark' } },
+                plotOptions: { bar: { horizontal: true, borderRadius: 4 } },
+                colors: [vars.neonGreen],
+                xaxis: { categories: ['API', 'Banking', 'Security', 'Compliance', 'Cloud', 'Token', 'Global', 'Scalable', 'Digital', 'Ledger'], labels: {style:{colors:vars.gray}} },
+            }).render();
 
-        new ApexCharts(document.querySelector("#global-distribution-chart"), {
-            series: [16, 3, 1],
-            labels: ['SÓLIDA (SHA > 85)', 'ALERTA (SHA 70-85)', 'CRÍTICA (SHA < 70)'],
-            chart: { type: 'donut', height: 300 },
-            colors: [vars.neonGreen, '#FFB300', '#FF3D00'],
-            stroke: { width: 0 },
-            legend: { position: 'bottom', labels: {colors: vars.gray} },
-            theme: { mode: 'dark' }
-        }).render();
+            new ApexCharts(document.querySelector("#global-distribution-chart"), {
+                series: [16, 3, 1],
+                labels: ['SÓLIDA (SHA > 85)', 'ALERTA (SHA 70-85)', 'CRÍTICA (SHA < 70)'],
+                chart: { type: 'donut', height: 300, theme: { mode: 'dark' } },
+                colors: [vars.neonGreen, '#FFB300', '#FF3D00'],
+                stroke: { width: 0 },
+                legend: { position: 'bottom', labels: {colors: vars.gray} },
+            }).render();
+        } catch(e) { console.error("Erro GlobalCharts:", e); }
     }
 
     function waitForApex(callback) {
@@ -497,34 +495,36 @@
     }
 
     function drawGlobalCover() {
-        const gc = document.getElementById('chartGlobalCover');
-        if(!gc) return;
-        gc.innerHTML = '';
-        if(!rawData || !rawData.length) {
-            gc.innerHTML = '<p style="color:#444; text-align:center; padding-top:40px;">Carregando métricas...</p>';
-            return;
-        }
-        const avg = rawData.reduce((p,c)=>p+(parseFloat(c.health_score)||0),0)/rawData.length;
-        waitForApex(() => {
-            new ApexCharts(gc, {
-                chart: { type: 'radialBar', height: 220, background: 'transparent' },
-                series: [Math.round(avg)],
-                colors: ['#b6ff00'],
-                plotOptions: { 
-                    radialBar: { 
-                        startAngle: -135,
-                        endAngle: 135,
-                        hollow: { size: '70%', background: 'rgba(0,0,0,0.3)' }, 
-                        dataLabels: { 
-                            name: { show: true, color: '#888', offsetY: 60, fontSize: '10px' }, 
-                            value: { color: '#fff', fontSize: '38px', offsetY: -10, fontWeight: 900, formatter: (v)=>v+'%' } 
+        try {
+            const gc = document.getElementById('chartGlobalCover');
+            if(!gc) return;
+            gc.innerHTML = '';
+            if(!rawData || !rawData.length) {
+                gc.innerHTML = '<p style="color:#444; text-align:center; padding-top:40px; font-size:10px;">Carregando...</p>';
+                return;
+            }
+            const avg = rawData.reduce((p,c)=>p+(parseFloat(c.health_score)||0),0)/rawData.length;
+            waitForApex(() => {
+                new ApexCharts(gc, {
+                    chart: { type: 'radialBar', height: 220, background: 'transparent', theme: { mode: 'dark' } },
+                    series: [Math.round(avg)],
+                    colors: ['#b6ff00'],
+                    plotOptions: { 
+                        radialBar: { 
+                            startAngle: -135,
+                            endAngle: 135,
+                            hollow: { size: '70%', background: 'rgba(0,0,0,0.3)' }, 
+                            dataLabels: { 
+                                name: { show: true, color: '#888', offsetY: 60, fontSize: '10px' }, 
+                                value: { color: '#fff', fontSize: '38px', offsetY: -10, fontWeight: 900, formatter: (v)=>v+'%' } 
+                            } 
                         } 
-                    } 
-                },
-                labels: ['MÉDIA SOLVÊNCIA'],
-                stroke: { lineCap: 'round' }
-            }).render();
-        });
+                    },
+                    labels: ['MÉDIA SOLVÊNCIA'],
+                    stroke: { lineCap: 'round' }
+                }).render();
+            });
+        } catch(e) { console.error("Erro CoverChart:", e); }
     }
 
     function drawTopTable() {
@@ -540,49 +540,51 @@
     }
 
     function drawGlobalDetails() {
-        const g1 = document.getElementById('chartGlobalAvg');
-        const g2 = document.getElementById('chartGlobalDist');
-        if(!g1 || !g2) return;
-        
-        const validScores = rawData.map(d => parseFloat(d.health_score)).filter(s => !isNaN(s));
-        const avg = validScores.reduce((p,c)=>p+c,0)/validScores.length;
-        const totalTokens = rawData.reduce((p,c)=>p+(parseInt(c.tokens)||0),0);
-        const totalChunks = rawData.reduce((p,c)=>p+(parseInt(c.noun_chunks)||0),0);
-        
-        document.getElementById('totalTokens').innerText = totalTokens.toLocaleString();
-        document.getElementById('totalChunks').innerText = totalChunks.toLocaleString();
-        if(document.getElementById('globalAvgVal')) {
-            document.getElementById('globalAvgVal').innerText = avg.toFixed(2) + '%';
-        }
+        try {
+            const g1 = document.getElementById('chartGlobalAvg');
+            const g2 = document.getElementById('chartGlobalDist');
+            if(!g1 || !g2) return;
+            
+            const validScores = rawData.map(d => parseFloat(d.health_score)).filter(s => !isNaN(s));
+            const avg = validScores.reduce((p,c)=>p+c,0)/validScores.length;
+            const totalTokens = rawData.reduce((p,c)=>p+(parseInt(c.tokens)||0),0);
+            const totalChunks = rawData.reduce((p,c)=>p+(parseInt(c.noun_chunks)||0),0);
+            
+            document.getElementById('totalTokens').innerText = totalTokens.toLocaleString();
+            document.getElementById('totalChunks').innerText = totalChunks.toLocaleString();
+            if(document.getElementById('globalAvgVal')) {
+                document.getElementById('globalAvgVal').innerText = avg.toFixed(2) + '%';
+            }
 
-        g1.innerHTML = ''; g2.innerHTML = '';
-        const riskData = [
-            rawData.filter(d => d.health_score >= 85).length,
-            rawData.filter(d => d.health_score < 85 && d.health_score >= 70).length,
-            rawData.filter(d => d.health_score < 70).length
-        ];
+            g1.innerHTML = ''; g2.innerHTML = '';
+            const riskData = [
+                rawData.filter(d => d.health_score >= 85).length,
+                rawData.filter(d => d.health_score < 85 && d.health_score >= 70).length,
+                rawData.filter(d => d.health_score < 70).length
+            ];
 
-        waitForApex(() => {
-            setTimeout(() => {
-                new ApexCharts(g1, {
-                    chart: { type: 'radialBar', height: 250 },
-                    series: [Math.round(avg)],
-                    colors: ['#b6ff00'],
-                    labels: ['Média Setorial'],
-                    plotOptions: { radialBar: { dataLabels: { value: { color:'#fff', fontSize:'32px'} } } }
-                }).render();
+            waitForApex(() => {
+                setTimeout(() => {
+                    new ApexCharts(g1, {
+                        chart: { type: 'radialBar', height: 250, theme: { mode: 'dark' } },
+                        series: [Math.round(avg)],
+                        colors: ['#b6ff00'],
+                        labels: ['Média Setorial'],
+                        plotOptions: { radialBar: { dataLabels: { value: { color:'#fff', fontSize:'32px'} } } }
+                    }).render();
 
-                new ApexCharts(g2, {
-                    chart: { type: 'bar', height: 300, toolbar: {show:false} },
-                    series: [{ name: 'Fintechs', data: riskData }],
-                    xaxis: { categories: ['Sólida', 'Alerta', 'Crítica'], labels: {style:{colors:'#888'}}},
-                    colors: ['#b6ff00'],
-                    plotOptions: { bar: { distributed: true, borderRadius: 6 } }
-                }).render();
-                
-                window.dispatchEvent(new Event('resize')); 
-            }, 50);
-        });
+                    new ApexCharts(g2, {
+                        chart: { type: 'bar', height: 300, toolbar: {show:false}, theme: { mode: 'dark' } },
+                        series: [{ name: 'Fintechs', data: riskData }],
+                        xaxis: { categories: ['Sólida', 'Alerta', 'Crítica'], labels: {style:{colors:'#888'}}},
+                        colors: ['#b6ff00'],
+                        plotOptions: { bar: { distributed: true, borderRadius: 6 } }
+                    }).render();
+                    
+                    window.dispatchEvent(new Event('resize')); 
+                }, 50);
+            });
+        } catch(e) { console.error("Erro DetailsChart:", e); }
     }
 
     function doAudit() {
