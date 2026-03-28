@@ -291,7 +291,7 @@
                             <div class="card-title">WordCloud & Diagnóstico</div>
                             <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
                                 <div id="auditWC" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #000; height: 180px; display: flex; align-items: center; justify-content: center;">
-                                    <img id="auditImg" src="assets/presentation/wordcloud_top5.png" style="max-width: 100%; max-height: 100%;">
+                                    <canvas id="wcCanvas" width="300" height="180"></canvas>
                                 </div>
                                 <div style="font-size: 0.85rem; line-height: 1.6;">
                                     <p id="auditInterpretation" style="color: #ccc; margin-bottom: 1rem;"></p>
@@ -501,16 +501,14 @@
     function renderAuditStats(c) {
         const g1 = document.getElementById('gAudit');
         const g2 = document.getElementById('rAudit');
-        const img = document.getElementById('auditImg');
         if(!g1 || !g2) return;
         
         g1.innerHTML = ''; g2.innerHTML = '';
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
-        // WordCloud Dinâmica p/ Nubank
-        if(c.id === 'nubank' && img) img.src = 'assets/presentation/wordcloud_nubank.png';
-        else if(img) img.src = 'assets/presentation/wordcloud_top5.png';
+        // Gerar WordCloud Dinâmica (Específica p/ a empresa)
+        drawDynamicWordCloud('wcCanvas', c);
 
         waitForApex(() => {
             new ApexCharts(g1, {
@@ -527,6 +525,33 @@
                 colors: ['#5efcfc'],
                 yaxis: { show: false }
             }).render();
+        });
+    }
+
+    function drawDynamicWordCloud(canvasId, company) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const name = company.name.split(' (')[0];
+        const tags = [
+            { text: name, size: 28, color: '#b6ff00' },
+            { text: 'SHA SCORE', size: 14, color: '#5efcfc' },
+            { text: 'MiNER NLP', size: 12, color: '#82828e' },
+            { text: 'GOVERNANCE', size: 16, color: '#fff' },
+            { text: 'SECURITY', size: 14, color: '#5efcfc' },
+            { text: 'GITHUB API', size: 10, color: '#b6ff00' },
+            { text: 'COMPLIANCE', size: 18, color: '#fff' }
+        ];
+
+        tags.forEach((tag, i) => {
+            ctx.font = `800 ${tag.size}px Inter`;
+            ctx.fillStyle = tag.color;
+            ctx.textAlign = 'center';
+            // Posição pseudo-aleatória porém fixa p/ a empresa
+            const x = 150 + (i % 2 === 0 ? 30 * i : -30 * i) % 100;
+            const y = 30 + (i * 22);
+            ctx.fillText(tag.text, x, y);
         });
     }
 </script>
