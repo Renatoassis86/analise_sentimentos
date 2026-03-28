@@ -422,6 +422,8 @@
                 sel.appendChild(opt);
             });
         }
+        // Calcular e desenhar a média global imediatamente após o load
+        drawGlobalCover();
 
         const mBtn = document.getElementById('menuBtn');
         const sb = document.getElementById('sidebar');
@@ -498,13 +500,29 @@
         const gc = document.getElementById('chartGlobalCover');
         if(!gc) return;
         gc.innerHTML = '';
-        const avg = rawData.length ? rawData.reduce((p,c)=>p+c.health_score,0)/rawData.length : 0;
+        if(!rawData || !rawData.length) {
+            gc.innerHTML = '<p style="color:#444; text-align:center; padding-top:40px;">Carregando métricas...</p>';
+            return;
+        }
+        const avg = rawData.reduce((p,c)=>p+(parseFloat(c.health_score)||0),0)/rawData.length;
         waitForApex(() => {
             new ApexCharts(gc, {
-                chart: { type: 'radialBar', height: 180, sparkline: { enabled: true } },
-                series: [avg.toFixed(1)],
+                chart: { type: 'radialBar', height: 220, background: 'transparent' },
+                series: [Math.round(avg)],
                 colors: ['#b6ff00'],
-                plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '20px', offsetY: 7 } } } }
+                plotOptions: { 
+                    radialBar: { 
+                        startAngle: -135,
+                        endAngle: 135,
+                        hollow: { size: '70%', background: 'rgba(0,0,0,0.3)' }, 
+                        dataLabels: { 
+                            name: { show: true, color: '#888', offsetY: 60, fontSize: '10px' }, 
+                            value: { color: '#fff', fontSize: '38px', offsetY: -10, fontWeight: 900, formatter: (v)=>v+'%' } 
+                        } 
+                    } 
+                },
+                labels: ['MÉDIA SOLVÊNCIA'],
+                stroke: { lineCap: 'round' }
             }).render();
         });
     }
