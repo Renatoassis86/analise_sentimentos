@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Algorítmica | Neural Monitoring v13.6 (GALA FINAL)</title>
+    <title>Auditoria Algorítmica | Neural Monitoring v13.8 (SUPABASE SYNC)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -395,12 +395,13 @@
     const vars = { neonCyan: '#5efcfc', neonGreen: '#b6ff00', gray: '#82828e' };
 
     const SB_URL = 'https://gafwtyuvpuhdxyricawf.supabase.co/rest/v1/fintechs';
-    const SB_KEY = 'sb_publishable_Kj4LK2HHzCrhBdvcl4h_qA_jxA6wpOw';
+    const SB_PUB = 'sb_publishable_Kj4LK2HHzCrhBdvcl4h_qA_jxA6wpOw';
+    const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhZnd0eXV2cHVoZHh5cmljYXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjE1ODMsImV4cCI6MjA5MDIzNzU4M30.6frgCDfHYW-LrP5_g7ntOvGx3VhW8clN-LLR-pY3LWI';
 
     fetch(`${SB_URL}?select=*&order=health_score.desc`, {
         headers: {
-            'apikey': SB_KEY,
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ldm5vaWt4cmdkeHdiYm5qZWJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjUzMjcsImV4cCI6MjA5MDI0MTMyN30.z5fifA3luDOBUGCdON5brbbQGb6JKHlWq4g6XJMg9Dw`
+            'apikey': SB_PUB,
+            'Authorization': `Bearer ${SB_ANON}`
         }
     }).then(r => r.json()).then(d => {
         rawData = d || [];
