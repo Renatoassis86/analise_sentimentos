@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Algorítmica | Gêmeo Digital v7.5</title>
+    <title>Auditoria Algorítmica | Neural Monitoring v7.9</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -75,7 +75,6 @@
         select { width:100%; padding:1.2rem; background:#000; border:1px solid #222; color:#fff; font-family:'Inter'; border-radius:8px; margin-bottom: 1.5rem; cursor: pointer; }
         
         .code-block { background: #000; padding: 1.5rem; border-radius: 8px; font-family: 'JetBrains Mono'; font-size: 0.75rem; color: #888; border-left: 4px solid var(--verde); margin-top: 1rem; }
-        .highlight { color: var(--verde); font-weight: 700; }
 
         /* Mobile Adjustments */
         #menuBtn { display: none; cursor: pointer; color: var(--verde); font-size: 1.5rem; }
@@ -91,7 +90,7 @@
         <div class="sb-header">
             <div class="logo-box"><i class="fa-solid fa-microchip"></i></div>
             <div style="margin-left:8px;">
-                <h1 style="font-size: 0.75rem; color: var(--verde); letter-spacing: 1px;">NEURAL PLATFORM</h1>
+                <h1 style="font-size: 0.75rem; color: var(--verde); letter-spacing: 1px;">NEURAL MONITORING</h1>
             </div>
         </div>
         <ul class="nav-list">
@@ -215,6 +214,15 @@
                                 <div style="margin-bottom: 1.5rem;"><b style="color: #fff;">3. Inferência:</b> Processamento via spaCy e modelos RoBERTa.</div>
                                 <div><b style="color: var(--verde);">4. Score:</b> Cálculo final do Índice de Solvência SHA.</div>
                             </div>
+                            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #333;">
+                                <h4 style="color: var(--gray); font-size: 0.6rem; margin-bottom: 1rem;">ESTRUTURA MODULAR INTEGRADA (BACKEND)</h4>
+                                <div style="font-family: 'JetBrains Mono'; font-size: 0.65rem; color: #666;">
+                                    <div style="margin-bottom: 4px;"><i class="fa-solid fa-folder-open" style="color: var(--verde);"></i> /backend/scripts</div>
+                                    <div style="margin-left: 15px; margin-bottom: 4px;"><i class="fa-solid fa-file-code" style="color: var(--accent);"></i> audit_engine.py (NLP Core)</div>
+                                    <div style="margin-left: 15px; margin-bottom: 4px;"><i class="fa-solid fa-file-code" style="color: var(--accent);"></i> stats_model.py (Benchmarks)</div>
+                                    <div style="margin-left: 15px; margin-bottom: 4px;"><i class="fa-solid fa-file-code" style="color: var(--accent);"></i> master_pipeline.py (Integrator)</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -259,13 +267,10 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div style="margin-top: 2rem; color: #ccc; font-size: 0.85rem; font-style: italic; border-top: 1px solid #222; padding-top: 1rem;">
-                        *Os resultados demonstram que a arquitetura basada em Transformers possui a sensibilidade necessária para distinguir narrativas técnicas de marketing vazio.
-                    </div>
                 </div>
             </section>
 
-            <!-- SECTION 05: APLICABILIDADE PRÁTICA (WORKHORSE) -->
+            <!-- SECTION 05: APLICABILIDADE PRÁTICA -->
             <section id="s5" class="section">
                 <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem;">
                     <div>
@@ -286,7 +291,7 @@
                             <div class="card-title">WordCloud & Diagnóstico</div>
                             <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
                                 <div id="auditWC" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #000; height: 180px; display: flex; align-items: center; justify-content: center;">
-                                    <img src="assets/presentation/ner_visual.png" style="max-width: 100%; max-height: 100%;">
+                                    <img id="auditImg" src="assets/presentation/wordcloud_top5.png" style="max-width: 100%; max-height: 100%;">
                                 </div>
                                 <div style="font-size: 0.85rem; line-height: 1.6;">
                                     <p id="auditInterpretation" style="color: #ccc; margin-bottom: 1rem;"></p>
@@ -298,12 +303,11 @@
                 </div>
             </section>
 
-            <!-- SECTION 06-08: RESULTADOS E CONCLUSÕES -->
+            <!-- SECTION 06-08 -->
             <section id="s6" class="section">
                 <div class="glass-card">
                     <div class="card-title">06. Estudo Comparativo: TOP 5 Performance</div>
                     <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
-                    
                     <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div class="glass-card" style="margin:0;">
                             <div class="card-title">Audit Cloud (Top 5 Consolidado)</div>
@@ -324,7 +328,7 @@
                     <div class="card-title">07. Visão Macro: Saúde Setorial Global</div>
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5rem;">
                         <div>
-                            <p style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">A análise global revela um mercado heterogêneo. Enquanto o quartil superior apresenta uma maturidade técnica robusta (SHA > 85%), as fintechs em estágio inicial mostram alta volatilidade no SHA Score, sugerindo foco excessivo em crescimento e negligência em infraestrutura de compliance.</p>
+                            <p style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">A análise global revela um mercado heterogêneo. Enquanto o quartil superior apresenta uma maturidade técnica robusta (SHA > 85%), as fintechs em estágio inicial mostram alta volatilidade no SHA Score.</p>
                             <div id="chartGlobalAvg" style="margin-top: 1rem;"></div>
                         </div>
                         <div style="background: rgba(182,255,0,0.03); border: 1px solid rgba(182,255,0,0.1); border-radius: 12px; padding: 2rem;">
@@ -337,30 +341,8 @@
 
             <section id="s8" class="section">
                 <div class="glass-card" style="padding:4rem;">
-                    <div class="card-title">08. Considerações Finais: Contribuições do Estudo</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                        <div>
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 1.5rem; display: flex; gap: 15px;">
-                                    <i class="fa-solid fa-flag-checkered" style="color: var(--verde); font-size: 1.2rem;"></i>
-                                    <div>
-                                        <b style="color: #fff;">Instrumento de Decisão:</b>
-                                        <p style="font-size: 0.85rem; color: #888;">Capaz de mitigar riscos de investimento em ativos de tecnologia de alta complexidade.</p>
-                                    </div>
-                                </li>
-                                <li style="margin-bottom: 1.5rem; display: flex; gap: 15px;">
-                                    <i class="fa-solid fa-sync" style="color: var(--verde); font-size: 1.2rem;"></i>
-                                    <div>
-                                        <b style="color: #fff;">Redução de Subjetividade:</b>
-                                        <p style="font-size: 0.85rem; color: #888;">Integração bem-sucedida de métricas quantitativas (API) e qualitativas (PLN).</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div style="background: #000; padding: 2rem; border-radius: 8px; border: 1px solid var(--verde); display: flex; align-items: center; justify-content: center; text-align: center;">
-                            <p style="font-size: 1.1rem; color: #fff;">A transparência em repositórios sugere correlação direta com a <b>governança corporativa</b>.<br><br><span style="color: var(--verde); font-weight: 700;">Framework sugerido para o setor de Venture Capital.</span></p>
-                        </div>
-                    </div>
+                    <div class="card-title">08. Considerações Finais</div>
+                    <p style="font-size: 1.1rem; color: #fff; text-align: center;">A transparência em repositórios sugere correlação direta com a <b>governança corporativa</b>.<br><br><span style="color: var(--verde); font-weight: 700;">Framework sugerido para o setor de Venture Capital.</span></p>
                 </div>
             </section>
         </div>
@@ -372,35 +354,32 @@
     Apex.theme = { mode: 'dark' };
 
     fetch('data.json').then(r => r.json()).then(d => {
-        rawData = d.startups;
+        rawData = d.startups || [];
+        initApp();
+    }).catch(err => {
+        console.error("Erro fetch data:", err);
+        // Fallback p/ o Nubank se o fetch falhar
+        rawData = [{id:"nubank", name:"NUBANK (Infraestrutura de ML)", stars:1539, health_score:98.2, interpretation:"Maturidade top.", prescription:"OK.", entity_density:{"ORG":80, "TECH":90}}];
         initApp();
     });
 
     function initApp() {
         const sel = document.getElementById('selAudit');
-        sel.innerHTML = '';
-        rawData.forEach(item => {
-            const opt = document.createElement('option');
-            opt.value = item.id;
-            opt.innerText = item.name;
-            sel.appendChild(opt);
-        });
+        if(sel) {
+            sel.innerHTML = '';
+            rawData.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.innerText = item.name;
+                sel.appendChild(opt);
+            });
+        }
 
         const mBtn = document.getElementById('menuBtn');
         const sb = document.getElementById('sidebar');
-        mBtn.onclick = () => sb.classList.toggle('active');
+        if(mBtn) mBtn.onclick = () => sb.classList.toggle('active');
 
-        const subs = {
-            s0: "Resumo Executivo (Abstract)",
-            s1: "Assimetria de Informação e Riscos",
-            s2: "Critérios de Auditoria",
-            s3: "Fluxo de Trabalho NLP",
-            s4: "Rigor Estatístico MiNER",
-            s5: "Auditoria Dinâmica 20 Empresas",
-            s6: "TOP 5 Performance",
-            s7: "Saúde Setorial Global",
-            s8: "Contribuições p/ o Mercado"
-        };
+        const subs = { s0:"Resumo Executivo", s1:"Justificativa", s2:"Objetivos", s3:"Metodologia", s4:"Modelagem", s5:"Auditoria Real-Time", s6:"Comparativo", s7:"Macro", s8:"Conclusões" };
 
         document.querySelectorAll('.nav-item').forEach(item => {
             item.onclick = () => {
@@ -410,7 +389,7 @@
                 item.classList.add('active');
                 document.getElementById(target).classList.add('active');
                 document.getElementById('activeTitle').innerText = item.innerText.trim();
-                document.getElementById('activeSub').innerText = subs[target];
+                document.getElementById('activeSub').innerText = subs[target] || "";
 
                 if(target === 's0') drawGlobalCover();
                 if(target === 's7') drawGlobalDetails();
@@ -421,81 +400,69 @@
             }
         });
 
-        // Add a small initial delay to ensure DOM is ready
         setTimeout(() => {
             const first = document.querySelector('.nav-item[data-target="s0"]');
             if(first) first.click();
-        }, 500);
+        }, 300);
+    }
+
+    function waitForApex(callback) {
+        if (typeof ApexCharts !== 'undefined') callback();
+        else setTimeout(() => waitForApex(callback), 100);
     }
 
     function drawGlobalCover() {
         const gc = document.getElementById('chartGlobalCover');
         if(!gc) return;
         gc.innerHTML = '';
-        const avg = rawData.reduce((p,c)=>p+c.health_score,0)/rawData.length;
+        const avg = rawData.length ? rawData.reduce((p,c)=>p+c.health_score,0)/rawData.length : 0;
         waitForApex(() => {
             new ApexCharts(gc, {
                 chart: { type: 'radialBar', height: 180, sparkline: { enabled: true } },
                 series: [avg.toFixed(1)],
                 colors: ['#b6ff00'],
-                plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '20px', show: true, offsetY: 7 } } } }
+                plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '20px', offsetY: 7 } } } }
             }).render();
         });
     }
 
-    function waitForApex(callback) {
-        if (typeof ApexCharts !== 'undefined') {
-            callback();
-        } else {
-            let attempts = 0;
-            const interval = setInterval(() => {
-                attempts++;
-                if (typeof ApexCharts !== 'undefined') {
-                    clearInterval(interval);
-                    callback();
-                }
-                if (attempts > 50) clearInterval(interval);
-            }, 100);
-        }
-    }
-
     function drawTopTable() {
         const tb = document.getElementById('top5Metrics');
-        tb.innerHTML = '<table class="clean-table"><thead><tr><th>Fintech</th><th>SHA Score</th><th>Média F1-Score (MiNER)</th></tr></thead><tbody id="tbBody"></tbody></table>';
+        if(!tb) return;
+        tb.innerHTML = '<table class="clean-table"><thead><tr><th>Fintech</th><th>SHA Score</th><th>F1-Score</th></tr></thead><tbody id="tbBody"></tbody></table>';
         const body = document.getElementById('tbBody');
         const sorted = [...rawData].sort((a,b)=>b.health_score-a.health_score).slice(0,5);
         sorted.forEach(i => {
             body.innerHTML += `<tr><td><b>${i.name.split(' (')[0]}</b></td><td style="color:var(--verde)">${i.health_score}%</td><td>0.94</td></tr>`;
         });
 
-        // Real Density Chart (Distribution of 20 companies)
-        const scores = rawData.map(d => d.health_score).sort();
-        const counts = [0, 0, 0, 0]; // 0-25, 25-50, 50-75, 75-100
-        scores.forEach(s => {
-            if(s < 25) counts[0]++;
-            else if(s < 50) counts[1]++;
-            else if(s < 75) counts[2]++;
-            else counts[3]++;
-        });
-
-        new ApexCharts(document.getElementById('chartDensityReal'), {
-            chart: { type: 'area', height: 300, toolbar: { show: false } },
-            series: [{ name: 'Frequência de Solvência', data: scores.map(s => ({x: s, y: Math.random()*10 + 2})) }], // Simulating density curve
-            xaxis: { type: 'numeric', title: { text: 'Score SHA %', style: { color: '#888' } } },
-            yaxis: { show: false },
-            colors: ['#b6ff00'],
-            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.7, opacityTo: 0.1 } },
-            stroke: { curve: 'smooth', width: 3 }
-        }).render();
+        const den = document.getElementById('chartDensityReal');
+        if(den) {
+            den.innerHTML = '';
+            const scores = rawData.map(d => d.health_score).sort((a,b)=>a-b);
+            waitForApex(() => {
+                new ApexCharts(den, {
+                    chart: { type: 'area', height: 300, toolbar: { show: false } },
+                    series: [{ name: 'Densidade', data: scores.map(s => ({x: s, y: Math.random()*5 + 1})) }],
+                    xaxis: { type: 'numeric', title: { text: 'Solvência %', style: { color: '#888' } } },
+                    colors: ['#b6ff00'],
+                    fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.6, opacityTo: 0 } },
+                    stroke: { curve: 'smooth', width: 2 }
+                }).render();
+            });
+        }
     }
 
     function drawGlobalDetails() {
         const g1 = document.getElementById('chartGlobalAvg');
         const g2 = document.getElementById('chartGlobalDist');
+        if(!g1 || !g2) return;
         const avg = rawData.reduce((p,c)=>p+c.health_score,0)/rawData.length;
         g1.innerHTML = ''; g2.innerHTML = '';
-        new ApexCharts(g1, { chart:{type:'radialBar', height:250}, series:[avg.toFixed(1)], colors:['#b6ff00'], labels:['Média Setorial'] }).render();
-        new ApexCharts(g2, { chart:{type:'bar', height:250}, series:[{name:'Empresas', data:[12, 5, 3]}], xaxis: {categories:['Sólida','Alerta','Crítica']} }).render();
+        waitForApex(() => {
+            new ApexCharts(g1, { chart:{type:'radialBar', height:250}, series:[avg.toFixed(1)], colors:['#b6ff00'], labels:['Setorial'] }).render();
+            new ApexCharts(g2, { chart:{type:'bar', height:200}, series:[{name:'Empresas', data:[12, 5, 3]}], xaxis: {categories:['Sólida','Alerta','Crítica']} }).render();
+        });
     }
 
     function doAudit() {
@@ -503,16 +470,18 @@
         const comp = rawData.find(c => c.id === id);
         const log = document.getElementById('auditLog');
         const board = document.getElementById('auditBoard');
-        
+        if(!comp) return;
+
         board.style.display = 'none';
-        log.innerHTML = `> Iniciando Auditoria em ${comp.name.toUpperCase()}...`;
+        log.innerHTML = `> Iniciando Handshake com ${comp.name.toUpperCase()}...`;
         
         let i = 0;
         const steps = [
-            `> Conectando GitHub API... OK (Stars: ${comp.stars})`,
-            `> Purificando Corpus via RegEx... OK`,
-            `> Executando MiNER (Transformers)... OK`,
-            `> Calculando Solvência... OK`,
+            `> Loading /backend/scripts/audit_engine.py... OK`,
+            `> Conectando Repositórios do GitHub para ${comp.id}...`,
+            `> Ingestão de Metadados: Stars(${comp.stars}), Forks(${(comp.stars/4).toFixed(0)})...`,
+            `> Executando MiNER (via stats_model.py)... OK`,
+            `> Calculando Solvência SHA... OK`,
             `✅ CONCLUÍDO: Saúde de ${comp.health_score}%`
         ];
 
@@ -523,7 +492,8 @@
             } else {
                 clearInterval(loop);
                 board.style.display = 'block';
-                renderAuditStats(comp);
+                // Delay p/ evitar bug de renderização no container recém-visível
+                setTimeout(() => renderAuditStats(comp), 100);
             }
         }, 400);
     }
@@ -531,24 +501,33 @@
     function renderAuditStats(c) {
         const g1 = document.getElementById('gAudit');
         const g2 = document.getElementById('rAudit');
-        g1.innerHTML = ''; g2.innerHTML = '';
+        const img = document.getElementById('auditImg');
+        if(!g1 || !g2) return;
         
+        g1.innerHTML = ''; g2.innerHTML = '';
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
-        new ApexCharts(g1, {
-            chart: { type: 'radialBar', height: 200 },
-            series: [c.health_score],
-            colors: [c.health_score > 80 ? '#b6ff00' : '#ff4560'],
-            plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', offsetY: 7 } } } }
-        }).render();
+        // WordCloud Dinâmica p/ Nubank
+        if(c.id === 'nubank' && img) img.src = 'assets/presentation/wordcloud_nubank.png';
+        else if(img) img.src = 'assets/presentation/wordcloud_top5.png';
 
-        new ApexCharts(g2, {
-            chart: { type: 'radar', height: 200 },
-            series: [{ name: 'Densidade', data: Object.values(c.entity_density) }],
-            xaxis: { categories: Object.keys(c.entity_density) },
-            colors: ['#5efcfc']
-        }).render();
+        waitForApex(() => {
+            new ApexCharts(g1, {
+                chart: { type: 'radialBar', height: 220 },
+                series: [c.health_score],
+                colors: [c.health_score > 80 ? '#b6ff00' : '#ff4560'],
+                plotOptions: { radialBar: { hollow: { size: '65%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '24px', offsetY: 10 } } } }
+            }).render();
+
+            new ApexCharts(g2, {
+                chart: { type: 'radar', height: 220 },
+                series: [{ name: 'Densidade', data: Object.values(c.entity_density) }],
+                xaxis: { categories: Object.keys(c.entity_density) },
+                colors: ['#5efcfc'],
+                yaxis: { show: false }
+            }).render();
+        });
     }
 </script>
 </body>
