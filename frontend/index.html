@@ -289,13 +289,13 @@
                         </div>
                         <div class="glass-card" style="margin-top: 1.5rem;">
                             <div class="card-title">WordCloud & Diagnóstico</div>
-                            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
-                                <div id="auditWC" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #000; height: 180px; display: flex; align-items: center; justify-content: center;">
+                                <div id="auditWC" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #000; height: 180px; display: flex; align-items: center; justify-content: center; position: relative;">
                                     <canvas id="wcCanvas" width="300" height="180"></canvas>
                                 </div>
-                                <div style="font-size: 0.85rem; line-height: 1.6;">
-                                    <p id="auditInterpretation" style="color: #ccc; margin-bottom: 1rem;"></p>
-                                    <p id="auditPrescription" style="color: var(--verde); font-weight: 600;"></p>
+                                <div style="font-size: 0.8rem; line-height: 1.6;">
+                                    <div id="auditMetricsGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1rem; font-family: 'JetBrains Mono';"></div>
+                                    <p id="auditInterpretation" style="color: #ccc; margin-bottom: 1rem; border-left: 2px solid var(--verde); padding-left: 10px;"></p>
+                                    <p id="auditPrescription" style="color: var(--verde); font-weight: 600; font-size: 0.75rem;"></p>
                                 </div>
                             </div>
                         </div>
@@ -511,29 +511,42 @@
         if(!g1 || !g2) return;
         
         g1.innerHTML = ''; g2.innerHTML = '';
+        const mGrid = document.getElementById('auditMetricsGrid');
+        mGrid.innerHTML = `
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Stars:</span> ${c.stars}</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Forks:</span> ${c.forks}</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--verde)">Semântica:</span> 0.4</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--accent)">Compliance:</span> 0.3</div>
+        `;
+        
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
         drawDynamicWordCloud('wcCanvas', c);
 
-        // Remover nome da empresa da nuvem (Stopword removal)
-        // O motor de WordCloud já prioriza o nome no topo, as secundárias são técnicas.
-
         waitForApex(() => {
-            new ApexCharts(g1, {
-                chart: { type: 'radialBar', height: 220 },
-                series: [c.health_score],
-                colors: [c.health_score > 80 ? '#b6ff00' : '#ff4560'],
-                plotOptions: { radialBar: { hollow: { size: '65%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '24px', offsetY: 10 } } } }
-            }).render();
+            // Força o cálculo de layout do ApexCharts disparando evento de redimensionamento
+            window.dispatchEvent(new Event('resize'));
+            
+            setTimeout(() => {
+                const shaChart = new ApexCharts(g1, {
+                    chart: { type: 'radialBar', height: 220, animations: { enabled: true, speed: 800 } },
+                    series: [c.health_score],
+                    colors: [c.health_score > 85 ? '#b6ff00' : '#ff4560'],
+                    plotOptions: { radialBar: { hollow: { size: '65%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '24px', offsetY: 10 } } } }
+                });
+                shaChart.render();
 
-            new ApexCharts(g2, {
-                chart: { type: 'radar', height: 220 },
-                series: [{ name: 'Densidade', data: Object.values(c.entity_density) }],
-                xaxis: { categories: Object.keys(c.entity_density) },
-                colors: ['#5efcfc'],
-                yaxis: { show: false }
-            }).render();
+                const nerChart = new ApexCharts(g2, {
+                    chart: { type: 'radar', height: 220, animations: { enabled: true } },
+                    series: [{ name: 'Densidade', data: Object.values(c.entity_density) }],
+                    xaxis: { categories: Object.keys(c.entity_density), labels: { style: { colors: '#82828e' } } },
+                    colors: ['#5efcfc'],
+                    fill: { opacity: 0.4 },
+                    yaxis: { show: false }
+                });
+                nerChart.render();
+            }, 50);
         });
     }
 
@@ -543,29 +556,31 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         const name = company.name.split(' (')[0];
-        const tags = [
-            { text: name, size: 28, color: '#b6ff00' },
-            { text: 'SHA SCORE', size: 14, color: '#5efcfc' },
-            { text: 'MiNER NLP', size: 12, color: '#82828e' },
-            { text: 'GOVERNANCE', size: 16, color: '#fff' },
-            { text: 'SECURITY', size: 14, color: '#5efcfc' },
-            { text: 'GITHUB API', size: 10, color: '#b6ff00' },
-            { text: 'COMPLIANCE', size: 18, color: '#fff' }
+        const baseTags = [
+            { text: name, size: 32, color: '#b6ff00' },
+            { text: 'MiNER NLP', size: 16, color: '#5efcfc' },
+            { text: 'SECURE', size: 14, color: '#fff' },
+            { text: 'COMPLIANCE', size: 14, color: '#888' }
         ];
         
-        // A lógica abaixo garante que as palavras secundárias NÃO repitam o nome (Stopword)
         const densityTags = Object.entries(company.entity_density).map(([k, v]) => ({
             text: k.toUpperCase(), size: Math.max(10, v / 5), color: '#ccc'
-        })).filter(t => t.text !== name.toUpperCase());
+        })).filter(t => t.text !== name.toUpperCase()).slice(0, 6);
 
-        const finalTags = [tags[0], ...tags.slice(1), ...densityTags.slice(0, 5)];
+        const allTags = [...baseTags, ...densityTags];
+        
+        // Layout de espiral simples para evitar sobreposição excessiva
+        allTags.forEach((tag, i) => {
+            const angle = 0.5 * i * Math.PI;
+            const radius = 25 * i;
+            const x = 150 + Math.cos(angle) * (radius % 80);
+            const y = 90 + Math.sin(angle) * (radius % 60);
 
-        finalTags.forEach((tag, i) => {
-            ctx.font = `800 ${tag.size}px Inter`;
+            ctx.font = `900 ${tag.size}px Inter`;
             ctx.fillStyle = tag.color;
             ctx.textAlign = 'center';
-            const x = 150 + (i % 2 === 0 ? 35 * i : -35 * i) % 110;
-            const y = 30 + (i * 20) % 150;
+            ctx.shadowBlur = 4;
+            ctx.shadowColor = 'rgba(0,0,0,0.5)';
             ctx.fillText(tag.text, x, y);
         });
     }
