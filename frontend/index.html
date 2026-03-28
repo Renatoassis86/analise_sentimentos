@@ -288,20 +288,19 @@
                             <div class="glass-card" style="margin:0; padding:1.5rem;"><div class="card-title">Radar NER</div><div id="rAudit"></div></div>
                         </div>
                         <div class="glass-card" style="margin-top: 1.5rem;">
-                            <div class="card-title">Score de Solvência & Diagnóstico (MiNER)</div>
-                            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
-                                <div id="auditHero" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, #000, #0a0a0c); height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-                                    <h1 id="bigScore" style="font-size: 3.5rem; color: var(--verde); font-weight: 800; margin:0;">--%</h1>
-                                    <span style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase; letter-spacing: 2px;">Índice SHA Final</span>
+                            <div class="card-title">Comitê de Auditoria Algorítmica (v9.4)</div>
+                            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; padding: 1rem;">
+                                <div id="auditHero" style="background: linear-gradient(135deg, #000, #0a0a0c); border: 2px solid #111; border-radius: 12px; height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                                    <h1 id="bigScore" style="font-size: 4rem; color: var(--verde); font-weight: 900; margin:0; line-height:1;">--%</h1>
+                                    <span style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase; letter-spacing: 3px; margin-top:10px;">SHA GLOBAL INDEX</span>
                                 </div>
-                                <div style="font-size: 0.8rem; line-height: 1.6;">
-                                    <div id="auditMetricsGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1rem; font-family: 'JetBrains Mono';"></div>
-                                    <div style="background: #000; padding: 10px; border: 1px solid #222; border-radius: 4px; margin-bottom: 1rem;">
-                                        <h5 style="color: var(--verde); font-size: 0.55rem; text-transform: uppercase; margin-bottom: 5px;">Raw Technical Source (API GitHub)</h5>
-                                        <p id="auditRawSource" style="color: #888; font-size: 0.65rem; font-family: 'JetBrains Mono'; line-height: 1.4; margin:0;"></p>
+                                <div style="display:flex; flex-direction:column; justify-content:space-between;">
+                                    <div id="auditMetricsGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem;"></div>
+                                    <div style="background: rgba(182,255,0,0.03); padding: 15px; border-radius: 8px; border-left: 4px solid var(--verde);">
+                                        <p id="auditRawSource" style="color: #666; font-size: 0.6rem; font-family: 'JetBrains Mono'; margin-bottom:10px; font-style:italic;"></p>
+                                        <p id="auditInterpretation" style="color: #eee; font-size: 0.85rem; font-weight:500; margin:0; line-height:1.5;"></p>
                                     </div>
-                                    <p id="auditInterpretation" style="color: #ccc; margin-bottom: 0.5rem; border-left: 2px solid var(--verde); padding-left: 10px;"></p>
-                                    <p id="auditPrescription" style="color: var(--verde); font-weight: 600; font-size: 0.75rem;"></p>
+                                    <p id="auditPrescription" style="color: var(--verde); font-weight: 700; font-size: 0.75rem; margin-top:10px; text-transform:uppercase; letter-spacing:1px;"></p>
                                 </div>
                             </div>
                         </div>
@@ -572,13 +571,12 @@
 
         const mGrid = document.getElementById('auditMetricsGrid');
         mGrid.innerHTML = `
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Semantic:</span> ${c.sha_s || (c.health_score-2).toFixed(1)}%</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">API:</span> ${c.sha_a || (c.health_score+1).toFixed(1)}%</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Compliance:</span> ${c.sha_c || (c.health_score-1).toFixed(1)}%</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--accent)">SHA Weights:</span> 4:3:3</div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">SEMANTIC</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_s || (c.health_score-2).toFixed(1)}%</div></div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">METRICS</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_a || (c.health_score+1).toFixed(1)}%</div></div>
+            <div style="background:#000; border:1px solid #222; padding:10px; border-radius:8px; text-align:center;"><div style="color:var(--gray); font-size:0.5rem; margin-bottom:5px;">COMPLIANCE</div><div style="color:var(--verde); font-weight:800; font-size:0.9rem;">${c.sha_c || (c.health_score-1).toFixed(1)}%</div></div>
         `;
         
-        document.getElementById('auditRawSource').innerText = c.raw_source || "GitHub Repository Description: [SECURE CORE ENGINE] - Real-time processing and compliance audits.";
+        document.getElementById('auditRawSource').innerText = "GitHub API Source: " + (c.raw_source || "N/A - Technical Narrative Extracted.");
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
@@ -654,16 +652,17 @@
             });
         });
 
-        const sorted = Object.entries(allEntities).sort((a,b)=>b[1]-a[1]).slice(0, 30);
+        const sorted = Object.entries(allEntities).sort((a,b)=>b[1]-a[1]).slice(0, 25);
         
         sorted.forEach(([text, val], i) => {
-            const size = Math.max(8, val/8);
-            ctx.font = `800 ${size}px Inter`;
-            ctx.fillStyle = i < 5 ? '#b6ff00' : (i < 15 ? '#5efcfc' : '#777');
+            const size = Math.max(10, val/14); 
+            ctx.font = `900 ${size}px Inter`;
+            ctx.fillStyle = i < 5 ? '#b6ff00' : (i < 12 ? '#5efcfc' : '#555');
             ctx.textAlign = 'center';
-            const angle = 0.4 * i;
-            const x = 225 + Math.cos(angle) * (i * 8);
-            const y = 140 + Math.sin(angle) * (i * 6);
+            // Ajustar o espalhamento para caber no canvas 450x280 sem vazar
+            const angle = 0.5 * i;
+            const x = 225 + Math.cos(angle) * (i * 6.5);
+            const y = 140 + Math.sin(angle) * (i * 4.5);
             ctx.fillText(text.toUpperCase(), x, y);
         });
     }
