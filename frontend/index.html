@@ -144,11 +144,126 @@
                 </div>
             </section>
 
-            <!-- SECTION 01-04 (Briefing p/ economizar espaço, mas mantendo a estrutura) -->
-            <section id="s1" class="section"><div class="glass-card"><div class="card-title">Justificativa</div><p>Mitigação da assimetria de informação entre narrativa de marketing e realidade técnica.</p></div></section>
-            <section id="s2" class="section"><div class="glass-card"><div class="card-title">Objetivos</div><p>Projetar sistema neuro-estatístico capaz de converter documentação técnica em índices quantitativos.</p></div></section>
-            <section id="s3" class="section"><div class="glass-card"><div class="card-title">Metodologia</div><p>Fluxo: RegEx (Purificação) -> GitHub API (Coleta) -> spaCy/Transformers (Análise).</p></div></section>
-            <section id="s4" class="section"><div class="glass-card"><div class="card-title">Modelagem</div><p>SHA Score = (0.4 * Semântica) + (0.3 * Métricas) + (0.3 * Compliance).</p><div class="metric-val" style="font-size:3rem;">95.2%</div><div class="metric-label">Precisão MiNER</div></div></section>
+            <!-- SECTION 01: INTRODUÇÃO / JUSTIFICATIVA -->
+            <section id="s1" class="section">
+                <div class="glass-card">
+                    <div class="card-title">01. Introdução / Justificativa</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">
+                            <p style="margin-bottom: 1.5rem;">O setor financeiro atravessa uma transição crítica onde a <b>inovação tecnológica</b> deixou de ser um diferencial para tornar-se infraestrutura base. Contudo, a avaliação da maturidade técnica de Fintechs ainda reside, majoritariamente, em auditorias subjetivas e narrativas de marketing.</p>
+                            <p><b>O Problema:</b> A assimetria de informação entre o que é prometido (front-end) e o que é construído (back-end/repositórios) gera riscos invisíveis para investidores e reguladores.</p>
+                            <p style="margin-top: 1.5rem; color: var(--verde);"><b>Proposta:</b> Este instrumento atua como um recurso auxiliar p/ a tomada de decisão estratégica, validando a saúde real do código-fonte através de auditoria algorítmica.</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 2px solid var(--accent);">
+                            <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 0.8rem;">CONTEXTO CRÍTICO</h4>
+                            <ul style="list-style: none; font-size: 0.85rem; color: #aaa;">
+                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-shield-halved" style="margin-right: 10px; color: var(--accent);"></i> Dependência de Infraestrutura Crítica</li>
+                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-chart-pie" style="margin-right: 10px; color: var(--accent);"></i> Escalabilidade vs. Débito Técnico</li>
+                                <li style="margin-bottom: 10px;"><i class="fa-solid fa-lock" style="margin-right: 10px; color: var(--accent);"></i> Compliance em Ativos Digitais</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: OBJETIVOS ESTRATÉGICOS -->
+            <section id="s2" class="section">
+                <div class="glass-card">
+                    <div class="card-title">02. Objetivos Estratégicos</div>
+                    <p style="font-size: 1rem; margin-bottom: 2rem;">Projetar e validar um sistema neuro-estatístico capaz de converter documentação técnica não estruturada em índices quantitativos de governança técnica.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+                        <div style="padding: 1.5rem; background: #000; border-radius: 8px; border: 1px solid #222;">
+                            <i class="fa-solid fa-robot" style="font-size: 1.5rem; color: var(--verde); margin-bottom: 1rem;"></i>
+                            <h4 style="font-size: 0.8rem; margin-bottom: 0.5rem;">AUTOMAÇÃO NLP</h4>
+                            <p style="font-size: 0.75rem; color: #888;">Implementar pipeline de extração de entidades regulatórias e semântica de inovação via spaCy.</p>
+                        </div>
+                        <div style="padding: 1.5rem; background: #000; border-radius: 8px; border: 1px solid #222;">
+                            <i class="fa-solid fa-database" style="font-size: 1.5rem; color: var(--verde); margin-bottom: 1rem;"></i>
+                            <h4 style="font-size: 0.8rem; margin-bottom: 0.5rem;">ESTATÍSTICA TÉCNICA</h4>
+                            <p style="font-size: 0.75rem; color: #888;">Correlacionar métricas de API (GitHub Stars/Forks) com a estabilidade institucional do ativo financeiro.</p>
+                        </div>
+                        <div style="padding: 1.5rem; background: #000; border-radius: 8px; border: 1px solid #222;">
+                            <i class="fa-solid fa-scale-balanced" style="font-size: 1.5rem; color: var(--verde); margin-bottom: 1rem;"></i>
+                            <h4 style="font-size: 0.8rem; margin-bottom: 0.5rem;">REDUÇÃO DE RISCO</h4>
+                            <p style="font-size: 0.75rem; color: #888;">Fornecer um framework auxiliar para o setor de Venture Capital na avaliação de ativos de tecnologia.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: METODOLOGIA DETALHADA -->
+            <section id="s3" class="section">
+                <div class="glass-card">
+                    <div class="card-title">03. Metodologia: Composição do Escore SHA</div>
+                    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem;">
+                        <div>
+                            <p style="font-size: 0.95rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">O <b>Software Health Analysis (SHA)</b> não é apenas uma métrica de popularidade, mas um indicador multidimensional que sintetiza a qualidade do ecossistema técnico da Fintech.</p>
+                            <div class="code-block" style="text-align: center; color: var(--verde); font-size: 1.2rem; padding: 2rem;">
+                                SHA = (0.4 × S) + (0.3 × A) + (0.3 × C)
+                            </div>
+                            <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.85rem;">
+                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">S (Semântica):</b> Inferência de maturidade via MiNER (Transformers).</li>
+                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">A (API Metrics):</b> Dados quantitativos de engajamento e manutenção (GitHub).</li>
+                                <li style="margin-bottom: 12px;"><b style="color: var(--verde);">C (Compliance):</b> Densidade de entidades regulatórias extraídas via PLN.</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius:12px;">
+                            <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 0.7rem; text-transform: uppercase;">Fluxo de Processamento</h4>
+                            <div style="position: relative; padding-left: 2rem; border-left: 2px dashed #333;">
+                                <div style="margin-bottom: 1.5rem;"><b style="color: #fff;">1. Ingestão:</b> Coleta de metadados via GitHub API / BrasilAPI.</div>
+                                <div style="margin-bottom: 1.5rem;"><b style="color: #fff;">2. Purificação:</b> Limpeza de ruído e normalização via RegEx avançado.</div>
+                                <div style="margin-bottom: 1.5rem;"><b style="color: #fff;">3. Inferência:</b> Processamento via spaCy e modelos RoBERTa.</div>
+                                <div><b style="color: var(--verde);">4. Score:</b> Cálculo final do Índice de Solvência SHA.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 04: MODELAGEM E ESTATÍSTICA -->
+            <section id="s4" class="section">
+                <div class="glass-card">
+                    <div class="card-title">04. Modelagem: Rigor Estatístico MiNER</div>
+                    <p style="margin-bottom: 2rem; color: #888;">Comparativo de performance entre modelos de processamento linguístico aplicados à auditoria de fintechs.</p>
+                    <table class="clean-table">
+                        <thead>
+                            <tr>
+                                <th>Modelo Analisado</th>
+                                <th>Precisão</th>
+                                <th>Recall</th>
+                                <th>F1-Score</th>
+                                <th>Aplicação no Estudo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Léxico (VADER)</td>
+                                <td>74.1%</td>
+                                <td>0.70</td>
+                                <td>0.72</td>
+                                <td style="color: #666;">Triagem Rápida</td>
+                            </tr>
+                            <tr>
+                                <td>Estatístico (TF-IDF)</td>
+                                <td>78.4%</td>
+                                <td>0.77</td>
+                                <td>0.78</td>
+                                <td style="color: #666;">Categorização de Tópicos</td>
+                            </tr>
+                            <tr style="background: rgba(182, 255, 0, 0.05);">
+                                <td style="color: var(--verde); font-weight: 700;">MiNER (Transformers)</td>
+                                <td style="color: var(--verde); font-weight: 700;">95.2%</td>
+                                <td style="color: var(--verde); font-weight: 700;">0.91</td>
+                                <td style="color: var(--verde); font-weight: 700;">0.94</td>
+                                <td><b>Suporte à Decisão Estratégica</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top: 2rem; color: #ccc; font-size: 0.85rem; font-style: italic; border-top: 1px solid #222; padding-top: 1rem;">
+                        *Os resultados demonstram que a arquitetura basada em Transformers possui a sensibilidade necessária para distinguir narrativas técnicas de marketing vazio.
+                    </div>
+                </div>
+            </section>
 
             <!-- SECTION 05: APLICABILIDADE PRÁTICA (WORKHORSE) -->
             <section id="s5" class="section">
@@ -183,10 +298,71 @@
                 </div>
             </section>
 
-            <!-- SECTION 06-08 -->
-            <section id="s6" class="section"><div class="glass-card"><div class="card-title">Estudo Comparativo</div><div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div></div></section>
-            <section id="s7" class="section"><div class="glass-card"><div class="card-title">Visão Macro</div><div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;"><div id="chartGlobalAvg"></div><div id="chartGlobalDist"></div></div></div></section>
-            <section id="s8" class="section"><div class="glass-card" style="padding:4rem;"><div class="card-title">Conclusões</div><p style="font-size:1.2rem;">O código-fonte é o reflexo direto da governança corporativa. Recomenda-se o framework para Venture Capital.</p></div></section>
+            <!-- SECTION 06-08: RESULTADOS E CONCLUSÕES -->
+            <section id="s6" class="section">
+                <div class="glass-card">
+                    <div class="card-title">06. Estudo Comparativo: TOP 5 Performance</div>
+                    <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
+                    
+                    <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div class="glass-card" style="margin:0;">
+                            <div class="card-title">Audit Cloud (Top 5 Consolidado)</div>
+                            <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px;">
+                                <img src="assets/presentation/wordcloud_top5.png" alt="Cloud TOP 5" style="max-height: 95%; max-width: 95%;">
+                            </div>
+                        </div>
+                        <div class="glass-card" style="margin:0;">
+                            <div class="card-title" style="color:var(--verde)">Análise de Densidade Estatística</div>
+                            <div id="chartDensityReal" style="height: 300px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s7" class="section">
+                <div class="glass-card">
+                    <div class="card-title">07. Visão Macro: Saúde Setorial Global</div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5rem;">
+                        <div>
+                            <p style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">A análise global revela um mercado heterogêneo. Enquanto o quartil superior apresenta uma maturidade técnica robusta (SHA > 85%), as fintechs em estágio inicial mostram alta volatilidade no SHA Score, sugerindo foco excessivo em crescimento e negligência em infraestrutura de compliance.</p>
+                            <div id="chartGlobalAvg" style="margin-top: 1rem;"></div>
+                        </div>
+                        <div style="background: rgba(182,255,0,0.03); border: 1px solid rgba(182,255,0,0.1); border-radius: 12px; padding: 2rem;">
+                            <h4 style="color: var(--verde); margin-bottom: 1.5rem; font-size: 0.8rem;">DISTRIBUIÇÃO DE RISCO</h4>
+                            <div id="chartGlobalDist"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="s8" class="section">
+                <div class="glass-card" style="padding:4rem;">
+                    <div class="card-title">08. Considerações Finais: Contribuições do Estudo</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                        <div>
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 1.5rem; display: flex; gap: 15px;">
+                                    <i class="fa-solid fa-flag-checkered" style="color: var(--verde); font-size: 1.2rem;"></i>
+                                    <div>
+                                        <b style="color: #fff;">Instrumento de Decisão:</b>
+                                        <p style="font-size: 0.85rem; color: #888;">Capaz de mitigar riscos de investimento em ativos de tecnologia de alta complexidade.</p>
+                                    </div>
+                                </li>
+                                <li style="margin-bottom: 1.5rem; display: flex; gap: 15px;">
+                                    <i class="fa-solid fa-sync" style="color: var(--verde); font-size: 1.2rem;"></i>
+                                    <div>
+                                        <b style="color: #fff;">Redução de Subjetividade:</b>
+                                        <p style="font-size: 0.85rem; color: #888;">Integração bem-sucedida de métricas quantitativas (API) e qualitativas (PLN).</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="background: #000; padding: 2rem; border-radius: 8px; border: 1px solid var(--verde); display: flex; align-items: center; justify-content: center; text-align: center;">
+                            <p style="font-size: 1.1rem; color: #fff;">A transparência em repositórios sugere correlação direta com a <b>governança corporativa</b>.<br><br><span style="color: var(--verde); font-weight: 700;">Framework sugerido para o setor de Venture Capital.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 </div>
@@ -245,17 +421,42 @@
             }
         });
 
-        document.querySelector('.nav-item[data-target="s0"]').click();
+        // Add a small initial delay to ensure DOM is ready
+        setTimeout(() => {
+            const first = document.querySelector('.nav-item[data-target="s0"]');
+            if(first) first.click();
+        }, 500);
     }
 
     function drawGlobalCover() {
+        const gc = document.getElementById('chartGlobalCover');
+        if(!gc) return;
+        gc.innerHTML = '';
         const avg = rawData.reduce((p,c)=>p+c.health_score,0)/rawData.length;
-        new ApexCharts(document.getElementById('chartGlobalCover'), {
-            chart: { type: 'radialBar', height: 180 },
-            series: [avg.toFixed(1)],
-            colors: ['#b6ff00'],
-            plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', offsetY: 7 } } } }
-        }).render();
+        waitForApex(() => {
+            new ApexCharts(gc, {
+                chart: { type: 'radialBar', height: 180, sparkline: { enabled: true } },
+                series: [avg.toFixed(1)],
+                colors: ['#b6ff00'],
+                plotOptions: { radialBar: { hollow: { size: '60%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '20px', show: true, offsetY: 7 } } } }
+            }).render();
+        });
+    }
+
+    function waitForApex(callback) {
+        if (typeof ApexCharts !== 'undefined') {
+            callback();
+        } else {
+            let attempts = 0;
+            const interval = setInterval(() => {
+                attempts++;
+                if (typeof ApexCharts !== 'undefined') {
+                    clearInterval(interval);
+                    callback();
+                }
+                if (attempts > 50) clearInterval(interval);
+            }, 100);
+        }
     }
 
     function drawTopTable() {
