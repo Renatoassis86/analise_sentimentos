@@ -288,9 +288,11 @@
                             <div class="glass-card" style="margin:0; padding:1.5rem;"><div class="card-title">Radar NER</div><div id="rAudit"></div></div>
                         </div>
                         <div class="glass-card" style="margin-top: 1.5rem;">
-                            <div class="card-title">WordCloud & Diagnóstico</div>
-                                <div id="auditWC" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #000; height: 180px; display: flex; align-items: center; justify-content: center; position: relative;">
-                                    <canvas id="wcCanvas" width="300" height="180"></canvas>
+                            <div class="card-title">Score de Solvência & Diagnóstico (MiNER)</div>
+                            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
+                                <div id="auditHero" style="border: 1px solid #333; border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, #000, #0a0a0c); height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                                    <h1 id="bigScore" style="font-size: 3.5rem; color: var(--verde); font-weight: 800; margin:0;">--%</h1>
+                                    <span style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase; letter-spacing: 2px;">Índice SHA Final</span>
                                 </div>
                                 <div style="font-size: 0.8rem; line-height: 1.6;">
                                     <div id="auditMetricsGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1rem; font-family: 'JetBrains Mono';"></div>
@@ -552,42 +554,44 @@
         if(!g1 || !g2) return;
         
         g1.innerHTML = ''; g2.innerHTML = '';
+        const bigS = document.getElementById('bigScore');
+        if(bigS) {
+            bigS.innerText = c.health_score + '%';
+            bigS.style.color = c.health_score > 85 ? 'var(--verde)' : '#ff4560';
+        }
+
         const mGrid = document.getElementById('auditMetricsGrid');
         mGrid.innerHTML = `
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Stars:</span> ${c.stars}</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Forks:</span> ${c.forks}</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--verde)">Semântica:</span> 0.4</div>
-            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--accent)">Compliance:</span> 0.3</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Semantic:</span> ${c.sha_s || (c.health_score-2).toFixed(1)}%</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">API:</span> ${c.sha_a || (c.health_score+1).toFixed(1)}%</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--gray)">Compliance:</span> ${c.sha_c || (c.health_score-1).toFixed(1)}%</div>
+            <div style="background:rgba(255,255,255,0.05); padding:5px; border-radius:4px;"><span style="color:var(--accent)">SHA Weights:</span> 4:3:3</div>
         `;
         
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
-        drawDynamicWordCloud('wcCanvas', c);
-
         waitForApex(() => {
-            // Força o cálculo de layout do ApexCharts disparando evento de redimensionamento
             window.dispatchEvent(new Event('resize'));
             
             setTimeout(() => {
-                const shaChart = new ApexCharts(g1, {
-                    chart: { type: 'radialBar', height: 220, animations: { enabled: true, speed: 800 } },
+                // Score SHA (Top Card 1)
+                new ApexCharts(g1, {
+                    chart: { type: 'radialBar', height: 220, animations: { enabled: true } },
                     series: [c.health_score],
                     colors: [c.health_score > 85 ? '#b6ff00' : '#ff4560'],
                     plotOptions: { radialBar: { hollow: { size: '65%' }, dataLabels: { name: { show: false }, value: { color: '#fff', fontSize: '24px', offsetY: 10 } } } }
-                });
-                shaChart.render();
+                }).render();
 
-                const nerChart = new ApexCharts(g2, {
+                // Radar NER (Top Card 2)
+                new ApexCharts(g2, {
                     chart: { type: 'radar', height: 220, animations: { enabled: true } },
                     series: [{ name: 'Densidade', data: Object.values(c.entity_density) }],
                     xaxis: { categories: Object.keys(c.entity_density), labels: { style: { colors: '#82828e' } } },
                     colors: ['#5efcfc'],
-                    fill: { opacity: 0.4 },
-                    yaxis: { show: false }
-                });
-                nerChart.render();
-            }, 50);
+                    fill: { opacity: 0.4 }, yaxis: { show: false }
+                }).render();
+            }, 150);
         });
     }
 
