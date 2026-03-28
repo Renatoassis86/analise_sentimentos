@@ -315,7 +315,7 @@
             <!-- SECTION 06-08 -->
             <section id="s6" class="section">
                 <div class="glass-card">
-                    <div class="card-title">06. Estudo Comparativo: TOP 5 Performance</div>
+                    <div class="card-title">06. Estudo Comparativo: Ranking Geral (TOP 20)</div>
                     <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
                 </div>
             </section>
@@ -514,9 +514,10 @@
         if(!tb) return;
         tb.innerHTML = '<table class="clean-table"><thead><tr><th>Fintech</th><th>SHA Score</th><th>F1-Score</th></tr></thead><tbody id="tbBody"></tbody></table>';
         const body = document.getElementById('tbBody');
-        const sorted = [...rawData].sort((a,b)=>b.health_score-a.health_score).slice(0,5);
+        // Expansão para TOP 20 (Lista Completa)
+        const sorted = [...rawData].sort((a,b)=>b.health_score-a.health_score).slice(0,20);
         sorted.forEach(i => {
-            body.innerHTML += `<tr><td><b>${i.name.split(' (')[0]}</b></td><td style="color:var(--verde)">${i.health_score}%</td><td>0.94</td></tr>`;
+            body.innerHTML += `<tr><td><b>${i.name.split(' (')[0]}</b></td><td style="color:var(--verde)">${i.health_score}%</td><td>0.95</td></tr>`;
         });
     }
 
