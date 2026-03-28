@@ -310,9 +310,9 @@
                     <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
                     <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div class="glass-card" style="margin:0;">
-                            <div class="card-title">Audit Cloud (Top 5 Consolidado)</div>
+                            <div class="card-title">Audit Cloud (Setorial Consolidado)</div>
                             <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px;">
-                                <img src="assets/presentation/wordcloud_top5.png" alt="Cloud TOP 5" style="max-height: 95%; max-width: 95%;">
+                                <canvas id="globalWCCanvas" width="450" height="280"></canvas>
                             </div>
                         </div>
                         <div class="glass-card" style="margin:0;">
@@ -353,14 +353,21 @@
     let rawData = [];
     Apex.theme = { mode: 'dark' };
 
-    fetch('data.json').then(r => r.json()).then(d => {
-        rawData = d.startups || [];
+    const SB_URL = 'https://nevnoikxrgdxwbbnjebr.supabase.co/rest/v1/fintechs';
+    const SB_KEY = 'sb_publishable_OkscIgxZjVxX2BJ1d4VQgg_fLBKPO44';
+
+    fetch(`${SB_URL}?select=*&order=health_score.desc`, {
+        headers: {
+            'apikey': SB_KEY,
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ldm5vaWt4cmdkeHdiYm5qZWJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjUzMjcsImV4cCI6MjA5MDI0MTMyN30.z5fifA3luDOBUGCdON5brbbQGb6JKHlWq4g6XJMg9Dw`
+        }
+    }).then(r => r.json()).then(d => {
+        rawData = d || [];
         initApp();
     }).catch(err => {
-        console.error("Erro fetch data:", err);
-        // Fallback p/ o Nubank se o fetch falhar
-        rawData = [{id:"nubank", name:"NUBANK (Infraestrutura de ML)", stars:1539, health_score:98.2, interpretation:"Maturidade top.", prescription:"OK.", entity_density:{"ORG":80, "TECH":90}}];
-        initApp();
+        console.error("Erro fetch Supabase:", err);
+        // Fallback local se o banco estiver inacessível
+        fetch('data.json').then(r => r.json()).then(d => { rawData = d.startups; initApp(); });
     });
 
     function initApp() {
@@ -393,7 +400,7 @@
 
                 if(target === 's0') drawGlobalCover();
                 if(target === 's7') drawGlobalDetails();
-                if(target === 's6') drawTopTable();
+                if(target === 's6') { drawTopTable(); drawGlobalWordCloud('globalWCCanvas'); }
                 
                 if(window.innerWidth <= 1024) sb.classList.remove('active');
                 setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
@@ -507,8 +514,10 @@
         document.getElementById('auditInterpretation').innerText = c.interpretation;
         document.getElementById('auditPrescription').innerText = c.prescription;
 
-        // Gerar WordCloud Dinâmica (Específica p/ a empresa)
         drawDynamicWordCloud('wcCanvas', c);
+
+        // Remover nome da empresa da nuvem (Stopword removal)
+        // O motor de WordCloud já prioriza o nome no topo, as secundárias são técnicas.
 
         waitForApex(() => {
             new ApexCharts(g1, {
@@ -543,15 +552,46 @@
             { text: 'GITHUB API', size: 10, color: '#b6ff00' },
             { text: 'COMPLIANCE', size: 18, color: '#fff' }
         ];
+        
+        // A lógica abaixo garante que as palavras secundárias NÃO repitam o nome (Stopword)
+        const densityTags = Object.entries(company.entity_density).map(([k, v]) => ({
+            text: k.toUpperCase(), size: Math.max(10, v / 5), color: '#ccc'
+        })).filter(t => t.text !== name.toUpperCase());
 
-        tags.forEach((tag, i) => {
+        const finalTags = [tags[0], ...tags.slice(1), ...densityTags.slice(0, 5)];
+
+        finalTags.forEach((tag, i) => {
             ctx.font = `800 ${tag.size}px Inter`;
             ctx.fillStyle = tag.color;
             ctx.textAlign = 'center';
-            // Posição pseudo-aleatória porém fixa p/ a empresa
-            const x = 150 + (i % 2 === 0 ? 30 * i : -30 * i) % 100;
-            const y = 30 + (i * 22);
+            const x = 150 + (i % 2 === 0 ? 35 * i : -35 * i) % 110;
+            const y = 30 + (i * 20) % 150;
             ctx.fillText(tag.text, x, y);
+        });
+    }
+
+    function drawGlobalWordCloud(canvasId) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Extrair todas as entidades de todas as 20 empresas
+        let allEntities = {};
+        rawData.forEach(comp => {
+            Object.entries(comp.entity_density).forEach(([k, v]) => {
+                allEntities[k] = (allEntities[k] || 0) + v;
+            });
+        });
+
+        const sorted = Object.entries(allEntities).sort((a,b)=>b[1]-a[1]).slice(0, 15);
+        
+        sorted.forEach(([text, val], i) => {
+            ctx.font = `800 ${Math.max(10, val/15)}px Inter`;
+            ctx.fillStyle = i < 3 ? '#b6ff00' : (i < 8 ? '#5efcfc' : '#888');
+            ctx.textAlign = 'center';
+            const x = 225 + (Math.sin(i) * 150);
+            const y = 40 + (i * 18);
+            ctx.fillText(text.toUpperCase(), x, y);
         });
     }
 </script>
