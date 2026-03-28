@@ -395,15 +395,19 @@
                 document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
                 item.classList.add('active');
                 document.getElementById(target).classList.add('active');
+                
                 document.getElementById('activeTitle').innerText = item.innerText.trim();
                 document.getElementById('activeSub').innerText = subs[target] || "";
 
-                if(target === 's0') drawGlobalCover();
-                if(target === 's7') drawGlobalDetails();
-                if(target === 's6') { drawTopTable(); drawGlobalWordCloud('globalWCCanvas'); }
+                // CORE: Atraso controlado p/ garantir que o DOM esteja renderizado e visível
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize')); 
+                    if(target === 's0') drawGlobalCover();
+                    if(target === 's7') drawGlobalDetails();
+                    if(target === 's6') { drawTopTable(); drawGlobalWordCloud('globalWCCanvas'); }
+                }, 150);
                 
                 if(window.innerWidth <= 1024) sb.classList.remove('active');
-                setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
             }
         });
 
@@ -448,14 +452,16 @@
             den.innerHTML = '';
             const scores = rawData.map(d => d.health_score).sort((a,b)=>a-b);
             waitForApex(() => {
-                new ApexCharts(den, {
-                    chart: { type: 'area', height: 300, toolbar: { show: false } },
-                    series: [{ name: 'Densidade', data: scores.map(s => ({x: s, y: Math.random()*5 + 1})) }],
-                    xaxis: { type: 'numeric', title: { text: 'Solvência %', style: { color: '#888' } } },
-                    colors: ['#b6ff00'],
-                    fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.6, opacityTo: 0 } },
-                    stroke: { curve: 'smooth', width: 2 }
-                }).render();
+                setTimeout(() => {
+                    new ApexCharts(den, {
+                        chart: { type: 'area', height: 300, toolbar: { show: false }, animations: { enabled: true } },
+                        series: [{ name: 'Densidade', data: scores.map(s => ({x: s, y: 1 + Math.sin(s)*0.5})) }],
+                        xaxis: { type: 'numeric', title: { text: 'Solvência %', style: { color: '#888' } } },
+                        colors: ['#b6ff00'],
+                        fill: { type: 'gradient', gradient: { opacityFrom: 0.6, opacityTo: 0 } },
+                        stroke: { curve: 'smooth', width: 3 }
+                    }).render();
+                }, 50);
             });
         }
     }
