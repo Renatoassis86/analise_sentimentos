@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Algorítmica | Neural Monitoring v7.9</title>
+    <title>Auditoria Algorítmica | Neural Monitoring v13.6 (GALA FINAL)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -453,10 +453,8 @@
             }
         });
 
-        setTimeout(() => {
-            const first = document.querySelector('.nav-item[data-target="s0"]');
-            if(first) first.click();
-        }, 500);
+        const first = document.querySelector('.nav-item[data-target="s0"]');
+        if(first) first.click();
     }
 
     function initGlobalCharts() {
@@ -506,7 +504,7 @@
             const avg = rawData.reduce((p,c)=>p+(parseFloat(c.health_score)||0),0)/rawData.length;
             waitForApex(() => {
                 new ApexCharts(gc, {
-                    chart: { type: 'radialBar', height: 220, background: 'transparent', theme: { mode: 'dark' } },
+                    chart: { type: 'radialBar', height: 220, background: 'transparent' },
                     series: [Math.round(avg)],
                     colors: ['#b6ff00'],
                     plotOptions: { 
