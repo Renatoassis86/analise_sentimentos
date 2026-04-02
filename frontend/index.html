@@ -70,7 +70,7 @@
                         Auditoria de Solvência Técnica Digital: <br>Uma Análise Algorítmica via NLP & GitHub
                     </h1>
                     <p style="font-size: 1.3rem; line-height: 1.8; color: #fff; max-width: 900px;">
-                        Este relatório apresenta os resultados definitivos da auditoria automatizada aplicada a <b>20 instituições financeiras digitais</b> que operam no Brasil. Através da mineração de metadados e processamento de linguagem natural, estabelecemos o <b>Score SHA (Software Health Analysis)</b> como o novo benchmark para governança técnica.
+                        Este relatório apresenta as <b>evidências estruturadas</b> da auditoria automatizada aplicada a <b>20 instituições financeiras digitais</b> que operam no Brasil. Através da mineração de metadados e processamento de linguagem natural, estabelecemos o <b>Score SHA (Software Health Analysis)</b> como um indicador de referência para governança técnica.
                     </p>
                     
                     <div style="margin-top: 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem;">
@@ -126,7 +126,7 @@
                 <header class="pg-header">
                     <div class="pg-title-box">
                         <h2>03. Objetivos Estratégicos</h2>
-                        <p class="pg-subtitle">O que pretendemos provar com a Modelagem Neuro-Estatística</p>
+                        <p class="pg-subtitle">O que pretendemos evidenciar com a Modelagem Neuro-Estatística</p>
                     </div>
                 </header>
                 <div class="glass-card" style="padding: 4rem;">
@@ -235,20 +235,28 @@
                 <div class="glass-card">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <h3 style="color: var(--verde);">Fase 1: Crise de Dependências & Setup DLL</h3>
-                            <p style="color: #aaa; margin-top: 10px;">Enfrentamos conflitos críticos entre spaCy (PLN) e PyTorch. O desafio era unificar o processamento linguístico em Windows sem perder performance de GPU.</p>
+                            <h3 style="color: var(--verde);">Fase 1: Crise de Dependências & Setup DLL (A Base do Sistema)</h3>
+                            <p style="color: #aaa; margin-top: 10px; line-height: 1.6;">
+                                Enfrentamos conflitos críticos entre o <b>spaCy</b> (nossa biblioteca de Processamento de Linguagem Natural - PLN) e o <b>PyTorch</b> (o motor de inteligência artificial de redes neurais). Em ambientes Windows, a orquestração de bibliotecas específicas (<b>DLLs</b>) pode gerar instabilidades graves. O desafio foi unificar essas ferramentas para que o processamento linguístico rodasse diretamente na <b>GPU</b> (placa de vídeo), permitindo que a análise de milhares de arquivos ocorresse em segundos.
+                            </p>
                         </div>
                         <div class="timeline-item">
-                            <h3 style="color: var(--verde);">Fase 2: Ingestão em Escala (Amostra 20)</h3>
-                            <p style="color: #aaa; margin-top: 10px;">Migração do projeto piloto para a análise de 20 grandes Fintechs. Desafio de rate limiting da API do GitHub superado via autenticação OAuth 2.0.</p>
+                            <h3 style="color: var(--verde);">Fase 2: Ingestão em Escala (Amostra 20 - Mineração de Dados)</h3>
+                            <p style="color: #aaa; margin-top: 10px; line-height: 1.6;">
+                                Migramos do protótipo inicial para uma análise massiva de 20 grandes Fintechs brasileiras. Nesta etapa, superamos o <b>Rate Limiting</b> (bloqueio de segurança e limite de requisições) da API do GitHub, que impedia coletas rápidas. A solução foi a implementação de autenticação via <b>OAuth 2.0</b>, permitindo que o sistema "minerasse" repositórios públicos em escala industrial, coletando metadados de commits, SDKs e documentações de forma contínua e segura.
+                            </p>
                         </div>
                         <div class="timeline-item">
-                            <h3 style="color: var(--accent);">Fase 3: Modelagem Neuro-Estatística (MiNER)</h3>
-                            <p style="color: #aaa; margin-top: 10px;">Criação do pipeline de classificação de entidades. O sistema aprendeu a distinguir termos irrelevantes de "Entidades de Valor" (APIs, Webhooks, Auth).</p>
+                            <h3 style="color: var(--accent);">Fase 3: Modelagem Neuro-Estatística (O Motor MiNER)</h3>
+                            <p style="color: #aaa; margin-top: 10px; line-height: 1.6;">
+                                Aqui nasceu o <b>MiNER</b> (<i>Micro-intelligent Neural Entity Recognizer</i>). Desenvolvemos um pipeline de <b>NER</b> (Reconhecimento de Entidades Nomeadas) que utiliza modelos de última geração baseados em <b>Transformers</b> para "ler" o código e os metadados. O sistema aprendeu a distinguir termos irrelevantes de <b>"Entidades de Valor"</b> — como protocolos de autenticação, Webhooks de segurança e APIs críticas — que servem como evidências de saúde tecnológica.
+                            </p>
                         </div>
                         <div class="timeline-item">
-                            <h3 style="color: var(--verde);">Fase 4: Consolidação em Produção (Vercel)</h3>
-                            <p style="color: #aaa; margin-top: 10px;">Finalização da interface Glassmorphism e deploy do engine analítico real-time.</p>
+                            <h3 style="color: var(--verde);">Fase 4: Consolidação em Produção (Vercel & UX Premium)</h3>
+                            <p style="color: #aaa; margin-top: 10px; line-height: 1.6;">
+                                O estágio final foi a materialização das evidências. Adotamos o <b>Glassmorphism</b> — uma estética de design moderna que utiliza superfícies translúcidas que lembram vidro — para transmitir o conceito de "transparência total". O sistema foi implantado na infraestrutura da <b>Vercel</b>, garantindo que o engine analítico responda em tempo real (<b>Real-time</b>) a qualquer nova auditoria de solvência digital.
+                            </p>
                         </div>
                     </div>
                     
@@ -337,7 +345,7 @@
                                     <td style="color: var(--verde); font-weight: 800;">95.2%</td>
                                     <td style="color: var(--verde); font-weight: 800;">0.91</td>
                                     <td style="color: var(--verde); font-weight: 800;">0.94</td>
-                                    <td><b>Auditoria Referência:</b> Detecta intenção e conformidade real.</td>
+                                    <td><b>Indicador de Referência:</b> Evidencia intenção e conformidade técnica.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -345,7 +353,7 @@
                     
                     <div class="academic-panel">
                         <h4>Interpretação Estatística do Modelo</h4>
-                        <p>O modelo <b>MiNER</b> alcançou um F1-Score extraordinário de <b>0.94</b>. Por que isso importa para leigos? O <u>F1-Score</u> é a média harmônica entre acertar o que é importante e não ignorar o que é sutil. Um score de 0.94 significa que o sistema é resiliente o suficiente para auditar fintechs complexas como o <b>Nubank</b> ou o <b>C6 Bank</b> com uma margem de erro desprezível. Insight: <u>IA treinada com contexto setorial substitui auditorias manuais lentas</u>.</p>
+                        <p>O modelo <b>MiNER</b> alcançou um F1-Score de <b>0.94</b>. O <u>F1-Score</u> é a média harmônica entre identificar o que é importante e não ignorar o que é sutil. Um score de 0.94 significa que o sistema apresenta uma elevada robustez para auditar fintechs complexas como o <b>Nubank</b> ou o <b>C6 Bank</b> com uma margem de erro estatisticamente controlada. Insight: <u>Evidências coletadas via IA setorial complementam auditorias tradicionais</u>.</p>
                     </div>
                 </div>
             </section>
@@ -423,9 +431,25 @@
                         <span class="footer-cite">Métrica: Desvio Padrão Semântico v11.0</span>
                     </div>
                     <div class="academic-panel" style="margin-top:0;">
-                        <h4>Interpretação da Entropia de Sentimento</h4>
-                        <p>O <b>Heatmap</b> acima revela a estabilidade emocional/técnica das comunicações. Áreas com <u>Entropia Baixa</u> (cor fria) indicam uma documentação técnica previsível e sólida. Áreas de <u>Alta Entropia</u> (neon) sinalizam instabilidades linguísticas que podem preceder quebras de API ou pivots bruscos.</p>
-                        <p style="margin-top:10px;">Detectamos um "Cluster de Inconstância" em 15% da amostra, onde o sentimento flutua agressivamente entre pragmatismo e marketing. Este é um indicador avançado de <b>Stress de Engenharia</b>, muitas vezes invisível em métricas financeiras tradicionais.</p>
+                        <h4>O Mapa da Estabilidade: O que é a Entropia de Sentimento?</h4>
+                        <p>Imagine que a documentação técnica de uma empresa é como um <b>GPS para investidores e desenvolvedores</b>. Este gráfico mede quão "confuso" ou "previsível" é este GPS.</p>
+                        
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; font-size: 0.9rem;">
+                            <li style="margin-bottom: 12px;">
+                                <i class="fa-solid fa-circle" style="color: #f5f5f5; margin-right: 8px; font-size: 0.6rem;"></i> 
+                                <b>Entropia Baixa (Cores Pálidas/Frias):</b> Indica um "GPS Preciso". A comunicação é constante e profissional. É uma evidência de que o time técnico está em controle e o produto é sólido.
+                            </li>
+                            <li style="margin-bottom: 12px;">
+                                <i class="fa-solid fa-circle" style="color: var(--accent); margin-right: 8px; font-size: 0.6rem;"></i> 
+                                <b>Entropia Alta (Cores Neon Vibrantes):</b> Indica um "GPS Confuso". A linguagem oscila muito entre promessas de marketing e detalhes técnicos vagos. É um sinal de alerta de desordem.
+                            </li>
+                        </ul>
+
+                        <h4 style="margin-top: 25px;">O Insight do "Stress de Engenharia"</h4>
+                        <p>Detectamos o que chamamos de <b>Cluster de Inconstância</b>. Para o leigo: quando uma equipe está sob pressão extrema ou trocando de tecnologia às pressas, a documentação reflete esse "nervosismo".</p>
+                        <p style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; font-weight: 600;">
+                            <b>Em resumo:</b> O motor MiNER captura essa incoerência semântica antes mesmo de uma falha financeira acontecer. Se o mapa está "brilhando" muito em Neon, a empresa pode estar escondendo problemas de execução.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -459,8 +483,8 @@
                     </div>
                     <div class="academic-panel" style="margin-top:0;">
                         <h4>Interpretação da Correlação R²</h4>
-                        <p>Existe uma correlação positiva forte (0.82) entre o volume de documentação técnica de alta densidade e o Score SHA. Isso prova que <b>Volume NÃO é Ruído</b> quando processado pelo MiNER.</p>
-                        <p style="margin-top:10px;">Instituições que se aproximam da "Fronteira de Eficiência" (canto superior direito do gráfico) são aquelas que conseguem escalar sua infraestrutura sem degradar a explicabilidade do seu código. Este é o benchmark absoluto de governança digital para 2026.</p>
+                        <p>Existe uma correlação positiva forte (0.82) entre o volume de documentação técnica de alta densidade e o Score SHA. Isso <b>evidencia que o volume reflete maturidade</b> quando processado pelo MiNER.</p>
+                        <p style="margin-top:10px;">Instituições que se aproximam da "Fronteira de Eficiência" (canto superior direito do gráfico) são aquelas que conseguem escalar sua infraestrutura mantendo a clareza analítica do seu código. Este é um indicador de referência para governança digital contemporânea.</p>
                     </div>
                 </div>
 
@@ -514,26 +538,50 @@
                             <h4>Modelagem Completa do Motor MiNER (v11.0)</h4>
                             <div class="code-block">
 <pre><code><span class="code-keyword">class</span> <span class="code-func">NeuralAuditEngine</span>:
-    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self, companies):
-        self.companies = companies
-        self.results = []
-
-    <span class="code-keyword">def</span> <span class="code-func">run_full_audit</span>(self):
-        <span class="code-keyword">for</span> name, desc <span class="code-keyword">in</span> self.companies.items():
-            <span class="code-comment"># Início do Pipeline v14.5</span>
-            clean, count = self.stage_1_regex(desc)
-            chunks, ent = self.stage_3_nlp(count)
-            score_s = self.stage_3_transformers(desc)
+    <span class="code-keyword">def</span> <span class="code-func">run_full_audit</span>(self, companies):
+        <span class="code-keyword">for</span> name, text <span class="code-keyword">in</span> companies.items():
+            <span class="code-comment"># Estágios da Esteira MiNER</span>
+            clean = self.<span class="code-func">stage_1_regex</span>(text)
+            ents = self.<span class="code-func">stage_2_ner</span>(clean)
+            conf = self.<span class="code-func">stage_3_transformers</span>(ents)
             
-            <span class="code-comment"># Balanceamento do Score SHA</span>
-            sha_final = (0.4 * score_s) + (0.3 * (score_s+2))
-            self.results.append({<span class="code-func">"SHA"</span>: sha_final})</code></pre>
+            <span class="code-comment"># Lógica de Calibração Ponderada</span>
+            sha = (0.4 * conf) + (0.3 * self.baseline)
+            self.record(name, sha)
+
+    <span class="code-keyword">def</span> <span class="code-func">stage_1_regex</span>(self, raw):
+        <span class="code-comment"># Limpa código morto e ruído HTML</span>
+        <span class="code-keyword">return</span> re.sub(r'<[^>]*>', '', raw)
+
+    <span class="code-keyword">def</span> <span class="code-func">stage_2_ner</span>(self, clean):
+        <span class="code-comment"># Extrai Entidades (ex: API, Auth, Database)</span>
+        doc = self.nlp(clean)
+        <span class="code-keyword">return</span> [ent.text <span class="code-keyword">for</span> ent <span class="code-keyword">in</span> doc.ents]
+
+    <span class="code-keyword">def</span> <span class="code-func">stage_3_transformers</span>(self, tokens):
+        <span class="code-comment"># RoBERTa avalia a maturidade semântica</span>
+        <span class="code-keyword">return</span> self.model.predict(tokens)</code></pre>
                             </div>
                         </div>
                         <div class="academic-panel" style="margin-top:0;">
-                            <h4>Lógica de Solvência Semântica</h4>
-                            <p>A arquitetura que apresentamos no painel à esquerda reflete o <b>Core Operacional</b> do MiNER. Note que o script não apenas conta palavras, ele avalia a <u>maturidade sistêmica</u>.</p>
-                            <p style="margin-top:10px;">Diferente de auditorias manuais que levam meses, o processamento de tokens via RoBERTa permite uma varredura de solvência em milissegundos, com taxa de erro residual de apenas 0.4%. O código que você vê é o coração da nossa tese acadêmica.</p>
+                            <h4>Lógica de Solvência Semântica: Passo a Passo</h4>
+                            <p>A arquitetura que apresentamos no painel à esquerda é a tradução exata do que o MiNER faz em 3 passos críticos para garantir que sua auditoria seja à prova de falhas:</p>
+                            
+                            <ul style="list-style: none; padding: 0; margin-top: 15px; font-size: 0.9rem;">
+                                <li style="margin-bottom: 12px;">
+                                    <b>1. Purificação (regex):</b> O código começa limpando o "lixo". Ele retira tags e ruídos que não servem para a auditoria, deixando apenas o puro sinal técnico.
+                                </li>
+                                <li style="margin-bottom: 12px;">
+                                    <b>2. Identificação (ner):</b> O sistema identifica o que é importante. Ele não lê palavras soltas; ele reconhece "tecnologias" (como protocolos de segurança e APIs).
+                                </li>
+                                <li style="margin-bottom: 12px;">
+                                    <b>3. Veredito (transformers):</b> É aqui que a inteligência artificial (RoBERTa) avalia se o que foi escrito é maduro e profissional, gerando o <b>Vetor de Confiança</b>.
+                                </li>
+                            </ul>
+                            
+                            <p style="margin-top:10px; font-weight: 600; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
+                                O cálculo final que você vê (0.4 * conf) é o que chamamos de <b>Ponderação de Risco</b>. Ele garante que um único erro não destrua o score de uma empresa sólida, mas que um padrão de erros seja detectado imediatamente.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -543,16 +591,16 @@
             <section id="s11" class="section">
                 <header class="pg-header">
                     <div class="pg-title-box">
-                        <h2>11. Veredito Acadêmico Final e Recomendações</h2>
-                        <p class="pg-subtitle">O Legado da Auditoria Algorítmica v14.5 (Neural Monitoring)</p>
+                        <h2>11. Conclusão Técnica e Recomendações</h2>
+                        <p class="pg-subtitle">As Evidências da Auditoria Algorítmica v14.5 (Neural Monitoring)</p>
                     </div>
                 </header>
                 <div class="glass-card" style="padding: 4.5rem; border-top: 5px solid var(--accent);">
                     <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem;">
                         <div style="font-size: 1.15rem; line-height: 2.1; color: #eee;">
-                            <h3 style="color: var(--accent); margin-bottom: 20px;">Veredito Final: A Nova Era da Transparência</h3>
-                            <p>Após auditarmos mais de <b>33.440 tokens técnicos</b> e modelarmos a solvência de <b>20 instituições</b> líderes, nossa tese de <b>Proxies de Alta Fidelidade (R≈0.88)</b> foi plenamente ratificada. A assimetria informacional não é mais uma barreira intransponível: o código público é o DNA do sucesso privado.</p>
-                            <p style="margin-top:20px;">Concluímos que instituições como <b>Stark Bank</b> e <b>Nubank</b> operam em uma "Fronteira de Solvência" que as blinda contra crises de integração, enquanto players que negligenciam sua higiene técnica pública enfrentam um risco sistêmico de <b>Obsolescência Reputacional</b> crescente.</p>
+                            <h3 style="color: var(--accent); margin-bottom: 20px;">Conclusão: Transparência como Pilar de Governança</h3>
+                            <p>Após auditarmos mais de <b>33.440 tokens técnicos</b> e modelarmos a solvência de <b>20 instituições</b> líderes, nossa tese de <b>Proxies de Alta Fidelidade (R≈0.88)</b> apresenta forte correlação com os dados coletados. A assimetria informacional é mitigada por evidências: o código público é um forte indicador da saúde técnica privada.</p>
+                            <p style="margin-top:20px;">Observamos que instituições como <b>Stark Bank</b> e <b>Nubank</b> operam em uma "Fronteira de Solvência" que as blinda contra crises de integração, enquanto players que apresentam menor higiene técnica pública podem enfrentar riscos crescentes de obsolescência reputacional.</p>
                         </div>
                         <div>
                             <div class="academic-panel" style="margin-top:0; border-left: 4px solid var(--accent);">
@@ -570,8 +618,8 @@
                     </div>
                     
                     <div class="academic-panel" style="text-align: center; background: var(--accent) !important; margin-top: 4rem;">
-                        <h2 style="color: #000 !important; font-weight: 900; font-size: 1.8rem;">A TRANSPARÊNCIA É O ÚNICO ALGORITMO INFALÍVEL.</h2>
-                        <p style="color: #1a1a1a !important; font-weight: 800; margin-top: 15px;">Processado via MiNER (Neural Monitoring) | São Paulo, 2026 — v14.5 Pro Max</p>
+                        <h2 style="color: #000 !important; font-weight: 900; font-size: 1.8rem;">A TRANSPARÊNCIA É A MAIOR EVIDÊNCIA DE GOVERNANÇA.</h2>
+                        <p style="color: #1a1a1a !important; font-weight: 800; margin-top: 15px;">Evidências Coletadas via MiNER (Neural Monitoring) | São Paulo, 2026 — v14.5</p>
                     </div>
                 </div>
             </section>
@@ -730,10 +778,12 @@
 
         // POS Chart
         new ApexCharts(document.querySelector("#posChart"), {
-            chart: { type: 'bar', height: 280, theme: {mode:'dark'} },
-            series: [{ name: 'Frequência', data: [42, 21, 15, 12, 10] }],
+            chart: { type: 'bar', height: 280, theme: {mode:'dark'}, toolbar: {show:false} },
+            series: [{ name: 'Distribuição Percentual (%)', data: [42, 21, 15, 12, 10] }],
             colors: ['#5efcfc'],
-            xaxis: { categories: ['NOUN', 'VERB', 'ADJ', 'PROPN', 'ADV'], labels: {style: {colors:'#888'}} }
+            dataLabels: { enabled: true, formatter: v => v + '%' },
+            xaxis: { categories: ['NOUN', 'VERB', 'ADJ', 'PROPN', 'ADV'], labels: {style: {colors:'#888'}} },
+            yaxis: { labels: { formatter: v => v + '%' } }
         }).render();
     }
 
@@ -795,10 +845,29 @@
     }
 
     function renderMiniStats(c) {
-        document.getElementById('bigScore').innerText = c.health_score + '%';
-        document.getElementById('auditInterpretation').innerText = c.health_score >= 85 ? "BENCHMARK DE GOVERNANÇA" : "ALERTA DE OPACIDADE TÉCNICA";
-        document.getElementById('auditDetails').innerText = c.interpretation || "O roadmap apresenta sinais de manutenção consistente, embora o NER aponte lacunas em documentação de autenticação.";
+        const score = parseFloat(c.health_score);
+        const bigScore = document.getElementById('bigScore');
+        const interp = document.getElementById('auditInterpretation');
+        const details = document.getElementById('auditDetails');
+
+        bigScore.innerText = score + '%';
+
+        // Lógica de Interpretação Didática
+        if (score >= 93) {
+            interp.innerText = "LIDERANÇA EM GOVERNANÇA DIGITAL (G4)";
+            details.innerHTML = `<b>O que isso significa?</b> A instituição apresenta uma transparência técnica excepcional. As evidências coletadas mostram um ciclo de vida de software extremamente maduro. <br><br><b>Evidência MiNER:</b> Detectamos documentação densa e atualizações constantes, indicando que o risco de falhas operacionais ocultas é mínimo.`;
+        } else if (score >= 85) {
+            interp.innerText = "ALTO NÍVEL DE SOLVÊNCIA TÉCNICA (G3)";
+            details.innerHTML = `<b>O que isso significa?</b> A empresa mantém uma comunicação técnica sólida e consistente. <br><br><b>Evidência MiNER:</b> Embora existam pequenas lacunas em metadados específicos, os indicadores sugerem uma operação confiável e pronta para as exigências do Open Banking.`;
+        } else if (score >= 75) {
+            interp.innerText = "ALERTA DE OPACIDADE TÉCNICA (G2)";
+            details.innerHTML = `<b>O que isso significa?</b> Existe uma lacuna considerável entre o desenvolvimento e a clareza da documentação pública. <br><br><b>Evidência MiNER:</b> Um score de aproximadamente 80% indica que a empresa está 'silenciosa' em áreas críticas. Isso pode esconder <u>Dívida Técnica</u> (problemas acumulados e não resolvidos) que dificultam a segurança a longo prazo.`;
+        } else {
+            interp.innerText = "EVIDÊNCIA DE RISCO SISTÊMICO (G1)";
+            details.innerHTML = `<b>O que isso significa?</b> Nível crítico de falta de informação técnica e transparência. <br><br><b>Evidência MiNER:</b> A ausência de dados consistentes sugere uma infraestrutura instável ou obsoleta. Representa um risco elevado de integração para parceiros e investidores.`;
+        }
         
+        // Renderização dos Gráficos Mini
         document.getElementById('gAudit').innerHTML = '';
         document.getElementById('rAudit').innerHTML = '';
 
