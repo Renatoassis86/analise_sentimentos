@@ -4,151 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auditoria Algorítmica de Fintechs | Transparência & Governança v14.5</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@300;600;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <style>
-        :root {
-            --bg: #0a0a0c; 
-            --surface: #121216; 
-            --verde: #b6ff00; 
-            --accent: #5efcfc; 
-            --gray: #82828e;
-            --sb-w: 280px; 
-            --text: #f4f4f5;
-        }
-
-        * { margin:0; padding:0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
-
-        .app-wrapper { display: flex; min-height: 100vh; width: 100vw; }
-
-        .sidebar {
-            width: var(--sb-w); background: #08080a; border-right: 1px solid #1f1f23;
-            display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .main-container { flex-grow: 1; margin-left: var(--sb-w); background: #0a0a0c; transition: margin-left 0.3s ease; }
-        .main-content { padding: 4rem; max-width: 1400px; margin: 0 auto; width: 100%; }
-
-        @media (max-width: 1024px) {
-            :root { --sb-w: 0px; }
-            .sidebar { transform: translateX(-100%); width: 280px; box-shadow: 20px 0 50px rgba(0,0,0,0.5); }
-            .sidebar.active { transform: translateX(0); }
-            .main-container { margin-left: 0; }
-            .main-content { padding: 5rem 1rem 2rem; }
-            .pg-header { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,12,0.8); backdrop-filter: blur(10px); z-index: 900; padding: 1rem; border-bottom: 1px solid #1f1f23; }
-        }
-
-        .sb-header { padding: 2.5rem 2rem; border-bottom: 1px solid #1f1f23; display: flex; align-items: center; gap: 10px; }
-        .logo-box { background: var(--verde); width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #000; font-size: 0.8rem; }
-
-        .nav-list { list-style: none; padding: 1.5rem 0.8rem; flex-grow: 1; overflow-y: auto; }
-        .nav-item {
-            padding: 0.8rem 1.4rem; margin-bottom: 4px; border-radius: 4px; cursor: pointer;
-            font-size: 0.75rem; color: #ccc; transition: 0.2s; display: flex; align-items: center; gap: 15px;
-            font-weight: 600;
-        }
-        .nav-item i { width: 20px; font-size: 0.9rem; opacity: 0.7; }
-        .nav-item:hover { background: rgba(255,255,255,0.03); color: #fff; }
-        .nav-item.active { background: var(--verde); color: #000; font-weight: 700; }
-
-        .section { display: none; }
-        .section.active { display: block; animation: dashFade 0.3s ease-out; }
-        @keyframes dashFade { from {opacity:0;} to {opacity:1;} }
-
-        .pg-header { border-bottom: 1px solid #1f1f23; padding-bottom: 1.5rem; margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .pg-title-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
-        .pg-subtitle { font-size: 0.75rem; color: var(--gray); }
-        
-        .profile-badge { background: var(--verde); color: #000; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; }
-
-        .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.5rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
-        .card-title { font-size: 0.8rem; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 800; }
-
-        .terminal { background: #000; padding: 2rem; border-radius: 12px; font-family: 'JetBrains Mono'; color: var(--verde); height: 300px; overflow-y: auto; border: 1px solid #222; font-size: 0.85rem; line-height: 1.6; }
-        .btn-exe { background: var(--verde); color:#000; border:none; padding:1.2rem; font-weight:900; border-radius:4px; width:100%; cursor:pointer; text-transform:uppercase; margin-top: 1rem; transition: 0.3s; }
-        .btn-exe:hover { background: #fff; }
-        
-        /* WHITE BOXES - DARK TEXT MANDATORY */
-        .academic-panel {
-            background: #ffffff;
-            color: #1a1a1a !important;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        .academic-panel h3, .academic-panel h4, .academic-panel b, .academic-panel strong, .academic-panel p, .academic-panel li {
-            color: #1a1a1a !important;
-        }
-        .academic-panel h4 {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.2rem;
-            border-bottom: 2px solid #b6ff00;
-            display: inline-block;
-            padding-bottom: 4px;
-        }
-
-        .clean-table-wrapper { width: 100%; overflow-x: auto; margin-top: 1rem; }
-        .clean-table { width:100%; border-collapse: collapse; min-width: 800px; }
-        .clean-table th { text-align: left; padding: 1.2rem 1rem; font-size: 0.65rem; color: var(--gray); text-transform: uppercase; border-bottom: 2px solid #1f1f23; }
-        .clean-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #1f1f23; font-size: 0.85rem; }
-        
-        select { width:100%; padding:1.2rem; background:#000; border:1px solid #222; color:#fff; font-family:'Inter'; border-radius:8px; margin-bottom: 1.5rem; }
-        .code-block { background: #000; padding: 1.5rem; border-radius: 8px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--verde); border-left: 4px solid var(--verde); margin-top: 1rem; }
-
-        /* Timeline styles */
-        .timeline { border-left: 2px solid #222; padding-left: 30px; position: relative; margin-left: 10px; }
-        .timeline-item { position: relative; margin-bottom: 40px; }
-        .timeline-item::before { content: ''; position: absolute; left: -37px; top: 0; width: 12px; height: 12px; background: var(--verde); border-radius: 50%; box-shadow: 0 0 10px var(--verde); }
-
-        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .glossary-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; }
-        .glossary-item .acronym { color: var(--verde); font-weight: 900; font-size: 1.2rem; margin-bottom: 8px; }
-        .glossary-item .full { color: var(--accent); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; }
-        .glossary-item .desc { color: #aaa; font-size: 0.8rem; line-height: 1.6; }
-
-        /* Charts enhancement */
-        .chart-container { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem; }
-        .footer-cite { font-size: 0.6rem; color: #444; margin-top: 15px; font-style: italic; display: block; text-align: right; }
-
-        .apexcharts-tooltip { background: #fff !important; color: #000 !important; }
-        .apexcharts-tooltip * { color: #000 !important; }
-    </style>
 </head>
 <body>
 
-<div class="app-wrapper">
+<div class="app-container">
     <aside class="sidebar" id="sidebar">
-        <div class="sb-header">
-            <div class="logo-box"><i class="fa-solid fa-microchip"></i></div>
-            <div style="margin-left:8px;">
-                <h1 style="font-size: 0.75rem; color: var(--verde); letter-spacing: 1px;">AUDITORIA FINTECH</h1>
-            </div>
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="logo-text">AUDITORIA <span>FINTECH v14.5</span></div>
         </div>
-        <ul class="nav-list" id="navList">
-            <li class="nav-item active" data-target="s1"><i class="fa-solid fa-user-graduate"></i> 01. Resumo Executivo</li>
-            <li class="nav-item" data-target="s2"><i class="fa-solid fa-book"></i> 02. Introdução / Justificativa</li>
-            <li class="nav-item" data-target="s3"><i class="fa-solid fa-bullseye"></i> 03. Objetivos Estratégicos</li>
-            <li class="nav-item" data-target="s4"><i class="fa-solid fa-microscope"></i> 04. Metodologia Detalhada</li>
-            <li class="nav-item" data-target="s5"><i class="fa-solid fa-scroll"></i> 05. Diário de Bordo</li>
-            <li class="nav-item" data-target="s6"><i class="fa-solid fa-code-merge"></i> 06. Engenharia de Dados</li>
-            <li class="nav-item" data-target="s7"><i class="fa-solid fa-chart-line"></i> 07. Modelagem e Estatística</li>
-            <li class="nav-item" data-target="s8"><i class="fa-solid fa-display"></i> 08. Aplicabilidade Prática</li>
-            <li class="nav-item" data-target="s9"><i class="fa-solid fa-database"></i> 09. Resultados Permanentes</li>
-            <li class="nav-item" data-target="s10"><i class="fa-solid fa-chart-simple"></i> 10. Modelagem Macro</li>
-            <li class="nav-item" data-target="s11"><i class="fa-solid fa-flag-checkered"></i> 11. Conclusões Finais</li>
+        <ul class="menu" id="navList">
+            <li class="menu-item active" data-target="s1"><i class="fa-solid fa-user-graduate"></i> 01. Resumo Executivo</li>
+            <li class="menu-item" data-target="s2"><i class="fa-solid fa-book"></i> 02. Introdução / Justificativa</li>
+            <li class="menu-item" data-target="s3"><i class="fa-solid fa-bullseye"></i> 03. Objetivos Estratégicos</li>
+            <li class="menu-item" data-target="s4"><i class="fa-solid fa-microscope"></i> 04. Metodologia Detalhada</li>
+            <li class="menu-item" data-target="s5"><i class="fa-solid fa-scroll"></i> 05. Diário de Bordo</li>
+            <li class="menu-item" data-target="s6"><i class="fa-solid fa-code-merge"></i> 06. Engenharia de Dados</li>
+            <li class="menu-item" data-target="s7"><i class="fa-solid fa-chart-line"></i> 07. Modelagem e Estatística</li>
+            <li class="menu-item" data-target="s8"><i class="fa-solid fa-display"></i> 08. Aplicabilidade Prática</li>
+            <li class="menu-item" data-target="s9"><i class="fa-solid fa-database"></i> 09. Resultados Permanentes</li>
+            <li class="menu-item" data-target="s10"><i class="fa-solid fa-chart-simple"></i> 10. Modelagem Macro</li>
+            <li class="menu-item" data-target="s11"><i class="fa-solid fa-flag-checkered"></i> 11. Conclusões Finais</li>
         </ul>
     </aside>
 
-    <main class="main-container">
-        <div class="main-content" id="mainContent">
+    <main class="content-area">
+        <header class="hero-banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>Neural Monitoring</h2>
+                    <p style="color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Transparência & Governança Algorítmica</p>
+                </div>
+                <div class="user-profile">
+                    <div style="text-align: right;">
+                        <p style="font-weight: 900; font-size: 0.8rem;">AUDITOR-CHEFE</p>
+                        <p style="font-size: 0.7rem; color: var(--gray);">Sessão Ativa: MiNER v14.5</p>
+                    </div>
+                    <div class="avatar">AD</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="scroll-content" id="mainContent">
             
             <!-- SECTION 01: RESUMO EXECUTIVO -->
             <section id="s1" class="section active">
@@ -600,17 +501,20 @@
     }
 
     function initNavigation() {
-        const items = document.querySelectorAll('.nav-item');
+        const items = document.querySelectorAll('.menu-item');
         items.forEach(item => {
             item.onclick = () => {
                 const target = item.getAttribute('data-target');
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
                 document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
                 item.classList.add('active');
                 document.getElementById(target).classList.add('active');
+                
+                // Scroll to top of content area on change
+                document.querySelector('.content-area').scrollTop = 0;
+                
                 window.dispatchEvent(new Event('resize'));
                 
-                // Extra trigger p/ canvas da wordcloud
                 if(target === 's10') setTimeout(drawWordCloud, 200);
             };
         });
@@ -618,7 +522,7 @@
         // Toggle Sidebar p/ mobile
         const mBtn = document.getElementById('menuBtn');
         const sb = document.getElementById('sidebar');
-        mBtn.onclick = () => sb.classList.toggle('active');
+        if(mBtn) mBtn.onclick = () => sb.classList.toggle('active');
     }
 
     function drawGlobalDash() {
