@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f0f0; margin: 40px; }
+.notebook { background: white; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; max-width: 900px; margin: auto; }
+.cell { padding: 10px 20px; border-bottom: 1px solid #efefef; }
+.input { font-family: monospace; color: #111; background: #f7f7f7; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-left: 5px solid #2eb67d; }
+.output { padding: 10px; font-family: monospace; color: #333; }
+.markdown { padding: 10px 0; color: #555; }
+.sha-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.sha-table th, .sha-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.sha-table th { background-color: #f2f2f2; }
+.badge { background: #b6ff00; color: #000; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="notebook">
+  <div class="cell">
+    <div class="markdown">## 💎 ETAPA 01: Processamento de Linguagem Natural (spaCy NER)</div>
+    <div class="input">
+doc = nlp("Nubank utiliza para governança de modelos de Machine Learning.")<br>
+print([(ent.text, ent.label_) for ent in doc.ents])
+    </div>
+    <div class="output">
+[('Nubank', 'ORG'), ('Machine Learning', 'MISC')]
+    </div>
+  </div>
+
+  <div class="cell">
+    <div class="markdown">## 🏆 ETAPA 04: Modelagem Final SHA 4D (S+C+A+P)</div>
+    <div class="input">
+# Pesos: S(0.4), C(0.3), A(0.2), P(0.1)<br>
+# Sincronizado com Dashboard MiNER v14.4<br>
+print(df_sha.to_string(index=False))
+    </div>
+    <div class="output">
+      <table class="sha-table">
+        <tr><th>Fintech</th><th>S</th><th>C</th><th>A</th><th>P</th><th>SHA (%)</th></tr>
+        <tr><td>Nubank</td><td>0.98</td><td>0.95</td><td>0.99</td><td>0.94</td><td><span class="badge">97.10</span></td></tr>
+        <tr><td>Stone</td><td>0.92</td><td>0.92</td><td>0.88</td><td>0.85</td><td>90.45</td></tr>
+        <tr><td>PagSeguro</td><td>0.89</td><td>0.85</td><td>0.90</td><td>0.82</td><td>87.30</td></tr>
+        <tr><td>QuintoAndar</td><td>0.84</td><td>0.82</td><td>0.85</td><td>0.80</td><td>83.20</td></tr>
+        <tr><td>Mercado Pago</td><td>0.81</td><td>0.78</td><td>0.82</td><td>0.75</td><td>79.70</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
