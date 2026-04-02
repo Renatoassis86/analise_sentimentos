@@ -1,69 +1,55 @@
-# <p align="center">Neural Marketing Intelligence — Análise de Sentimentos</p>
+# <p align="center">🛡️ ArKOS Marketing Intelligence: Auditoria Algorítmica em Fintechs</p>
 
 <p align="center">
-  <img src="assets/Neural Platform_mi_logo.png" alt="Neural Marketing Intelligence Logo" width="200"/>
+  <img src="assets/arkos_logo.png" alt="ArKOS MI Logo" width="220"/>
 </p>
 
 <p align="center">
-  <strong>Motor de PLN do módulo Marketing Intelligence da plataforma Neural Platform</strong>
+  <strong>Motor de Inteligência MiNER (Marketing Intelligence Engine for Reputation)</strong>
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Academic-UFPB-red?style=for-the-badge" alt="UFPB"/>
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python" alt="Python"/>
-  <img src="https://img.shields.io/badge/spaCy-v3.8-05BDAD?style=for-the-badge&logo=spacy" alt="spaCy"/>
-  <img src="https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?style=for-the-badge&logo=huggingface" alt="HuggingFace"/>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT"/>
+  <img src="https://img.shields.io/badge/spaCy-v3.x-05BDAD?style=for-the-badge&logo=spacy" alt="spaCy"/>
+  <img src="https://img.shields.io/badge/Transformers-RoBERTa-FFD21E?style=for-the-badge&logo=huggingface" alt="Transformers"/>
 </p>
 
 ---
 
-## 🚀 Sobre o Projeto
-A **Neural Platform** é uma infraestrutura de inteligência corporativa brasileira focada em elevar o nível de maturidade analítica das organizações (Framework de Davenport). O módulo **MI (Marketing Intelligence)** é o motor de reputação, NPS e inteligência profunda de mercado.
+## 🚀 Visão Geral
+O **ArKOS MI** é uma plataforma de auditoria algorítmica projetada para avaliar a saúde tecnológica e reputacional de Fintechs brasileiras. Através da modelagem de dados não estruturados (READMEs de repositórios, documentação de APIs e manifestos de segurança), o sistema gera o **SHA 4D Score** — um indicador quantitativo de Segurança, Saúde, Atividade e Popularidade.
 
-Este repositório contém o **Startup Signal Intelligence**, um sistema que aplica Processamento de Linguagem Natural (PLN) para analisar narrativas de startups e predizer indicadores de sucesso e engajamento.
+## 🏗️ Metodologia Acadêmica (3 Etapas)
+O pipeline de auditoria é estruturado em três camadas de análise profunda:
 
-## 🏗 Arquitetura do Sistema
-O sistema é dividido em 3 etapas fundamentais:
+1.  **Etapa 01: Limpeza e Normalização (Regex + spaCy)**
+    *   Remoção de ruídos técnicos via Expressões Regulares.
+    *   Lematização semântica e filtragem de ruído linguístico.
+2.  **Etapa 02: Ingestão e Governança (Web APIs)**
+    *   Extração automatizada de documentação técnica via GitHub Raw API.
+    *   Mapeamento de infraestrutura e transparência de código.
+3.  **Etapa 03: Auditoria Semântica Profunda (POS, NER & Transformers)**
+    *   **POS Tagging:** Auditoria da Gramática de Design (Densidade de Ativos vs. Marketing).
+    *   **NER:** Reconhecimento de Entidades de Governança e Compliance (ISO, BCB, etc).
+    *   **RoBERTa:** Inferência contextual de saúde algorítmica e sentimentos técnicos.
 
-1.  **Etapa 1: Estruturação Narrativa (Regex + spaCy)**
-    *   Limpeza de texto e extração de "Trust Markers".
-    *   NER (Reconhecimento de Entidades Nomeadas) e extração de Propostas de Valor.
-2.  **Etapa 2: Coleta & Capital Social (Scraping + NLTK)**
-    *   Coleta de dados via APIs e Web Scraping.
-    *   Análise de Capital Social Digital (frequência, regularidade e engajamento).
-3.  **Etapa 3: Inferência Semântica (Transformers + Classificação)**
-    *   Análise de sentimentos profunda com HuggingFace.
-    *   Classificação de tipos narrativos (Societal-Solution vs Product-Centric).
+## 🧪 Estrutura do Repositório
+*   `notebooks/`: Dossiês de execução para defesa acadêmica.
+    *   `03_etapa3_pln_sentimentos.ipynb`: O coração do motor de inteligência.
+    *   `DEMONSTRACAO_GERAL_PROJETO.ipynb`: Visão consolidada para a banca examinadora.
+*   `src/`: Código fonte modularizado para produção.
+*   `frontend/`: Dashboard em Next.js para visualização executiva (Vercel).
 
-## 🧪 Base Científica
-O projeto fundamenta-se nas seguintes pesquisas de ponta:
-- **Qiu et al. (2025):** BERTweet + early fusion para predição de financiamento.
-- **Peixoto et al. (2023):** LDA + fases de vida de startups via Twitter.
-- **Saura et al. (2019):** LDA + SVM para indicadores de sucesso de startups.
-- **Jin, Wu & Hitt (2017):** Sinais sociais públicos como preditores de captação.
-- **Cheng (2024):** Presença multicanal como aceleradora de legitimidade (R² up to 0.78).
-
-## 🛠 Instalação
+## 🛠️ Configuração do Ambiente
 ```bash
-# Clone o repositório
-git clone https://github.com/Renatoassis86/analise_sentimentos.git
-cd analise_sentimentos
-
-# Crie um ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Instale as dependências
+# Instalação facilitada
 pip install -r requirements.txt
-
-# Baixe o modelo do spaCy
-python -m spacy download pt_core_news_lg
+python -m spacy download pt_core_news_sm
 ```
 
-## 📖 Uso Rápido
-Consulte os arquivos no diretório `notebooks/` para uma execução guiada passo a passo de cada etapa do pipeline. Para uso em produção, importe as funções do diretório `src/`.
-
 ---
 
-**Créditos:** 
-Neural Platform Intelligence | **Renato Assis**
+**Pesquisador:** Renato Assis  
+**Disciplina:** Modelagem de Dados Não Estruturados | UFPB  
+**Status:** 100% Operacional para Defesa Acadêmica.
