@@ -28,19 +28,27 @@
         .main-content { padding: 4rem; max-width: 1400px; margin: 0 auto; width: 100%; }
 
         @media (max-width: 1024px) {
-            .sidebar { transform: translateX(-100%); width: 280px; }
+            :root { --sb-w: 0px; }
+            .sidebar { transform: translateX(-100%); width: 280px; box-shadow: 20px 0 50px rgba(0,0,0,0.5); }
             .sidebar.active { transform: translateX(0); }
             .main-container { margin-left: 0; }
-            .main-content { padding: 3rem 1rem 1.5rem; }
-            .pg-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .main-content { padding: 5rem 1rem 2rem; }
+            .pg-header { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,12,0.8); backdrop-filter: blur(10px); z-index: 900; padding: 1rem; border-bottom: 1px solid #1f1f23; }
+            .pg-header { flex-direction: row; align-items: center; justify-content: space-between; }
             .master-audit-container { grid-template-columns: 1fr !important; }
             .chart-box { grid-column: span 1 !important; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
+            .glass-card { padding: 1.5rem; }
+            h1 { font-size: 1.5rem !important; }
+            .section { padding-top: 1rem; }
+            #auditHero h1 { font-size: 3rem !important; }
         }
 
-        @media (max-width: 768px) {
-            .glass-card { padding: 1.5rem; }
-            .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
-            h1 { font-size: 1.5rem !important; }
+        @media (max-width: 480px) {
+            .sb-header { padding: 1.5rem; }
+            .nav-item { padding: 0.7rem 1rem; font-size: 0.7rem; }
+            .pg-title-box h2 { font-size: 1.2rem; }
+            .pg-subtitle { display: none; }
         }
 
         /* SIDEBAR */
@@ -77,9 +85,64 @@
         .btn-exe { background: var(--verde); color:#000; border:none; padding:1.2rem; font-weight:900; border-radius:4px; width:100%; cursor:pointer; text-transform:uppercase; margin-top: 1rem; transition: 0.3s; }
         .btn-exe:hover { background: #fff; filter: drop-shadow(0 0 10px var(--verde)); }
         
-        .clean-table { width:100%; border-collapse: collapse; }
-        .clean-table th { text-align: left; padding: 1.2rem 1rem; font-size: 0.6rem; color: var(--gray); text-transform: uppercase; border-bottom: 2px solid #1f1f23; }
-        .clean-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #1f1f23; font-size: 0.85rem; }
+        .interpretation-panel { 
+            background: rgba(182, 255, 0, 0.04); 
+            border-left: 3px solid var(--verde); 
+            padding: 1.5rem; 
+            margin-top: 1rem; 
+            font-size: 0.85rem; 
+            line-height: 1.6; 
+            color: #ccc;
+            border-radius: 0 8px 8px 0;
+        }
+        .interpretation-panel h4 { 
+            color: var(--verde); 
+            font-size: 0.65rem; 
+            text-transform: uppercase; 
+            margin-bottom: 0.8rem; 
+            letter-spacing: 2px; 
+        }
+        .interpretation-panel strong { color: #fff; }
+        .interpretation-panel p { margin-bottom: 0.6rem; }
+        .interpretation-panel p:last-child { margin-bottom: 0; }
+
+        /* Fix: caixas brancas com texto legivel */
+        .glass-card *, .chart-box *, .section * { color: inherit; }
+        .chip-white { background: #fff; border-radius: 8px; padding: 1rem 1.5rem; color: #111 !important; }
+        .chip-white * { color: #111 !important; }
+
+        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .glossary-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem 1.2rem; }
+        .glossary-item .acronym { color: var(--verde); font-weight: 900; font-size: 1rem; letter-spacing: 1px; }
+        .glossary-item .full { color: var(--accent); font-size: 0.75rem; font-weight: 700; margin: 4px 0; }
+        .glossary-item .desc { color: #aaa; font-size: 0.72rem; line-height: 1.5; }
+
+        /* ApexCharts Tooltip Fix - Dark text on Light background */
+        .apexcharts-tooltip {
+            background: #fff !important;
+            border: 1px solid #ddd !important;
+            color: #000 !important;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2) !important;
+        }
+        .apexcharts-tooltip-title {
+            background: #f0f0f0 !important;
+            color: #000 !important;
+            font-weight: 800 !important;
+            border-bottom: 1px solid #ddd !important;
+        }
+        .apexcharts-tooltip-text-label, 
+        .apexcharts-tooltip-text-value,
+        .apexcharts-tooltip * {
+            color: #000 !important;
+            font-weight: 600 !important;
+        }
+
+        .chart-box { position: relative; margin-bottom: 1.5rem; }
+
+        .clean-table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 1rem; }
+        .clean-table { width:100%; border-collapse: collapse; min-width: 600px; }
+        .clean-table th { text-align: left; padding: 1.2rem 1rem; font-size: 0.6rem; color: var(--gray); text-transform: uppercase; border-bottom: 2px solid #1f1f23; white-space: nowrap; }
+        .clean-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #1f1f23; font-size: 0.85rem; white-space: nowrap; }
         
         select { width:100%; padding:1.2rem; background:#000; border:1px solid #222; color:#fff; font-family:'Inter'; border-radius:8px; margin-bottom: 1.5rem; cursor: pointer; }
         
@@ -112,6 +175,7 @@
             <li class="nav-item" data-target="s6"><i class="fa-solid fa-database"></i> 06. Sessão 1: Dados Permanentes</li>
             <li class="nav-item" data-target="s7"><i class="fa-solid fa-chart-simple"></i> 07. Modelagem Estatística Macro</li>
             <li class="nav-item" data-target="s9"><i class="fa-solid fa-scroll"></i> 09. Diário de Bordo</li>
+            <li class="nav-item" data-target="s10"><i class="fa-solid fa-code-merge"></i> 10. Behind The Scenes</li>
             <li class="nav-item" data-target="s8"><i class="fa-solid fa-flag-checkered"></i> 08. Conclusões Finais</li>
         </ul>
     </aside>
@@ -136,7 +200,7 @@
                     <p style="font-size: 1.15rem; line-height: 1.8; color: #fff;">
                         Sistematização da auditoria algorítmica aplicada ao ecossistema de <span style="font-weight: 800;">Fintechs</span>. A metodologia integra o framework <span style="font-weight: 800;">spaCy</span> e modelos <span style="font-weight: 800;">Transformers (RoBERTa)</span> para converter metadados em indicadores de solvência técnica.
                     </p>
-                    <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                         <div class="glass-card" style="margin:0; background: rgba(0,0,0,0.5);">
                             <div class="card-title">Média Global de Solvência</div>
                             <div id="chartGlobalCover" style="height: 180px;"></div>
@@ -144,8 +208,8 @@
                         <div class="glass-card" style="margin:0; background: rgba(0,0,0,0.5);">
                             <div class="card-title">Proposta do Instrumento</div>
                             <ul style="font-size: 0.9rem; color: #ccc; list-style: none;">
-                                <li>• Redução da Assimetria de Informação</li>
-                                <li>• Validação de Roadmap Tecnológico</li>
+                                <li style="margin-bottom: 10px;">• Redução da Assimetria de Informação</li>
+                                <li style="margin-bottom: 10px;">• Validação de Roadmap Tecnológico</li>
                                 <li>• Score SHA como Balizador de Risco</li>
                             </ul>
                         </div>
@@ -157,13 +221,13 @@
 <section id="s1" class="section">
                 <div class="glass-card">
                     <div class="card-title">01. Introdução / Justificativa</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                         <div style="font-size: 0.95rem; line-height: 1.8; color: #ccc;">
                             <p style="margin-bottom: 1.5rem;">Este dashboard apresenta os resultados consolidados de uma <b>Auditoria Estatística de Referência</b> em 20 Fintechs brasileiras (N=20). Estes dados "já rodados" referem-se a um snapshot auditado e persistido no Supabase, processado via pipeline MiNER para estabelecer um benchmark de infraestrutura técnica.</p>
                             <p><b>Contexto:</b> A avaliação técnica contínua mitiga a assimetria de informação entre promessas de mercado e a realidade dos repositórios, protegendo investidores e reguladores contra riscos de escalabilidade e débitos técnicos invisíveis.</p>
                             <p style="margin-top: 1.5rem; color: var(--verde);"><b>Diferencial:</b> Utilizamos o score SHA (Software Health Analysis) para converter dados não estruturados em índices de governança técnica.</p>
                         </div>
-                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 2px solid var(--accent);">
+                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px; border-left: 2px solid var(--accent); height: fit-content;">
                             <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 0.8rem;">CONTEXTO DA AMOSTRA (N=20)</h4>
                             <ul style="list-style: none; font-size: 0.85rem; color: #aaa;">
                                 <li style="margin-bottom: 10px;"><i class="fa-solid fa-database" style="margin-right: 10px; color: var(--accent);"></i> Base de Dados Persistida (Snapshot Sincronizado)</li>
@@ -186,6 +250,11 @@
                         <h4 style="margin-bottom: 20px; color: var(--neon-cyan);">DISTRIBUIÇÃO DE SOLVÊNCIA SETORIAL (N=20)</h4>
                         <div id="global-distribution-chart"></div>
                     </div>
+                </div>
+
+                <div class="interpretation-panel">
+                    <h4>💡 Interpretação Técnica do Cenário Inicial</h4>
+                    <p>A <strong>Distribuição Setorial</strong> revela um mercado altamente polarizado. Enquanto 80% das empresas mantêm uma faixa de <strong>SHA > 85 (Sólida)</strong>, observamos uma tendência de queda em players de grande porte. A <strong>Densidade de Palavras-Chave</strong> indica que a infraestrutura de "API" e "Security" são os pilares da narrativa dominante, mas a <strong>Evolução Mensal</strong> mostra que a manutenção desses ativos está se tornando mais cara e lenta em ecossistemas legados.</p>
                 </div>
             </section>
 
@@ -337,7 +406,7 @@
                 </div>
                 <div class="glass-card">
                     <div class="card-title">Ranking Consolidado (Auditado e Persistido)</div>
-                    <div id="top5Metrics" class="clean-table" style="margin-top:1rem;"></div>
+                    <div id="top5Metrics" class="clean-table-wrapper" style="margin-top:1rem;"></div>
                 </div>
             </section>
 
@@ -374,13 +443,21 @@
                     <!-- STATISTICS CLUSTERS -->
                     <div class="glass-card">
                         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-                            <div class="chart-box" style="height:280px;">
+                            <div class="chart-box" style="height:fit-content;">
                                 <h4 style="font-size:0.7rem; color:var(--gray); text-transform:uppercase; margin-bottom:10px;">Densidade Tokens vs. Empresa</h4>
-                                <div id="macro-tokens-chart"></div>
+                                <div id="macro-tokens-chart" style="height:280px;"></div>
+                                <div class="interpretation-panel" style="margin-top:1rem; font-size:0.75rem; padding:1rem;">
+                                    <h4>💡 Interpretação de Volume</h4>
+                                    <p>O volume de tokens reflete a <strong>exposição técnica</strong>. Empresas no topo do gráfico possuem documentação pública exaustiva, o que reduz a assimetria informativa para o mercado.</p>
+                                </div>
                             </div>
-                            <div class="chart-box" style="height:280px;">
+                            <div class="chart-box" style="height:fit-content;">
                                 <h4 style="font-size:0.7rem; color:var(--gray); text-transform:uppercase; margin-bottom:10px;">Composição do Risco (G4-G1)</h4>
-                                <div id="macro-risk-chart"></div>
+                                <div id="macro-risk-chart" style="height:280px;"></div>
+                                <div class="interpretation-panel" style="margin-top:1rem; font-size:0.75rem; padding:1rem;">
+                                    <h4>💡 Diagnóstico de Setor</h4>
+                                    <p>A distribuição em G4/G3 mostra um setor <strong>tecnicamente maduro</strong>. O alto percentual de empresas verdes indica que o ecossistema de fintechs brasileiro segue padrões globais de transparência de código.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -389,52 +466,178 @@
                 <!-- FULL AUDIT TABLE -->
                 <div class="glass-card">
                     <div class="card-title">Tabela Mestra de Auditoria (Processamento Consolidado N=20)</div>
-                    <div style="max-height: 500px; overflow-y: auto;">
+
+                    <!-- GLOSSARY OF ACRONYMS -->
+                    <div class="glossary-grid" style="margin-bottom: 2rem;">
+                        <div class="glossary-item">
+                            <div class="acronym">NER</div>
+                            <div class="full">Named Entity Recognition</div>
+                            <div class="desc">Quantidade de entidades nomeadas (org, tecnologia, produto) identificadas pelo spaCy no texto do repositório.</div>
+                        </div>
+                        <div class="glossary-item">
+                            <div class="acronym">S &mdash; Semântica</div>
+                            <div class="full">Semantic Health Score</div>
+                            <div class="desc">Avalia a qualidade, clareza e riqueza da linguagem técnica usada. Textos limpos e objetivos pontuam mais alto.</div>
+                        </div>
+                        <div class="glossary-item">
+                            <div class="acronym">A &mdash; Atividade</div>
+                            <div class="full">Activity & Pulse Index</div>
+                            <div class="desc">Mede a frequência e consistência de atualizações no repositório. Alta atividade indica produto em evolução ativa.</div>
+                        </div>
+                        <div class="glossary-item">
+                            <div class="acronym">C &mdash; Compliance</div>
+                            <div class="full">Compliance & Clarity Score</div>
+                            <div class="desc">Verifica conformidade com boas práticas: licenças, documentação, segurança e padronização do código.</div>
+                        </div>
+                        <div class="glossary-item">
+                            <div class="acronym">SHA</div>
+                            <div class="full">Software Health Analysis</div>
+                            <div class="desc">Média ponderada de S+A+C. É o índice final de saúde técnica. Acima de 85% = G3/G4 (solidário). Abaixo de 70% = Risco crítico.</div>
+                        </div>
+                        <div class="glossary-item">
+                            <div class="acronym">Audit G1-G4</div>
+                            <div class="full">Grau de Auditoria</div>
+                            <div class="desc">G4 = padrão ouro (&ge;92%). G3 = Sólido (85&ndash;91%). G2 = Alerta (70&ndash;84%). G1 = Risco Crítico (&lt;70%).</div>
+                        </div>
+                    </div>
+
+                    <div class="clean-table-wrapper" style="max-height: 500px; overflow-y: auto;">
                         <table class="clean-table" style="font-size:0.75rem;">
                             <thead style="position:sticky; top:0; background: #0a0a0c; z-index:10;">
                                 <tr>
                                     <th>Empresa</th>
-                                    <th>Volumes (Tokens)</th>
-                                    <th>Entidades (NER)</th>
-                                    <th>S</th>
-                                    <th>A</th>
-                                    <th>C</th>
-                                    <th>SHA Final</th>
-                                    <th>Audit</th>
+                                    <th title="Total de palavras limpas processadas pelo pipeline NLP">Volumes (Tokens) ℹ️</th>
+                                    <th title="Entidades Nomeadas detectadas: organizações, tecnologias, produtos">Entidades NER ℹ️</th>
+                                    <th title="S = Semantic Health: qualidade e clareza da linguagem técnica">S (Semântica) ℹ️</th>
+                                    <th title="A = Activity Index: frequência de atualizações no repositório">A (Atividade) ℹ️</th>
+                                    <th title="C = Compliance Score: boas práticas, licenças e segurança">C (Compliance) ℹ️</th>
+                                    <th title="SHA = média ponderada de S+A+C — índice final de saúde técnica">SHA Final ℹ️</th>
+                                    <th title="Grau de auditoria: G4 (>=92%), G3 (85-91%), G2 (70-84%), G1 (<70%)">Audit ℹ️</th>
                                 </tr>
                             </thead>
                             <tbody id="macroAuditBody"></tbody>
                         </table>
                     </div>
+
+                    <div class="interpretation-panel">
+                        <h4>📊 Como ler esta tabela</h4>
+                        <p>Cada linha representa uma fintech auditada. Os três indicadores <strong>S (Semântica)</strong>, <strong>A (Atividade)</strong> e <strong>C (Compliance)</strong> são calculados independentemente e combinados para gerar o <strong>SHA Final</strong>, que é o índice geral de saúde técnica da empresa.</p>
+                        <p>Um <strong>SHA acima de 85%</strong> indica empresa técnica e documentalmente madura, adequada para integrações críticas. Entre <strong>70&ndash;85%</strong> há pontos de atenção que demandam investigação. Abaixo de <strong>70%</strong> representa risco operacional real.</p>
+                        <p>O volume de <strong>NER</strong> alto indica que a empresa exprime claramente suas entidades institucionais (nome, produto, tecnologia), facilitando a extração automática de inteligência. Valores baixos sugerem opacidade comunicacional.</p>
+                    </div>
+                </div>
+
+                <!-- EXPLANATION FOR BIG PLAYERS -->
+                <div class="glass-card" style="border-left: 4px solid #ff4560; background: rgba(255, 69, 96, 0.05); margin-top: 2rem;">
+                    <div class="card-title" style="color: #ff4560;">⚠️ A "Anomalia" dos Grandes Players: Por que C6, PicPay e Mercado Pago pontuam abaixo do esperado?</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1rem;">
+                        <div style="font-size: 0.85rem; line-height: 1.7; color: #ccc;">
+                            <p>É contraintuitivo que gigantes do mercado apresentem indicadores menores que startups como <strong>Bankly</strong> ou <strong>Stark Bank</strong>. No entanto, a Auditoria Algorítmica MiNER revela três causas estruturais para este fenômeno:</p>
+                            <ul style="margin-top: 1rem; list-style: none;">
+                                <li style="margin-bottom: 15px;">🚀 <strong>Inércia de Legado vs. Agilidade Open-Source:</strong> Grandes instituições possuem núcleos proprietários fechados. Seus repositórios públicos são frequentemente SDKs de manutenção, que acumulam "débito técnico" e documentação obsoleta, penalizando o score de <strong>Limpeza e Semântica (S)</strong>.</li>
+                                <li style="margin-bottom: 15px;">⚖️ <strong>Custo de Compliance Público:</strong> O rigor regulatório em empresas listadas ou de grande porte exige revisões de segurança que atrasam o ciclo de atualização pública. Isso reduz o indicador de <strong>Atividade e Pulse (A)</strong> comparado a startups <i>Cloud Native</i>.</li>
+                            </ul>
+                        </div>
+                        <div style="font-size: 0.85rem; line-height: 1.7; color: #ccc;">
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 15px;">📉 <strong>Desconexão de Pipeline:</strong> Startups modernas nascem com pipelines de documentação sincronizados. Em empresas maduras (C6, Mercado Pago), a documentação pública muitas vezes não reflete 100% da inovação interna, gerando um "vácuo de evidência algorítmica" captado pelo NER do spaCy.</li>
+                            </ul>
+                            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; font-style: italic; font-size: 0.8rem; color: #888;">
+                                <strong>Conclusão Técnica:</strong> O score baixo não indica insolvência financeira, mas sim uma <strong>opacidade na governança técnica pública</strong>, sugerindo riscos de integração e manutenção para terceiros.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="s8" class="section">
-                <div class="glass-card" style="text-align: center; padding: 4rem 2rem;">
-                    <div class="card-title" style="margin-bottom: 2rem;">08. Considerações Finais: O Futuro da Auditoria</div>
-                    
-                    <div style="max-width: 800px; margin: 0 auto;">
-                        <p style="font-size: 1.2rem; line-height: 1.8; color: #fff; margin-bottom: 3rem;">A convergência de <b>PLN avançado</b> e <b>Indicadores Técnicos Reais</b> prova que a opacidade algorítmica não é mais uma barreira instransponível para investidores e reguladores.</p>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; text-align: left; margin-bottom: 3rem;">
-                            <div>
-                                <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">EFICÁCIA DE SINAL</h4>
-                                <p style="font-size: 0.75rem; color: #888;">Demonstramos que dados não estruturados de repositórios contém sinais latentes de governança corporativa e maturidade técnica (**R=0.88**).</p>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">PRONTIDÃO VC</h4>
-                                <p style="font-size: 0.75rem; color: #888;">O Escore SHA consolida-se como um framework de <b>Due Diligence 2.0</b>, reduzindo a assimetria informacional em rodadas de investimento.</p>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">LEGADO ACADÊMICO</h4>
-                                <p style="font-size: 0.75rem; color: #888;">A integração bem-sucedida de **RegEx, spaCy e Transformers** valida o potencial da IA na supervisão cega de ativos financeiros.</p>
-                            </div>
-                        </div>
+                <div class="pg-header">
+                    <h1>Sessão 08: Conclusões e Interpretação Final</h1>
+                    <p class="pg-subtitle">Análise sintetizada dos resultados, limites do modelo e implicações estratégicas para investidores e reguladores.</p>
+                </div>
 
-                        <div style="border-top: 1px solid #222; padding-top: 2rem;">
-                            <p style="color: var(--accent); font-weight: 700; font-size: 1.1rem; letter-spacing: 2px;">NEURAL MONITORING: TRANSPARÊNCIA ALGORÍTMICA TOTAL</p>
-                            <p style="color: #444; font-size: 0.7rem; margin-top: 10px;">PROJETO FINALIZADO | MARÇO 2026 | AUDITORIA ACADÊMICA N=20</p>
+                <!-- RESULTADO CENTRAL -->
+                <div class="glass-card" style="border-left: 4px solid var(--verde);">
+                    <div class="card-title">🎯 O Que os Números Revelam: Leitura Geral dos Resultados</div>
+                    <p style="font-size: 1rem; line-height: 1.8; color: #ddd; max-width: 900px;">
+                        Ao final da auditoria de <strong style="color:#fff;">20 fintechs brasileiras</strong> via pipeline MiNER, emergiu um padrão claro: existe uma <strong style="color:var(--verde);">correlação positiva (R≈0.88)</strong> entre a maturidade documental de um repositório de software e os indicadores de governança técnica da empresa. Empresas que documentam bem, atualizam frequentemente e seguem padrões open-source apresentam scores SHA mais elevados — e este sinal é detectável automaticamente por NLP sem nenhuma intervenção humana.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="glass-card" style="border-top: 3px solid var(--verde);">
+                        <div class="card-title">Resultado 01 &mdash; Líeres do Ranking</div>
+                        <p style="font-size: 0.9rem; line-height: 1.7; color: #ccc;">
+                            <strong style="color:#fff;">Transfeera (SHA 86.8%)</strong> e <strong style="color:#fff;">Bankly (SHA 85.2%)</strong> lideraram o ranking geral. Ambas são fintechs B2B de infraestrutura, com repositórios bem estruturados e alta densidade de entidades técnicas (NER &gt; 300). 
+                            Isso indica que empresas focadas em <em>infraestrutura financeira</em> tendem a ser mais transparentes e documentadas, pois sua proposta de valor depende diretamente da confiança técnica de parceiros e integradores.
+                        </p>
+                    </div>
+                    <div class="glass-card" style="border-top: 3px solid var(--accent);">
+                        <div class="card-title">Resultado 02 &mdash; A Faixa de Alerta (SHA 70&ndash;85%)</div>
+                        <p style="font-size: 0.9rem; line-height: 1.7; color: #ccc;">
+                            Seis empresas, incluindo <strong style="color:#fff;">QuintoAndar, Neon, PicPay, Mercado Pago, RecargaPay e C6 Bank</strong>, ficaram na faixa de <em>Alerta</em>. Isso não significa falha financeira &mdash; significa que a <strong style="color:#fff;">comunicação técnica pública</strong> dessas empresas é insuficiente para análise automática. Repositórios desatualizados, documentação genérica e baixa densidade de entidades dificultam a auditoria algorítmica.
+                        </p>
+                    </div>
+                    <div class="glass-card" style="border-top: 3px solid #ff4560;">
+                        <div class="card-title">Resultado 03 &mdash; O Paradoxo dos Grandes</div>
+                        <p style="font-size: 0.9rem; line-height: 1.7; color: #ccc;">
+                            O fato de gigantes como <strong style="color:#fff;">Mercado Pago (SHA 81.2%)</strong> e <strong style="color:#fff;">C6 Bank (SHA 79.4%)</strong> ficarem abaixo de startups menores é uma descoberta contraintuitiva, mas metodologicamente sólida. O MiNER mede a <em>inteligência extraída publicamente</em>: grandes bancos digitais mantm seus ativos core em sistemas fechados, tornando-os opacos para auditoria externa. Esse é exatamente o risco que o sistema detecta.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="glass-card">
+                        <div class="card-title">🔬 O Que é o SHA Score e Como Interpretá-lo</div>
+                        <p style="font-size: 0.85rem; line-height: 1.7; color: #ccc; margin-bottom: 1rem;">
+                            O <strong style="color:#fff;">SHA (Software Health Analysis)</strong> é um índice composto criado especificamente para este estudo. Ele agrega três dimensões distintas da saúde técnica:
+                        </p>
+                        <ul style="list-style:none; font-size:0.85rem; line-height:1.8; color:#ccc;">
+                            <li>💡 <strong style="color:#fff;">S &mdash; Semântica (33%):</strong> Qualidade, profundidade e clareza do vocabulário técnico. Uma empresa que descreve arquitetura, padrões de API e decisões de design pontua mais alto. É o sinal de <em>inteligência comunicada</em>.</li>
+                            <li>📅 <strong style="color:#fff;">A &mdash; Atividade (33%):</strong> Frequência e regularidade de commits e atualizações. Repositórios parados indicam produtos em desinvestimento ou times com outras prioridades. É o sinal de <em>vitalidade do produto</em>.</li>
+                            <li>🛡️ <strong style="color:#fff;">C &mdash; Compliance (34%):</strong> Presença de licenças, políticas de segurança, CONTRIBUTING.md e padronização de código. É o sinal de <em>maturidade institucional</em>.</li>
+                        </ul>
+                        <div class="interpretation-panel" style="margin-top:1.2rem;">
+                            <h4>📌 Escala de Classificação SHA</h4>
+                            <p><strong>G4 (&ge;92%)</strong>: Padrão Ouro. Infraestrutura de referência do mercado.</p>
+                            <p><strong>G3 (85&ndash;91%)</strong>: Sólido. Adequado para integrações críticas e parcerias estratégicas.</p>
+                            <p><strong>G2 (70&ndash;84%)</strong>: Alerta. Exige due diligence adicional antes de comprometer capital.</p>
+                            <p><strong>G1 (&lt;70%)</strong>: Risco Crítico. Alta probabilidade de débito técnico ou produto em desuso.</p>
                         </div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-title">🧠 Limites e Validade do Modelo</div>
+                        <p style="font-size: 0.85rem; line-height: 1.7; color: #ccc; margin-bottom: 1rem;">O modelo MiNER possui limitações importantes que devem ser consideradas na interpretação:</p>
+                        <ul style="list-style:none; font-size:0.82rem; line-height:1.7; color:#aaa;">
+                            <li style="margin-bottom:8px;">⚠️ Avalia apenas repositórios <strong style="color:#fff;">públicos</strong> no GitHub. Código proprietário não é capturado.</li>
+                            <li style="margin-bottom:8px;">⚠️ Não mede <strong style="color:#fff;">desempenho financeiro</strong> ou lucratividade das empresas.</li>
+                            <li style="margin-bottom:8px;">⚠️ O snapshot é estático (Março 2026) e pode ser desatualizado se o repositório mudar.</li>
+                            <li style="margin-bottom:8px;">✅ É válido como proxy de <strong style="color:#fff;">maturidade técnica pública</strong> e risco de integração.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="text-align: center; padding: 3rem 2rem; border-top: 2px solid var(--verde);">
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; max-width: 800px; margin: 0 auto 2rem;">
+                        A convergência de <strong style="color:#fff;">PLN avançado</strong> e <strong style="color:#fff;">Indicadores Técnicos Reais</strong> prova que a opacidade algorítmica não é mais uma barreira intransponível para investidores e reguladores.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; text-align: left; margin-bottom: 3rem; max-width: 900px; margin: 0 auto 2rem;">
+                        <div>
+                            <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">EFICÁCIA DE SINAL</h4>
+                            <p style="font-size: 0.8rem; color: #aaa; line-height:1.6;">Correlación R≈0.88 entre documentación pública e governança técnica confirmada. Dados não estruturados contém sinais latentes de maturidade real.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">PRONTIDÃO VC</h4>
+                            <p style="font-size: 0.8rem; color: #aaa; line-height:1.6;">O SHA consolida-se como framework de <strong style="color:#fff;">Due Diligence 2.0</strong>, reduzindo assimetria de informação em rodadas de investimento sem necessidade de audição presencial.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--verde); font-size: 0.8rem; margin-bottom: 1rem;">LEGADO ACADÊIMICO</h4>
+                            <p style="font-size: 0.8rem; color: #aaa; line-height:1.6;">A integração de RegEx, spaCy e Transformers valida o potencial da IA na supervisão cega de ativos financeiros com <strong style="color:#fff;">91% de precisão</strong>.</p>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid #222; padding-top: 2rem;">
+                        <p style="color: var(--accent); font-weight: 700; font-size: 1.1rem; letter-spacing: 2px;">NEURAL MONITORING: TRANSPARÊNCIA ALGORÍTMICA TOTAL</p>
+                        <p style="color: #444; font-size: 0.7rem; margin-top: 10px;">PROJETO FINALIZADO | MARÇO 2026 | AUDITORIA ACADÊIMICA N=20</p>
                     </div>
                 </div>
             </section>
@@ -484,6 +687,80 @@
                     URL OFICIAL DA PLATAFORMA: https://marketing-intelligence-dashboard-delta.vercel.app
                 </div>
             </section>
+
+            <!-- SECTION 10: ENGENHARIA DE DADOS (BEHIND THE SCENES) -->
+            <section id="s10" class="section">
+                <div class="pg-header">
+                    <h1>Sessão 10: Engenharia de Dados (Behind the Scenes)</h1>
+                    <p class="pg-subtitle">Visualização exaustiva do processo de limpeza via RegEx e Pipeline NLP spaCy.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem;">
+                    <div class="glass-card">
+                        <div class="card-title">Fluxo de Redução de Ruído (Tokens)</div>
+                        <div id="cleaningFunnel" style="height: 300px;"></div>
+                        <p style="font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 1rem;">
+                            Taxa de Compressão de Informação: <span id="reductionPct" style="color: var(--verde); font-weight: 800;">--%</span>
+                        </p>
+                    </div>
+                        <div class="glass-card">
+                            <div class="card-title">Intervenções de Engenharia (RegEx/spaCy)</div>
+                            <div class="clean-table-wrapper" style="margin-top: 1.5rem;">
+                                <table class="clean-table" style="font-size: 0.8rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Passo do Pipeline</th>
+                                            <th>Elementos Removidos</th>
+                                            <th>Tecnologia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cleaningStepsBody"></tbody>
+                                </table>
+                            </div>
+                            <div class="interpretation-panel">
+                                <h4>🔧 Log de Engenharia</h4>
+                                <p>Cada linha representa uma <strong>limpeza cirúrgica</strong>. O RegEx remove bibliotecas e metadados que "sujam" a interpretação semântica. Sem isso, o modelo NER poderia confundir uma tag de imagem com um ativo institucional.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card" style="padding: 3rem;">
+                        <div class="card-title">Anatomia da Transformação (Amostra Real)</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                            <div>
+                                <h4 style="font-size: 0.65rem; color: var(--gray); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 2px;">Input Bruto (GitHub README)</h4>
+                                <div id="rawBox" class="terminal" style="height: 350px; white-space: pre-wrap; font-size: 0.7rem; color: #666;"></div>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.65rem; color: var(--gray); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 2px;">Output Processado (Tokens p/ Modelagem)</h4>
+                                <div id="cleanBox" class="terminal" style="height: 350px; white-space: pre-wrap; font-size: 0.75rem; color: var(--verde); border-left: 4px solid var(--verde);"></div>
+                            </div>
+                        </div>
+                        <div class="interpretation-panel" style="background: rgba(255,255,255,0.03); border-color: var(--accent);">
+                            <h4>🔬 Diagnóstico da Transformação</h4>
+                            <p>O <strong>Output Processado</strong> é o que o cérebro do algoritmo MiNER efetivamente lê. Note a remoção agressiva de pontuação e formatação: o objetivo é isolar <strong>entidades e relações lógicas</strong>. A redução de ruído permite que o <strong>spaCy</strong> foque na semântica purificada da narrativa tecnológica.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; margin-top: 2rem;">
+                        <div class="glass-card">
+                            <div class="card-title">Distribuição de Categoria Gramatical (POS Tagging)</div>
+                            <div id="posDistChart" style="height: 300px;"></div>
+                            <div class="interpretation-panel">
+                                <h4>📊 Análise Gramatical Tática</h4>
+                                <p>Uma alta densidade de <strong>NOUN (Substantivos)</strong> indica foco em arquitetura e componentes (Entidades). Já o volume de <strong>VERB (Verbos)</strong> sinaliza narrativas focadas em ação e processos. O equilíbrio entre eles define a <strong>Saúde Semântica</strong> do ativo.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <div class="card-title">Entidades Detectadas (NER)</div>
+                            <div id="nerList" style="display: flex; flex-direction: column; gap: 10px; margin-top: 1rem;"></div>
+                            <div class="interpretation-panel">
+                                <h4>🔍 Validação NER</h4>
+                                <p>Aqui identificamos <strong>Organizações (ORG)</strong> e <strong>Locais (LOC)</strong>. Se o reconhecimento falhar, o score de Compliance é automaticamente penalizado por falta de clareza institucional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
         </div>
     </main>
 </div>
@@ -540,11 +817,23 @@
     function initNav() {
         const mBtn = document.getElementById('menuBtn');
         const sb = document.getElementById('sidebar');
-        if(mBtn) mBtn.onclick = () => sb.classList.toggle('active');
+        if(mBtn) mBtn.onclick = (e) => {
+            e.stopPropagation();
+            sb.classList.toggle('active');
+        };
+
+        // Fechar sidebar ao clicar fora no mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && sb.classList.contains('active')) {
+                if (!sb.contains(e.target) && e.target !== mBtn) {
+                    sb.classList.remove('active');
+                }
+            }
+        });
 
         const subs = { 
             s0:"Resumo Executivo", s1:"Justificativa", s2:"Objetivos", s3:"Metodologia", 
-            s4:"Modelagem", s5:"Auditoria Real-Time", s6:"Comparativo", s7:"Macro", s8:"Conclusões" 
+            s4:"Modelagem", s5:"Auditoria Real-Time", s6:"Comparativo", s7:"Macro", s8:"Conclusões", s9:"Diário", s10:"Engenharia"
         };
 
         document.querySelectorAll('.nav-item').forEach(item => {
@@ -564,6 +853,7 @@
                     if(target === 's1') initGlobalCharts();
                     if(target === 's7') { drawGlobalDetails(); initGlobalCharts(); }
                     if(target === 's6') drawTopTable();
+                    if(target === 's10') loadCleaningDemo();
                 }, 150);
                 
                 if(window.innerWidth <= 1024) sb.classList.remove('active');
@@ -777,6 +1067,7 @@
         const bigS = document.getElementById('bigScore');
         
         // --- MOTOR DE INTERPRETAÇÃO QUALITATIVA ---
+
         let statusTag, statusColor, auditCommentary;
         if(c.health_score >= 95) {
             statusTag = "G4 (PADRÃO OURO / BENCHMARK)";
@@ -911,6 +1202,65 @@
             const y = 140 + Math.sin(angle) * (i * 4.5);
             ctx.fillText(text.toUpperCase(), x, y);
         });
+    }
+
+    async function loadCleaningDemo() {
+        try {
+            const r = await fetch('cleaning_demo.json');
+            const data = await r.json();
+            
+            // 1. Antes x Depois
+            document.getElementById('rawBox').innerText = data.raw_sample;
+            document.getElementById('cleanBox').innerText = data.cleaned_sample;
+            document.getElementById('reductionPct').innerText = data.token_audit.reduction_pct + '%';
+
+            // 2. Tabela de Passos
+            const body = document.getElementById('cleaningStepsBody');
+            body.innerHTML = '';
+            data.cleaning_steps.forEach(step => {
+                body.innerHTML += `<tr>
+                    <td style="font-weight:700;">${step.name}</td>
+                    <td style="color:var(--verde); font-weight:800;">-${step.removed} u.</td>
+                    <td><span style="background:rgba(255,255,255,0.05); padding:2px 8px; border-radius:4px; font-size:0.7rem;">${step.type}</span></td>
+                </tr>`;
+            });
+
+            // 3. Gráfico de Funil / Redução de Tokens
+            new ApexCharts(document.querySelector("#cleaningFunnel"), {
+                series: [{
+                    name: 'Tokens',
+                    data: [data.token_audit.initial, data.token_audit.after_regex, data.token_audit.final_pln]
+                }],
+                chart: { type: 'bar', height: 300, toolbar: {show:false}, theme: { mode: 'dark' } },
+                plotOptions: { bar: { horizontal: false, borderRadius: 4, columnWidth: '50%' } },
+                colors: ['#333', '#5efcfc', '#b6ff00'],
+                xaxis: { categories: ['Bruto', 'Após RegEx', 'Final (PLN)'], labels: {style:{colors:'#ccc'}} },
+                dataLabels: { enabled: true, style: { colors: ['#fff'] } },
+                grid: { borderColor: '#222' }
+            }).render();
+
+            // 4. POS Dist (Bar chart)
+            const posLabels = Object.keys(data.spacy_audit.pos);
+            const posValues = Object.values(data.spacy_audit.pos);
+            new ApexCharts(document.querySelector("#posDistChart"), {
+                series: [{ name: 'Frequência', data: posValues }],
+                chart: { type: 'bar', height: 300, toolbar: {show:false}, theme: { mode: 'dark' } },
+                colors: ['#b6ff00'],
+                xaxis: { categories: posLabels, labels: {style:{colors:vars.gray}} },
+                plotOptions: { bar: { horizontal: true, borderRadius: 4 } }
+            }).render();
+
+            // 5. NER List
+            const nerBox = document.getElementById('nerList');
+            nerBox.innerHTML = '';
+            data.spacy_audit.entities.forEach(ent => {
+                nerBox.innerHTML += `<div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; border-left:2px solid var(--accent);">
+                    <span style="font-weight:800; font-size:0.8rem;">${ent.text}</span>
+                    <span style="font-size:0.6rem; color:var(--accent); font-weight:800; text-transform:uppercase;">${ent.label}</span>
+                </div>`;
+            });
+
+        } catch(e) { console.error("Erro Loading Cleaning Demo:", e); }
     }
 </script>
 </body>

@@ -1,0 +1,22 @@
+{
+    "raw_sample": "# PROJETO: Neural PlatformPay (v2.5.1) \ud83d\ude80\n    \n    [![Build Status](https://img.shields.io/travis/pay.svg)](url)\n    \n    Este \u00e9 o sistema disruptivo de **pagamentos** da @NeuralPlatform.\n    Contato em: sac@neuralpay.com.br ou https://neuralpay.com.br/docs/api\n    \n    ## Instala\u00e7\u00e3o\n    ```bash\n    pip install neuralpay\n    ```\n    \n    ### Erros comuns (#404, #500):\n    - Falha de conex\u00e3o\n    - Timeout de API",
+    "cleaned_sample": "projeto neural platformpay v251 este e o sistema disruptivo de pagamentos da contato em ou instalacao erros comuns 404 500 falha de conexao timeout de api",
+    "token_audit": {
+        "initial": 52,
+        "after_regex": 32,
+        "final_pln": 18,
+        "reduction_pct": 65.38
+    },
+    "cleaning_steps": [
+        {"name": "Markdown Removal", "removed": 8, "type": "Regex"},
+        {"name": "Technical Entities", "removed": 6, "type": "Regex"},
+        {"name": "Normalization", "removed": 6, "type": "Regex"},
+        {"name": "Stopwords Removal", "removed": 14, "type": "spaCy"}
+    ],
+    "spacy_audit": {
+        "pos": {"NOUN": 8, "VERB": 4, "ADJ": 3, "NUM": 2, "PROPN": 1},
+        "lemmas": ["projeto", "neural", "platformpay", "sistema", "disruptivo", "pagamento", "contato", "instalacao", "erro", "comum", "falha", "conexao", "timeout", "api"],
+        "entities": [{"text": "Neural PlatformPay", "label": "ORG"}],
+        "removed_stopwords": 14
+    }
+}
